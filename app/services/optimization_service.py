@@ -2,97 +2,148 @@ from pyomo.environ import ConcreteModel, Var, Objective, Constraint, SolverFacto
 from app.models import OptimizationInput, Account, OptimizationResult, Investment
 from typing import List
 
+def _get_tax_info(earnings: float) -> dict:
+    """
+    Determines Personal Savings Allowance and tax rate based on earnings.
+    Note: This is a simplified model for UK tax (excluding Scotland).
+    """
+    if earnings is None: # If earnings not provided, assume basic rate tax payer for conservative estimate.
+        return {'psa': 1000, 'tax_rate': 0.20}
+    if earnings <= 50270:
+        # Basic rate taxpayer
+        return {'psa': 1000, 'tax_rate': 0.20}
+    elif earnings <= 125140:
+        # Higher rate taxpayer
+        return {'psa': 500, 'tax_rate': 0.40}
+    else:
+        # Additional rate taxpayer
+        return {'psa': 0, 'tax_rate': 0.45}
+
+
 def optimize_savings(input_data: OptimizationInput, accounts: List[Account]) -> OptimizationResult:
     """
     Optimises savings allocation using Pyomo.
     """
     print("Starting optimization...")
 
+    # --- Pre-computation ---
+    # 1. Determine tax information
+    tax_info = _get_tax_info(input_data.earnings)
+    psa = tax_info['psa']
+    tax_rate = tax_info['tax_rate']
+
+    # 2. Determine investment horizon from savings goals
+    goal_horizons_years = [g.horizon / 12.0 for g in input_data.savings_goals]
+    max_horizon_years = max(goal_horizons_years) if goal_horizons_years else 0
+    
+    # The term for filtering accounts is the max of 1 year or the longest goal horizon.
+    investment_term_years = max(1, max_horizon_years)
+
+    # 3. Filter accounts based on the investment term
+    eligible_accounts = [
+        acc for acc in accounts 
+        if acc.term == 0 or (acc.term / 12) <= investment_term_years
+    ]
+
+    if not eligible_accounts:
+        return OptimizationResult(
+            investments=[],
+            total_return=0,
+            status="No eligible accounts found for the given investment horizon."
+        )
+
     model = ConcreteModel()
 
     # --- Define variables ---
-    # Create a variable for each account representing the amount to invest
-    model.investments = Var([acc.name for acc in accounts], domain=NonNegativeReals)
+    model.investments = Var([acc.name for acc in eligible_accounts], domain=NonNegativeReals)
+    model.taxable_interest = Var(domain=NonNegativeReals)
+    model.tax_free_interest_non_isa = Var(domain=NonNegativeReals)
 
     # --- Define Objective Function ---
-    # Maximize the total interest earned
+    # Maximize post-tax annual interest
+    non_isa_accounts = [acc for acc in eligible_accounts if 'isa' not in acc.account_type]
+    isa_accounts = [acc for acc in eligible_accounts if 'isa' in acc.account_type]
+
     def objective_rule(m):
-        return sum(m.investments[acc.name] * acc.interest_rate for acc in accounts)
-    model.objective = Objective(rule=objective_rule, sense=-1) # sense=-1 for maximization
+        total_isa_interest = sum(m.investments[acc.name] * acc.interest_rate for acc in isa_accounts)
+        post_tax_non_isa_interest = m.tax_free_interest_non_isa + m.taxable_interest * (1 - tax_rate)
+        return total_isa_interest + post_tax_non_isa_interest
+    model.objective = Objective(rule=objective_rule, sense=-1)
 
     # --- Define Constraints ---
-    # 1. Total investment constraint
+    # 1. Total investment constraint: must invest the full amount
     def total_investment_rule(m):
-        return sum(m.investments[acc.name] for acc in accounts) <= input_data.total_investment
+        return sum(m.investments[acc.name] for acc in eligible_accounts) == input_data.total_investment
     model.total_investment_constraint = Constraint(rule=total_investment_rule)
 
-    # 2. Individual account investment limits
+    # 2. Horizon-based investment constraints.
+    # These constraints ensure that funds are available at the required time for each goal.
+    model.horizon_constraints = ConstraintList()
+    unique_horizons = sorted(list(set(g.horizon for g in input_data.savings_goals)))
+
+    for horizon_months in unique_horizons:
+        cumulative_goal_amount = sum(g.amount for g in input_data.savings_goals if g.horizon <= horizon_months)
+        
+        relevant_accounts = [acc.name for acc in eligible_accounts if acc.term <= horizon_months]
+
+        expr = sum(model.investments[acc_name] for acc_name in relevant_accounts) >= cumulative_goal_amount
+        model.horizon_constraints.add(expr)
+
+    # 3. Non-ISA interest split for tax calculation
+    def non_isa_interest_rule(m):
+        total_non_isa_interest = sum(m.investments[acc.name] * acc.interest_rate for acc in non_isa_accounts)
+        return m.taxable_interest + m.tax_free_interest_non_isa == total_non_isa_interest
+    model.non_isa_interest_constraint = Constraint(rule=non_isa_interest_rule)
+
+    # 4. Personal Savings Allowance limit
+    def psa_limit_rule(m):
+        return m.tax_free_interest_non_isa <= psa
+    model.psa_limit = Constraint(rule=psa_limit_rule)
+
+    # 5. Individual account investment limits
     model.investment_limits = ConstraintList()
-    for acc in accounts:
-        # Min investment constraint
-        # model.investment_limits.add(model.investments[acc.name] >= acc.min_investment) For now ignore min investment
-        # Max investment constraint
+    for acc in eligible_accounts:
         model.investment_limits.add(model.investments[acc.name] <= acc.max_investment)
 
-    # 3. ISA investment limit (example constraint, e.g. £20,000 per year)
-    isa_accounts = [acc.name for acc in accounts if 'isa' in acc.account_type]
+    # 6. ISA investment limit
     if isa_accounts:
         def isa_limit_rule(m):
-            return sum(m.investments[acc_name] for acc_name in isa_accounts) <= 20000
+            return sum(m.investments[acc_name] for acc_name in [acc.name for acc in isa_accounts]) <= input_data.isa_allowance_remaining
         model.isa_limit_constraint = Constraint(rule=isa_limit_rule)
     
     print("Pyomo model created. Solving...")
 
-    # --- Solve the model ---
-    # Make sure you have a solver installed, e.g., glpk or cbc
-    # On ubuntu: sudo apt-get install glpk-utils
-    # pyomo can install cbc: pip install pyomo[cbc]
-    # On mac: brew install glpk
     solver = SolverFactory('glpk') 
     results = solver.solve(model)
     
     print(f"Solver status: {results.solver.status}, termination condition: {results.solver.termination_condition}")
 
-    # --- Process results ---
     if str(results.solver.termination_condition) == "optimal":
         investments = []
-        total_return = 0
-        for acc in accounts:
+        total_gross_return = 0
+        for acc in eligible_accounts:
             amount = value(model.investments[acc.name])
-            if amount > 1e-6: # Only include accounts with non-trivial investment
-                is_isa = 'isa' in acc.account_type
-                term = "Easy access"
-                if '1 month' in acc.name:
-                    term = "1 month"
-                elif '3 months' in acc.name:
-                    term = "3 months"
-                elif '6 months' in acc.name:
-                    term = "6 months"
-                elif '1 year' in acc.name:
-                    term = "1 year"
-                elif '2 years' in acc.name:
-                    term = "2 years"
-                elif '3 years' in acc.name:
-                    term = "3 years"
-                elif '5 years' in acc.name:
-                    term = "5 years"
-
-                url = acc.url if acc.url else f"https://www.google.com/search?q={acc.name.replace(' ', '+')}"
-
+            if amount > 1e-6:
                 investments.append(Investment(
                     account_name=acc.name,
                     amount=round(amount, 2),
                     aer=round(acc.interest_rate * 100, 2),
-                    term=term,
-                    is_isa=is_isa,
-                    url=url,
+                    term=f"{acc.term} months" if acc.term > 0 else "Easy access",
+                    is_isa='isa' in acc.account_type,
+                    url=acc.url or f"https://www.google.com/search?q={acc.name.replace(' ', '+')}",
                     platform=acc.platform
                 ))
-                total_return += amount * acc.interest_rate
+                total_gross_return += amount * acc.interest_rate
         
+        # Calculate post-tax return for the final result
+        non_isa_gross_return = sum(inv.amount * (inv.aer / 100) for inv in investments if not inv.is_isa)
+        taxable_return = max(0, non_isa_gross_return - psa)
+        tax_paid = taxable_return * tax_rate
+        total_net_return = total_gross_return - tax_paid
+
         return OptimizationResult(
             investments=investments,
-            total_return=round(total_return, 2),
+            total_return=round(total_net_return, 2),
             status="Optimal"
         )
     else:

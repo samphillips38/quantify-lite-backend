@@ -15,13 +15,14 @@ class Account:
 @dataclass
 class SavingsGoal:
     amount: float
-    horizon: str
+    horizon: int # Horizon in months
 
 @dataclass
 class OptimizationInput:
     total_investment: float
     savings_goals: List[SavingsGoal]
     earnings: Optional[float] = None
+    isa_allowance_remaining: Optional[float] = 20000.0
     # Other constraints can be added here
     # e.g., max_isa_investment: float = 20000
 
