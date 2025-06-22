@@ -1,1 +1,1 @@
-web: export PATH=$PATH:$(dirname $(find /nix/store -name glpsol -type f | head -n 1)) && gunicorn --bind 0.0.0.0:$PORT run:app 
+web: bash start.sh 
