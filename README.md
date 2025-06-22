@@ -116,7 +116,7 @@ The application exposes the following endpoints:
       },
       {
         "amount": 15000,
-        "horizon": "Variable access"
+        "horizon": "Easy access"
       }
     ]
   }

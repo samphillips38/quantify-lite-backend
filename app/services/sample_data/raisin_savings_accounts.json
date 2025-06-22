@@ -1,0 +1,3080 @@
+{
+    "entries": [
+        {
+            "id": "TSC002",
+            "product_type": "TERM",
+            "marketed_as_product_type": "TERM",
+            "currency": "GBP",
+            "term": {
+                "unit": "months",
+                "period": 36
+            },
+            "term_normalized": {
+                "months": 36
+            },
+            "interest_rate_modality": "FIXED",
+            "interest_rates": {
+                "interest_rate_nominal": "4.01",
+                "interest_rate_effective": "4.01",
+                "termination_interest_rate_nominal": null,
+                "termination_interest_rate_effective": null,
+                "renewal_interest_rate_nominal": "4.01",
+                "renewal_interest_rate_effective": "4.01",
+                "headline_interest_rate": "EFFECTIVE",
+                "upcoming_rates": [],
+                "effective_date": "2025-06-02"
+            },
+            "conditions": {
+                "limit_to_one_product": false,
+                "minimum_balance": "1000",
+                "maximum_balance": "85000",
+                "annuity": {
+                    "frequency": {
+                        "unit": "months",
+                        "period": 12
+                    },
+                    "enabled": true,
+                    "point_of_reference": "RELATIVE",
+                    "annuity_payout": false,
+                    "compound_interest": true
+                },
+                "opening": {
+                    "application_document": "not_applicable",
+                    "minimum_amount": "1000",
+                    "available_to_pep_customers": false,
+                    "restricted_to_new_customers": null
+                },
+                "top_up": {
+                    "enabled": false,
+                    "minimum_amount": null
+                },
+                "withdrawal": {
+                    "enabled": false,
+                    "minimum_amount": null
+                },
+                "termination": {
+                    "termination_policy_pro_rata": false,
+                    "notice_period": null,
+                    "statutory_termination_timeframe": 14,
+                    "contractual_termination_allowed": false,
+                    "interest_policy": "NOT_BOOKED"
+                },
+                "renewal": {
+                    "enabled": true,
+                    "default_product": "TSC001",
+                    "interest_capitalization": "capitalize_interest"
+                },
+                "rollover": {
+                    "enabled": false
+                },
+                "maturity": {
+                    "enabled": true,
+                    "maturity_initiation_advance": "5"
+                },
+                "settlement_day": [
+                    "SUNDAY",
+                    "MONDAY",
+                    "TUESDAY",
+                    "WEDNESDAY",
+                    "THURSDAY",
+                    "FRIDAY",
+                    "SATURDAY"
+                ],
+                "daily_settlement": true,
+                "annuity_booking_frequency": "ANNUAL",
+                "annuity_payout_frequency": null,
+                "test_group": null
+            },
+            "deposit_taking_bank": {
+                "id": "CPBKGB22XXX",
+                "name": "Halcyon Money",
+                "name_internal": "Halcyon Money",
+                "bank_slug": "halcyon-money",
+                "description": "Halcyon Money is part of Transave UK Credit Union, a not-for profit financial cooperative. Being a mutual organisation is what sets us apart because we don’t have shareholders or investors to pay. Instead, we’re 100% owned by our members and can focus on ensuring that they benefit from the services we provide. Our goal is not profit at all costs; it’s doing the right thing. We show this by providing highly competitive financial products that deliver an outstanding return to members. We also believe in being transparent and fair in all we do.\n\nEstablished in 1996, Transave is one of the UK’s leading credit unions and is regulated by the Financial Conduct Authority and the Prudential Regulation Authority. ",
+                "bank_logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt8df9580089513f8e/674daffcaf0607749538463c/Halcyon-Logo_CS.png",
+                "logo_url": null,
+                "logo_darkmode_url": null,
+                "logo_icon_url": null,
+                "logo_icon_darkmode_url": null,
+                "branch_country": {
+                    "id": "GBR",
+                    "unique_country_id": "GBR_CPBKGB22XXX",
+                    "name": "United Kingdom",
+                    "description": "The United Kingdom of Great Britain and Northern Ireland is the largest island state in Europe and has one of the strongest privatised economies in the world, evidenced by the fact that it has the third largest Gross Domestic Product in Europe. The national currency is the British Pound (GBP). The Financial Services Compensation Scheme (FSCS), an independent body created by the British government, protects money held in UK-regulated banks (up to £85,000 per person, per banking group) and pays compensation in the event that the institution fails.",
+                    "rating": "AA",
+                    "withholding_tax_applicable": false,
+                    "withholding_tax_description": "",
+                    "domestic_taxation": false,
+                    "domestic_taxation_applicable": false,
+                    "source_tax_applicable": false,
+                    "source_tax_type": null,
+                    "source_tax_description": "",
+                    "source_tax_reduction_process_type": "NOT_REQUIRED",
+                    "source_tax_rates": {
+                        "flat_basic_rate": "0.0",
+                        "flat_reduced_rate": "0.0"
+                    }
+                },
+                "address": {
+                    "street": "G4 Business Centre, Carlisle Street East",
+                    "city": "Sheffield",
+                    "region": "South Yorkshire",
+                    "postal_code": "S4 7QD",
+                    "country": "United Kingdom"
+                },
+                "conditions": {
+                    "investment_amount_max": "85000",
+                    "investment_amount_min": null,
+                    "currency": null
+                },
+                "taxation_details": {
+                    "tin": "4158807193",
+                    "identification_number": "",
+                    "identification_document_name": "",
+                    "identification_document_number": "",
+                    "identification_document_issue_date": null
+                },
+                "statutory_deposit_guarantee_scheme": {
+                    "name": "The Financial Services Compensation Scheme",
+                    "country": {
+                        "id": "GBR",
+                        "unique_country_id": "GBR_CPBKGB22XXX",
+                        "name": "United Kingdom",
+                        "description": "The United Kingdom of Great Britain and Northern Ireland is the largest island state in Europe and has one of the strongest privatised economies in the world, evidenced by the fact that it has the third largest Gross Domestic Product in Europe. The national currency is the British Pound (GBP). The Financial Services Compensation Scheme (FSCS), an independent body created by the British government, protects money held in UK-regulated banks (up to £85,000 per person, per banking group) and pays compensation in the event that the institution fails.",
+                        "rating": "AA"
+                    },
+                    "description": "The FSCS is the United Kingdom’s statutory deposit guarantee scheme. If an FSCS-protected bank fails or is unable to meet its financial obligations, the FSCS can provide compensation for eligible customer deposits up to a limit of £85,000 per person, per bank. The FSCS’ £85,000 protection limit applies to all deposits held with a bank (including current and savings accounts), as well as any deposits held with intermediaries of the same bank (for example, where a bank operates multiple banks under different trading names). Read our dedicated FAQ page to learn more about the FSCS.",
+                    "insured_amount": "85000",
+                    "currency": "GBP",
+                    "payout_currency": "GBP",
+                    "responsible_authority": "",
+                    "official_info_url": "https://help.raisin.co.uk/hc/en-us/articles/4405438828049-What-happens-to-my-money-if-a-bank-fails-or-ceases-trading",
+                    "logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt271f880c0f70fc1b/66d70e92944f3a949a640566/Logos_CS_new-template_UK_FSCS.png"
+                },
+                "voluntary_deposit_guarantee_scheme": {
+                    "name": null,
+                    "country": null,
+                    "description": null,
+                    "insured_amount": null,
+                    "currency": null,
+                    "payout_currency": null,
+                    "responsible_authority": null,
+                    "official_info_url": null,
+                    "logo_url": null
+                },
+                "additional_details": null,
+                "customer_deposit_limit": [
+                    "85000"
+                ],
+                "shariah_compliant": false,
+                "custom_message": null
+            },
+            "distribution": {
+                "distributor_id": "Raisin",
+                "distributor_name": "Raisin UK",
+                "logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt150c637fe3fba719/6821fc29082383d7bbe7c25e/Logo_Raisin_RGB.png",
+                "distributor_channel_id": "raisin_direct_retail_gbr",
+                "distributor_address": {
+                    "street": "12-16 Mosley Street",
+                    "city": "Manchester",
+                    "region": "",
+                    "postal_code": "MA23AQ",
+                    "country": "United Kingdom"
+                }
+            },
+            "declarations": [],
+            "pre_contractual_documents": [
+                {
+                    "id": "PRODUCT_INFORMATION_SHEET",
+                    "display_name": "Product Information Sheet",
+                    "document_type": "PRODUCT_INFORMATION_SHEET",
+                    "url": "https://api2.raisin.co.uk/dbs/v1/public/products/TSC002/document/product_information_sheet?distributor_id=Raisin&distribution_channel_id=raisin_direct_retail_gbr",
+                    "version": 1,
+                    "created_at": "2025-06-22T00:00:00",
+                    "updated_at": "2025-06-22T00:00:00"
+                },
+                {
+                    "id": "blta64c22bf562c0671",
+                    "display_name": "Terms and Conditions",
+                    "document_type": "DTB_TERMS_AND_CONDITIONS",
+                    "url": "https://eu-assets.contentstack.com/v3/assets/blt9e536e7f163b7c56/blta64c22bf562c0671/662bb7beaabe260f9362fd9e/Transave_Credit_Union_Terms_and_Conditions.docx.pdf",
+                    "version": 2,
+                    "created_at": "2024-04-09T09:47:08",
+                    "updated_at": "2024-04-26T14:18:38"
+                },
+                {
+                    "id": "blt98b0d74b9eedf9d2",
+                    "display_name": "Deposit Guarantee Scheme",
+                    "document_type": "DEPOSIT_GUARANTEE_SCHEME_INFORMATION_SHEET",
+                    "url": "https://eu-assets.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt98b0d74b9eedf9d2/662bb889092746df4604c1bc/TranSave_Financial_Services_Compensation_Scheme_Information_Sheet.pdf",
+                    "version": 3,
+                    "created_at": "2024-04-09T09:45:28",
+                    "updated_at": "2024-04-26T14:22:34"
+                },
+                {
+                    "id": "blt373ddeb3979d1674",
+                    "display_name": "Common Bond Criteria",
+                    "document_type": "COMMON_BOND_CRITERIA",
+                    "url": "https://eu-assets.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt373ddeb3979d1674/669546703d986308611b105d/Transave_Credit_Union_Common_Bond_Requirements.docx.pdf",
+                    "version": 3,
+                    "created_at": "2024-04-09T09:44:56",
+                    "updated_at": "2024-07-15T15:55:28"
+                }
+            ],
+            "display": {
+                "contract_model": "direct",
+                "tracked_accounts": "deposits",
+                "ledger_management_model": "synchronized",
+                "labels": []
+            },
+            "day_count": "ACTUAL_365_FIXED"
+        },
+        {
+            "id": "TSC001",
+            "product_type": "TERM",
+            "marketed_as_product_type": "TERM",
+            "currency": "GBP",
+            "term": {
+                "unit": "months",
+                "period": 12
+            },
+            "term_normalized": {
+                "months": 12
+            },
+            "interest_rate_modality": "FIXED",
+            "interest_rates": {
+                "interest_rate_nominal": "4.12",
+                "interest_rate_effective": "4.12",
+                "termination_interest_rate_nominal": null,
+                "termination_interest_rate_effective": null,
+                "renewal_interest_rate_nominal": "4.12",
+                "renewal_interest_rate_effective": "4.12",
+                "headline_interest_rate": "EFFECTIVE",
+                "upcoming_rates": [],
+                "effective_date": "2025-06-02"
+            },
+            "conditions": {
+                "limit_to_one_product": false,
+                "minimum_balance": "1000",
+                "maximum_balance": "85000",
+                "annuity": {
+                    "frequency": null,
+                    "enabled": false,
+                    "point_of_reference": null,
+                    "annuity_payout": false,
+                    "compound_interest": false
+                },
+                "opening": {
+                    "application_document": "not_applicable",
+                    "minimum_amount": "1000",
+                    "available_to_pep_customers": false,
+                    "restricted_to_new_customers": null
+                },
+                "top_up": {
+                    "enabled": false,
+                    "minimum_amount": null
+                },
+                "withdrawal": {
+                    "enabled": false,
+                    "minimum_amount": null
+                },
+                "termination": {
+                    "termination_policy_pro_rata": false,
+                    "notice_period": null,
+                    "statutory_termination_timeframe": 14,
+                    "contractual_termination_allowed": false,
+                    "interest_policy": "NOT_BOOKED"
+                },
+                "renewal": {
+                    "enabled": true,
+                    "default_product": "TSC001",
+                    "interest_capitalization": "capitalize_interest"
+                },
+                "rollover": {
+                    "enabled": false
+                },
+                "maturity": {
+                    "enabled": true,
+                    "maturity_initiation_advance": "5"
+                },
+                "settlement_day": [
+                    "SUNDAY",
+                    "MONDAY",
+                    "TUESDAY",
+                    "WEDNESDAY",
+                    "THURSDAY",
+                    "FRIDAY",
+                    "SATURDAY"
+                ],
+                "daily_settlement": true,
+                "annuity_booking_frequency": "MATURITY",
+                "annuity_payout_frequency": null,
+                "test_group": null
+            },
+            "deposit_taking_bank": {
+                "id": "CPBKGB22XXX",
+                "name": "Halcyon Money",
+                "name_internal": "Halcyon Money",
+                "bank_slug": "halcyon-money",
+                "description": "Halcyon Money is part of Transave UK Credit Union, a not-for profit financial cooperative. Being a mutual organisation is what sets us apart because we don’t have shareholders or investors to pay. Instead, we’re 100% owned by our members and can focus on ensuring that they benefit from the services we provide. Our goal is not profit at all costs; it’s doing the right thing. We show this by providing highly competitive financial products that deliver an outstanding return to members. We also believe in being transparent and fair in all we do.\n\nEstablished in 1996, Transave is one of the UK’s leading credit unions and is regulated by the Financial Conduct Authority and the Prudential Regulation Authority. ",
+                "bank_logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt8df9580089513f8e/674daffcaf0607749538463c/Halcyon-Logo_CS.png",
+                "logo_url": null,
+                "logo_darkmode_url": null,
+                "logo_icon_url": null,
+                "logo_icon_darkmode_url": null,
+                "branch_country": {
+                    "id": "GBR",
+                    "unique_country_id": "GBR_CPBKGB22XXX",
+                    "name": "United Kingdom",
+                    "description": "The United Kingdom of Great Britain and Northern Ireland is the largest island state in Europe and has one of the strongest privatised economies in the world, evidenced by the fact that it has the third largest Gross Domestic Product in Europe. The national currency is the British Pound (GBP). The Financial Services Compensation Scheme (FSCS), an independent body created by the British government, protects money held in UK-regulated banks (up to £85,000 per person, per banking group) and pays compensation in the event that the institution fails.",
+                    "rating": "AA",
+                    "withholding_tax_applicable": false,
+                    "withholding_tax_description": "",
+                    "domestic_taxation": false,
+                    "domestic_taxation_applicable": false,
+                    "source_tax_applicable": false,
+                    "source_tax_type": null,
+                    "source_tax_description": "",
+                    "source_tax_reduction_process_type": "NOT_REQUIRED",
+                    "source_tax_rates": {
+                        "flat_basic_rate": "0.0",
+                        "flat_reduced_rate": "0.0"
+                    }
+                },
+                "address": {
+                    "street": "G4 Business Centre, Carlisle Street East",
+                    "city": "Sheffield",
+                    "region": "South Yorkshire",
+                    "postal_code": "S4 7QD",
+                    "country": "United Kingdom"
+                },
+                "conditions": {
+                    "investment_amount_max": "85000",
+                    "investment_amount_min": null,
+                    "currency": null
+                },
+                "taxation_details": {
+                    "tin": "4158807193",
+                    "identification_number": "",
+                    "identification_document_name": "",
+                    "identification_document_number": "",
+                    "identification_document_issue_date": null
+                },
+                "statutory_deposit_guarantee_scheme": {
+                    "name": "The Financial Services Compensation Scheme",
+                    "country": {
+                        "id": "GBR",
+                        "unique_country_id": "GBR_CPBKGB22XXX",
+                        "name": "United Kingdom",
+                        "description": "The United Kingdom of Great Britain and Northern Ireland is the largest island state in Europe and has one of the strongest privatised economies in the world, evidenced by the fact that it has the third largest Gross Domestic Product in Europe. The national currency is the British Pound (GBP). The Financial Services Compensation Scheme (FSCS), an independent body created by the British government, protects money held in UK-regulated banks (up to £85,000 per person, per banking group) and pays compensation in the event that the institution fails.",
+                        "rating": "AA"
+                    },
+                    "description": "The FSCS is the United Kingdom’s statutory deposit guarantee scheme. If an FSCS-protected bank fails or is unable to meet its financial obligations, the FSCS can provide compensation for eligible customer deposits up to a limit of £85,000 per person, per bank. The FSCS’ £85,000 protection limit applies to all deposits held with a bank (including current and savings accounts), as well as any deposits held with intermediaries of the same bank (for example, where a bank operates multiple banks under different trading names). Read our dedicated FAQ page to learn more about the FSCS.",
+                    "insured_amount": "85000",
+                    "currency": "GBP",
+                    "payout_currency": "GBP",
+                    "responsible_authority": "",
+                    "official_info_url": "https://help.raisin.co.uk/hc/en-us/articles/4405438828049-What-happens-to-my-money-if-a-bank-fails-or-ceases-trading",
+                    "logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt271f880c0f70fc1b/66d70e92944f3a949a640566/Logos_CS_new-template_UK_FSCS.png"
+                },
+                "voluntary_deposit_guarantee_scheme": {
+                    "name": null,
+                    "country": null,
+                    "description": null,
+                    "insured_amount": null,
+                    "currency": null,
+                    "payout_currency": null,
+                    "responsible_authority": null,
+                    "official_info_url": null,
+                    "logo_url": null
+                },
+                "additional_details": null,
+                "customer_deposit_limit": [
+                    "85000"
+                ],
+                "shariah_compliant": false,
+                "custom_message": null
+            },
+            "distribution": {
+                "distributor_id": "Raisin",
+                "distributor_name": "Raisin UK",
+                "logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt150c637fe3fba719/6821fc29082383d7bbe7c25e/Logo_Raisin_RGB.png",
+                "distributor_channel_id": "raisin_direct_retail_gbr",
+                "distributor_address": {
+                    "street": "12-16 Mosley Street",
+                    "city": "Manchester",
+                    "region": "",
+                    "postal_code": "MA23AQ",
+                    "country": "United Kingdom"
+                }
+            },
+            "declarations": [],
+            "pre_contractual_documents": [
+                {
+                    "id": "PRODUCT_INFORMATION_SHEET",
+                    "display_name": "Product Information Sheet",
+                    "document_type": "PRODUCT_INFORMATION_SHEET",
+                    "url": "https://api2.raisin.co.uk/dbs/v1/public/products/TSC001/document/product_information_sheet?distributor_id=Raisin&distribution_channel_id=raisin_direct_retail_gbr",
+                    "version": 1,
+                    "created_at": "2025-06-22T00:00:00",
+                    "updated_at": "2025-06-22T00:00:00"
+                },
+                {
+                    "id": "blta64c22bf562c0671",
+                    "display_name": "Terms and Conditions",
+                    "document_type": "DTB_TERMS_AND_CONDITIONS",
+                    "url": "https://eu-assets.contentstack.com/v3/assets/blt9e536e7f163b7c56/blta64c22bf562c0671/662bb7beaabe260f9362fd9e/Transave_Credit_Union_Terms_and_Conditions.docx.pdf",
+                    "version": 2,
+                    "created_at": "2024-04-09T09:47:08",
+                    "updated_at": "2024-04-26T14:18:38"
+                },
+                {
+                    "id": "blt98b0d74b9eedf9d2",
+                    "display_name": "Deposit Guarantee Scheme",
+                    "document_type": "DEPOSIT_GUARANTEE_SCHEME_INFORMATION_SHEET",
+                    "url": "https://eu-assets.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt98b0d74b9eedf9d2/662bb889092746df4604c1bc/TranSave_Financial_Services_Compensation_Scheme_Information_Sheet.pdf",
+                    "version": 3,
+                    "created_at": "2024-04-09T09:45:28",
+                    "updated_at": "2024-04-26T14:22:34"
+                },
+                {
+                    "id": "blt373ddeb3979d1674",
+                    "display_name": "Common Bond Criteria",
+                    "document_type": "COMMON_BOND_CRITERIA",
+                    "url": "https://eu-assets.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt373ddeb3979d1674/669546703d986308611b105d/Transave_Credit_Union_Common_Bond_Requirements.docx.pdf",
+                    "version": 3,
+                    "created_at": "2024-04-09T09:44:56",
+                    "updated_at": "2024-07-15T15:55:28"
+                }
+            ],
+            "display": {
+                "contract_model": "direct",
+                "tracked_accounts": "deposits",
+                "ledger_management_model": "synchronized",
+                "labels": [
+                    "top_product"
+                ]
+            },
+            "day_count": "ACTUAL_365_FIXED"
+        },
+        {
+            "id": "BAC001",
+            "product_type": "TERM",
+            "marketed_as_product_type": "TERM",
+            "currency": "GBP",
+            "term": {
+                "unit": "months",
+                "period": 12
+            },
+            "term_normalized": {
+                "months": 12
+            },
+            "interest_rate_modality": "FIXED",
+            "interest_rates": {
+                "interest_rate_nominal": "4.1",
+                "interest_rate_effective": "4.1",
+                "termination_interest_rate_nominal": null,
+                "termination_interest_rate_effective": null,
+                "renewal_interest_rate_nominal": "4.1",
+                "renewal_interest_rate_effective": "4.1",
+                "headline_interest_rate": "EFFECTIVE",
+                "upcoming_rates": [],
+                "effective_date": "2025-06-20"
+            },
+            "conditions": {
+                "limit_to_one_product": false,
+                "minimum_balance": "1000",
+                "maximum_balance": "85000",
+                "annuity": {
+                    "frequency": null,
+                    "enabled": false,
+                    "point_of_reference": null,
+                    "annuity_payout": false,
+                    "compound_interest": false
+                },
+                "opening": {
+                    "application_document": "not_applicable",
+                    "minimum_amount": "1000",
+                    "available_to_pep_customers": true,
+                    "restricted_to_new_customers": null
+                },
+                "top_up": {
+                    "enabled": false,
+                    "minimum_amount": null
+                },
+                "withdrawal": {
+                    "enabled": false,
+                    "minimum_amount": null
+                },
+                "termination": {
+                    "termination_policy_pro_rata": false,
+                    "notice_period": null,
+                    "statutory_termination_timeframe": 14,
+                    "contractual_termination_allowed": false,
+                    "interest_policy": "NOT_BOOKED"
+                },
+                "renewal": {
+                    "enabled": false,
+                    "default_product": null,
+                    "interest_capitalization": null
+                },
+                "rollover": {
+                    "enabled": false
+                },
+                "maturity": {
+                    "enabled": true,
+                    "maturity_initiation_advance": "1"
+                },
+                "settlement_day": [
+                    "MONDAY",
+                    "TUESDAY",
+                    "WEDNESDAY",
+                    "THURSDAY",
+                    "FRIDAY"
+                ],
+                "daily_settlement": true,
+                "annuity_booking_frequency": "MATURITY",
+                "annuity_payout_frequency": null,
+                "test_group": null
+            },
+            "deposit_taking_bank": {
+                "id": "BACMGB2L",
+                "name": "BACB",
+                "name_internal": "BACB GBR",
+                "bank_slug": "bacb",
+                "description": "BACB is an international bank with over 50 years’ experience, providing global trade finance and treasury solutions to clients trading in and out of specialist markets. With its head office based in the City of London, the Bank is authorised by the Prudential Regulation Authority and regulated by the Financial Conduct Authority and the Prudential Regulation Authority. BACB leverages its position in the world’s leading financial market to forge close ties with the global banking community. BACB is a trusted partner, active across Africa, the Middle East and Asia, supporting trade flows and connecting those markets with the rest of the world. \n\nBACB’s mission is to be “a UK bank delivering trade finance and investment expertise to enable clients, countries and communities to prosper”.",
+                "bank_logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt5731c006b5739ffa/674daeb14b6f203a06f0e5bb/BACB_CS.png",
+                "logo_url": null,
+                "logo_darkmode_url": null,
+                "logo_icon_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/bltb90855c3acecf5c7/68401de51a2d829dd4ce8d4d/BankLogo_112_112_BACB.png",
+                "logo_icon_darkmode_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/bltb90855c3acecf5c7/68401de51a2d829dd4ce8d4d/BankLogo_112_112_BACB.png",
+                "branch_country": {
+                    "id": "GBR",
+                    "unique_country_id": "GBR_BACMGB2L",
+                    "name": "United Kingdom",
+                    "description": "The United Kingdom of Great Britain and Northern Ireland is the largest island state in Europe and has one of the strongest privatised economies in the world, evidenced by the fact that it has the third largest Gross Domestic Product in Europe. The national currency is the British Pound (GBP). The Financial Services Compensation Scheme (FSCS), an independent body created by the British government, protects money held in UK-regulated banks (up to £85,000 per person, per banking group) and pays compensation in the event that the institution fails.",
+                    "rating": "AA",
+                    "withholding_tax_applicable": false,
+                    "withholding_tax_description": "",
+                    "domestic_taxation": false,
+                    "domestic_taxation_applicable": false,
+                    "source_tax_applicable": false,
+                    "source_tax_type": null,
+                    "source_tax_description": "",
+                    "source_tax_reduction_process_type": "NOT_REQUIRED",
+                    "source_tax_rates": {
+                        "flat_basic_rate": "0.0",
+                        "flat_reduced_rate": "0.0"
+                    }
+                },
+                "address": {
+                    "street": "8-10 Mansion House Place",
+                    "city": "London",
+                    "region": "United Kingdom",
+                    "postal_code": "EC4N 8BJ",
+                    "country": "United Kingdom"
+                },
+                "conditions": {
+                    "investment_amount_max": "85000",
+                    "investment_amount_min": null,
+                    "currency": null
+                },
+                "taxation_details": {
+                    "tin": "",
+                    "identification_number": "",
+                    "identification_document_name": "",
+                    "identification_document_number": "",
+                    "identification_document_issue_date": null
+                },
+                "statutory_deposit_guarantee_scheme": {
+                    "name": "The Financial Services Compensation Scheme",
+                    "country": {
+                        "id": "GBR",
+                        "unique_country_id": "GBR_BACMGB2L",
+                        "name": "United Kingdom",
+                        "description": "The United Kingdom of Great Britain and Northern Ireland is the largest island state in Europe and has one of the strongest privatised economies in the world, evidenced by the fact that it has the third largest Gross Domestic Product in Europe. The national currency is the British Pound (GBP). The Financial Services Compensation Scheme (FSCS), an independent body created by the British government, protects money held in UK-regulated banks (up to £85,000 per person, per banking group) and pays compensation in the event that the institution fails.",
+                        "rating": "AA"
+                    },
+                    "description": "The FSCS is the United Kingdom’s statutory deposit guarantee scheme. If an FSCS-protected bank fails or is unable to meet its financial obligations, the FSCS can provide compensation for eligible customer deposits up to a limit of £85,000 per person, per bank. The FSCS’ £85,000 protection limit applies to all deposits held with a bank (including current and savings accounts), as well as any deposits held with intermediaries of the same bank (for example, where a bank operates multiple banks under different trading names). Read our dedicated FAQ page to learn more about the FSCS.",
+                    "insured_amount": "85000",
+                    "currency": "GBP",
+                    "payout_currency": "GBP",
+                    "responsible_authority": "",
+                    "official_info_url": "https://help.raisin.co.uk/hc/en-us/articles/4405438828049-What-happens-to-my-money-if-a-bank-fails-or-ceases-trading",
+                    "logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt271f880c0f70fc1b/66d70e92944f3a949a640566/Logos_CS_new-template_UK_FSCS.png"
+                },
+                "voluntary_deposit_guarantee_scheme": {
+                    "name": null,
+                    "country": null,
+                    "description": null,
+                    "insured_amount": null,
+                    "currency": null,
+                    "payout_currency": null,
+                    "responsible_authority": null,
+                    "official_info_url": null,
+                    "logo_url": null
+                },
+                "additional_details": null,
+                "customer_deposit_limit": [
+                    "85000"
+                ],
+                "shariah_compliant": false,
+                "custom_message": null
+            },
+            "distribution": {
+                "distributor_id": "Raisin",
+                "distributor_name": "Raisin UK",
+                "logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt150c637fe3fba719/6821fc29082383d7bbe7c25e/Logo_Raisin_RGB.png",
+                "distributor_channel_id": "raisin_direct_retail_gbr",
+                "distributor_address": {
+                    "street": "12-16 Mosley Street",
+                    "city": "Manchester",
+                    "region": "",
+                    "postal_code": "MA23AQ",
+                    "country": "United Kingdom"
+                }
+            },
+            "declarations": [],
+            "pre_contractual_documents": [
+                {
+                    "id": "PRODUCT_INFORMATION_SHEET",
+                    "display_name": "Product Information Sheet",
+                    "document_type": "PRODUCT_INFORMATION_SHEET",
+                    "url": "https://api2.raisin.co.uk/dbs/v1/public/products/BAC001/document/product_information_sheet?distributor_id=Raisin&distribution_channel_id=raisin_direct_retail_gbr",
+                    "version": 1,
+                    "created_at": "2025-06-22T00:00:00",
+                    "updated_at": "2025-06-22T00:00:00"
+                },
+                {
+                    "id": "bltb68112bc277032db",
+                    "display_name": "Terms and Conditions",
+                    "document_type": "DTB_TERMS_AND_CONDITIONS",
+                    "url": "https://eu-assets.contentstack.com/v3/assets/blt9e536e7f163b7c56/bltb68112bc277032db/683727b3a09f9e55f21a53ce/Raisin_Trust_T&Cs_V4_280525.pdf",
+                    "version": 3,
+                    "created_at": "2025-04-02T15:55:56",
+                    "updated_at": "2025-05-28T15:11:47"
+                },
+                {
+                    "id": "bltf7b136c9d1d6a4f3",
+                    "display_name": "Deposit Guarantee Scheme",
+                    "document_type": "DEPOSIT_GUARANTEE_SCHEME_INFORMATION_SHEET",
+                    "url": "https://eu-assets.contentstack.com/v3/assets/blt9e536e7f163b7c56/bltf7b136c9d1d6a4f3/670cdf90256888f75607ccbe/BACB_INFORMATION_SHEET_(Raisin).pdf",
+                    "version": 1,
+                    "created_at": "2024-10-14T09:08:32",
+                    "updated_at": "2024-10-14T09:08:32"
+                }
+            ],
+            "display": {
+                "contract_model": "trust",
+                "tracked_accounts": "deposits_and_tranches",
+                "ledger_management_model": "managed",
+                "labels": [
+                    "top_product"
+                ]
+            },
+            "day_count": "ACTUAL_365_FIXED"
+        },
+        {
+            "id": "EGY003",
+            "product_type": "TERM",
+            "marketed_as_product_type": "TERM",
+            "currency": "GBP",
+            "term": {
+                "unit": "months",
+                "period": 12
+            },
+            "term_normalized": {
+                "months": 12
+            },
+            "interest_rate_modality": "FIXED",
+            "interest_rates": {
+                "interest_rate_nominal": "4.32",
+                "interest_rate_effective": "4.32",
+                "termination_interest_rate_nominal": null,
+                "termination_interest_rate_effective": null,
+                "renewal_interest_rate_nominal": "4.32",
+                "renewal_interest_rate_effective": "4.32",
+                "headline_interest_rate": "EFFECTIVE",
+                "upcoming_rates": [],
+                "effective_date": "2025-06-16"
+            },
+            "conditions": {
+                "limit_to_one_product": false,
+                "minimum_balance": "10000",
+                "maximum_balance": "85000",
+                "annuity": {
+                    "frequency": null,
+                    "enabled": false,
+                    "point_of_reference": null,
+                    "annuity_payout": false,
+                    "compound_interest": false
+                },
+                "opening": {
+                    "application_document": "not_applicable",
+                    "minimum_amount": "10000",
+                    "available_to_pep_customers": false,
+                    "restricted_to_new_customers": null
+                },
+                "top_up": {
+                    "enabled": false,
+                    "minimum_amount": null
+                },
+                "withdrawal": {
+                    "enabled": false,
+                    "minimum_amount": null
+                },
+                "termination": {
+                    "termination_policy_pro_rata": false,
+                    "notice_period": null,
+                    "statutory_termination_timeframe": 0,
+                    "contractual_termination_allowed": false,
+                    "interest_policy": "NOT_BOOKED"
+                },
+                "renewal": {
+                    "enabled": true,
+                    "default_product": "EGY003",
+                    "interest_capitalization": "capitalize_interest"
+                },
+                "rollover": {
+                    "enabled": false
+                },
+                "maturity": {
+                    "enabled": true,
+                    "maturity_initiation_advance": "1"
+                },
+                "settlement_day": [
+                    "MONDAY",
+                    "TUESDAY",
+                    "WEDNESDAY",
+                    "THURSDAY",
+                    "FRIDAY"
+                ],
+                "daily_settlement": true,
+                "annuity_booking_frequency": "MATURITY",
+                "annuity_payout_frequency": null,
+                "test_group": null
+            },
+            "deposit_taking_bank": {
+                "id": "NBEGGB2L",
+                "name": "National Bank of Egypt ",
+                "name_internal": "National Bank of Egypt",
+                "bank_slug": "national-bank-of-egypt",
+                "description": "National Bank of Egypt (UK) Limited (“NBEUK”) is a UK-incorporated bank headquartered in London. NBEUK was established in 1982 and offers a diverse range of products and services for its customers, including corporate banking, buy-to-let mortgages, retail banking, and trade finance.\n\nNBEUK is a wholly-owned subsidiary of the National Bank of Egypt, Egypt’s oldest and largest bank.\nDeposits made into savings accounts offered by NBEUK through Raisin.",
+                "bank_logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt6b0fb05c7ecaa95b/6602d5271637d4040a4751e3/Logos_Banks_UK_Specs_Prodtable_National_Bank_of_Egpt.png",
+                "logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/bltf3eda8bc78c08a46/669a39c936c9203ba15f77d8/Logos_CS_new-template_UK_National_Bank_of_Egypt.png",
+                "logo_darkmode_url": null,
+                "logo_icon_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/bltf3eda8bc78c08a46/669a39c936c9203ba15f77d8/Logos_CS_new-template_UK_National_Bank_of_Egypt.png",
+                "logo_icon_darkmode_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/bltf3eda8bc78c08a46/669a39c936c9203ba15f77d8/Logos_CS_new-template_UK_National_Bank_of_Egypt.png",
+                "branch_country": {
+                    "id": "GBR",
+                    "unique_country_id": "GBR_NBEGGB2L",
+                    "name": "United Kingdom",
+                    "description": "The United Kingdom of Great Britain and Northern Ireland is the largest island state in Europe and has one of the strongest privatised economies in the world, evidenced by the fact that it has the third largest Gross Domestic Product in Europe. The national currency is the British Pound (GBP). The Financial Services Compensation Scheme (FSCS), an independent body created by the British government, protects money held in UK-regulated banks (up to £85,000 per person, per banking group) and pays compensation in the event that the institution fails.",
+                    "rating": "AA",
+                    "withholding_tax_applicable": false,
+                    "withholding_tax_description": "",
+                    "domestic_taxation": false,
+                    "domestic_taxation_applicable": false,
+                    "source_tax_applicable": false,
+                    "source_tax_type": null,
+                    "source_tax_description": "",
+                    "source_tax_reduction_process_type": "NOT_REQUIRED",
+                    "source_tax_rates": {
+                        "flat_basic_rate": "0.0",
+                        "flat_reduced_rate": "0.0"
+                    }
+                },
+                "address": {
+                    "street": "8-9 Stratton St, St. James's",
+                    "city": "London",
+                    "region": "London",
+                    "postal_code": "W1J8LF",
+                    "country": "United Kingdom"
+                },
+                "conditions": {
+                    "investment_amount_max": "85000",
+                    "investment_amount_min": null,
+                    "currency": null
+                },
+                "taxation_details": {
+                    "tin": "",
+                    "identification_number": "",
+                    "identification_document_name": "",
+                    "identification_document_number": "",
+                    "identification_document_issue_date": null
+                },
+                "statutory_deposit_guarantee_scheme": {
+                    "name": "The Financial Services Compensation Scheme",
+                    "country": {
+                        "id": "GBR",
+                        "unique_country_id": "GBR_NBEGGB2L",
+                        "name": "United Kingdom",
+                        "description": "The United Kingdom of Great Britain and Northern Ireland is the largest island state in Europe and has one of the strongest privatised economies in the world, evidenced by the fact that it has the third largest Gross Domestic Product in Europe. The national currency is the British Pound (GBP). The Financial Services Compensation Scheme (FSCS), an independent body created by the British government, protects money held in UK-regulated banks (up to £85,000 per person, per banking group) and pays compensation in the event that the institution fails.",
+                        "rating": "AA"
+                    },
+                    "description": "The FSCS is the United Kingdom’s statutory deposit guarantee scheme. If an FSCS-protected bank fails or is unable to meet its financial obligations, the FSCS can provide compensation for eligible customer deposits up to a limit of £85,000 per person, per bank. The FSCS’ £85,000 protection limit applies to all deposits held with a bank (including current and savings accounts), as well as any deposits held with intermediaries of the same bank (for example, where a bank operates multiple banks under different trading names). Read our dedicated FAQ page to learn more about the FSCS.",
+                    "insured_amount": "85000",
+                    "currency": "GBP",
+                    "payout_currency": "GBP",
+                    "responsible_authority": "",
+                    "official_info_url": "https://help.raisin.co.uk/hc/en-us/articles/4405438828049-What-happens-to-my-money-if-a-bank-fails-or-ceases-trading",
+                    "logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt271f880c0f70fc1b/66d70e92944f3a949a640566/Logos_CS_new-template_UK_FSCS.png"
+                },
+                "voluntary_deposit_guarantee_scheme": {
+                    "name": null,
+                    "country": null,
+                    "description": null,
+                    "insured_amount": null,
+                    "currency": null,
+                    "payout_currency": null,
+                    "responsible_authority": null,
+                    "official_info_url": null,
+                    "logo_url": null
+                },
+                "additional_details": null,
+                "customer_deposit_limit": [
+                    "85000"
+                ],
+                "shariah_compliant": false,
+                "custom_message": null
+            },
+            "distribution": {
+                "distributor_id": "Raisin",
+                "distributor_name": "Raisin UK",
+                "logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt150c637fe3fba719/6821fc29082383d7bbe7c25e/Logo_Raisin_RGB.png",
+                "distributor_channel_id": "raisin_direct_retail_gbr",
+                "distributor_address": {
+                    "street": "12-16 Mosley Street",
+                    "city": "Manchester",
+                    "region": "",
+                    "postal_code": "MA23AQ",
+                    "country": "United Kingdom"
+                }
+            },
+            "declarations": [],
+            "pre_contractual_documents": [
+                {
+                    "id": "PRODUCT_INFORMATION_SHEET",
+                    "display_name": "Product Information Sheet",
+                    "document_type": "PRODUCT_INFORMATION_SHEET",
+                    "url": "https://api2.raisin.co.uk/dbs/v1/public/products/EGY003/document/product_information_sheet?distributor_id=Raisin&distribution_channel_id=raisin_direct_retail_gbr",
+                    "version": 1,
+                    "created_at": "2025-06-22T00:00:00",
+                    "updated_at": "2025-06-22T00:00:00"
+                },
+                {
+                    "id": "blted2b1580b7db7054",
+                    "display_name": "Deposit Guarantee Scheme",
+                    "document_type": "DEPOSIT_GUARANTEE_SCHEME_INFORMATION_SHEET",
+                    "url": "https://eu-assets.contentstack.com/v3/assets/blt9e536e7f163b7c56/blted2b1580b7db7054/6601482ca6bf40040ab1279b/FSCS_Information_Sheet_2024_UPDATED.pdf",
+                    "version": 2,
+                    "created_at": "2023-11-07T14:12:40",
+                    "updated_at": "2024-03-25T09:47:24"
+                },
+                {
+                    "id": "bltb68112bc277032db",
+                    "display_name": "Terms and Conditions",
+                    "document_type": "DTB_TERMS_AND_CONDITIONS",
+                    "url": "https://eu-assets.contentstack.com/v3/assets/blt9e536e7f163b7c56/bltb68112bc277032db/683727b3a09f9e55f21a53ce/Raisin_Trust_T&Cs_V4_280525.pdf",
+                    "version": 3,
+                    "created_at": "2025-04-02T15:55:56",
+                    "updated_at": "2025-05-28T15:11:47"
+                }
+            ],
+            "display": {
+                "contract_model": "trust",
+                "tracked_accounts": "deposits_and_tranches",
+                "ledger_management_model": "managed",
+                "labels": [
+                    "top_product",
+                    "top_offers_mobile_dashboard",
+                    "top_offers_dashboard_web",
+                    "top_offers_mobile_offer_table"
+                ]
+            },
+            "day_count": "ACTUAL_365_FIXED"
+        },
+        {
+            "id": "BRO199",
+            "product_type": "OVERNIGHT",
+            "marketed_as_product_type": "OVERNIGHT",
+            "currency": "GBP",
+            "term": {
+                "unit": null,
+                "period": null
+            },
+            "term_normalized": null,
+            "interest_rate_modality": "VARIABLE",
+            "interest_rates": {
+                "interest_rate_nominal": "3.91",
+                "interest_rate_effective": "3.98",
+                "termination_interest_rate_nominal": null,
+                "termination_interest_rate_effective": null,
+                "renewal_interest_rate_nominal": "3.91",
+                "renewal_interest_rate_effective": "3.98",
+                "headline_interest_rate": "EFFECTIVE",
+                "upcoming_rates": [],
+                "effective_date": "2025-05-19"
+            },
+            "conditions": {
+                "limit_to_one_product": true,
+                "minimum_balance": "1000",
+                "maximum_balance": "85000",
+                "annuity": {
+                    "frequency": {
+                        "unit": "months",
+                        "period": 1
+                    },
+                    "enabled": true,
+                    "point_of_reference": "ABSOLUTE",
+                    "annuity_payout": false,
+                    "compound_interest": true
+                },
+                "opening": {
+                    "application_document": "not_applicable",
+                    "minimum_amount": "1000",
+                    "available_to_pep_customers": false,
+                    "restricted_to_new_customers": null
+                },
+                "top_up": {
+                    "enabled": true,
+                    "minimum_amount": "500"
+                },
+                "withdrawal": {
+                    "enabled": true,
+                    "minimum_amount": "500"
+                },
+                "termination": {
+                    "termination_policy_pro_rata": false,
+                    "notice_period": null,
+                    "statutory_termination_timeframe": 14,
+                    "contractual_termination_allowed": true,
+                    "interest_policy": "NOT_BOOKED"
+                },
+                "renewal": {
+                    "enabled": false,
+                    "default_product": null,
+                    "interest_capitalization": null
+                },
+                "rollover": {
+                    "enabled": false
+                },
+                "maturity": {
+                    "enabled": false,
+                    "maturity_initiation_advance": null
+                },
+                "settlement_day": [
+                    "MONDAY",
+                    "TUESDAY",
+                    "WEDNESDAY",
+                    "THURSDAY",
+                    "FRIDAY"
+                ],
+                "daily_settlement": true,
+                "annuity_booking_frequency": "MONTHLY",
+                "annuity_payout_frequency": null,
+                "test_group": null
+            },
+            "deposit_taking_bank": {
+                "id": "BSCOGB3L",
+                "name": "Brown Shipley",
+                "name_internal": "Brown Shipley",
+                "bank_slug": "brown-shipley",
+                "description": "Founded in 1810, Brown Shipley is a UK authorised private bank with over 200 years of experience, and is regulated by both the PRA and FCA.\n\nBrown Shipley is headquartered in London with offices in seven other UK cities, offering fully integrated wealth planning, investment management and banking services.\n\nBrown Shipley is owned by Quintet Private Bank, and is part of a group of boutique private banks and wealth managers operating across over 50 European cities. Being part of Quintet expands their scale and security and adds a truly global outlook to already strong foundations.\n\n\nAll eligible deposits made into Brown Shipley bank accounts are protected by the FSCS up to a total of £85,000 per individual.",
+                "bank_logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt7aca23ab41398f7f/6602d477be6c7e040ad060fe/Logos_Banks_UK_Specs_Prodtable_Brown_Shipley_.png",
+                "logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/bltb92f4afb95f2d7b4/669a34c9124028f2e75aa7d6/Logos_Banks_UK_Specs_Prodtable_640x320_Brown_Shipley.png",
+                "logo_darkmode_url": null,
+                "logo_icon_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/bltb92f4afb95f2d7b4/669a34c9124028f2e75aa7d6/Logos_Banks_UK_Specs_Prodtable_640x320_Brown_Shipley.png",
+                "logo_icon_darkmode_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/bltb92f4afb95f2d7b4/669a34c9124028f2e75aa7d6/Logos_Banks_UK_Specs_Prodtable_640x320_Brown_Shipley.png",
+                "branch_country": {
+                    "id": "GBR",
+                    "unique_country_id": "GBR_BSCOGB3L",
+                    "name": "United Kingdom",
+                    "description": "The United Kingdom of Great Britain and Northern Ireland is the largest island state in Europe and has one of the strongest privatised economies in the world, evidenced by the fact that it has the third largest Gross Domestic Product in Europe. The national currency is the British Pound (GBP). The Financial Services Compensation Scheme (FSCS), an independent body created by the British government, protects money held in UK-regulated banks (up to £85,000 per person, per banking group) and pays compensation in the event that the institution fails.",
+                    "rating": "AA",
+                    "withholding_tax_applicable": false,
+                    "withholding_tax_description": "",
+                    "domestic_taxation": false,
+                    "domestic_taxation_applicable": false,
+                    "source_tax_applicable": false,
+                    "source_tax_type": null,
+                    "source_tax_description": "",
+                    "source_tax_reduction_process_type": "NOT_REQUIRED",
+                    "source_tax_rates": {
+                        "flat_basic_rate": "0.0",
+                        "flat_reduced_rate": "0.0"
+                    }
+                },
+                "address": {
+                    "street": "2 Moorgate",
+                    "city": "London",
+                    "region": "United Kingdom",
+                    "postal_code": "EC2R6AG",
+                    "country": "United Kingdom"
+                },
+                "conditions": {
+                    "investment_amount_max": "85000",
+                    "investment_amount_min": null,
+                    "currency": null
+                },
+                "taxation_details": {
+                    "tin": "",
+                    "identification_number": "",
+                    "identification_document_name": "",
+                    "identification_document_number": "",
+                    "identification_document_issue_date": null
+                },
+                "statutory_deposit_guarantee_scheme": {
+                    "name": "The Financial Services Compensation Scheme",
+                    "country": {
+                        "id": "GBR",
+                        "unique_country_id": "GBR_BSCOGB3L",
+                        "name": "United Kingdom",
+                        "description": "The United Kingdom of Great Britain and Northern Ireland is the largest island state in Europe and has one of the strongest privatised economies in the world, evidenced by the fact that it has the third largest Gross Domestic Product in Europe. The national currency is the British Pound (GBP). The Financial Services Compensation Scheme (FSCS), an independent body created by the British government, protects money held in UK-regulated banks (up to £85,000 per person, per banking group) and pays compensation in the event that the institution fails.",
+                        "rating": "AA"
+                    },
+                    "description": "The FSCS is the United Kingdom’s statutory deposit guarantee scheme. If an FSCS-protected bank fails or is unable to meet its financial obligations, the FSCS can provide compensation for eligible customer deposits up to a limit of £85,000 per person, per bank. The FSCS’ £85,000 protection limit applies to all deposits held with a bank (including current and savings accounts), as well as any deposits held with intermediaries of the same bank (for example, where a bank operates multiple banks under different trading names). Read our dedicated FAQ page to learn more about the FSCS.",
+                    "insured_amount": "85000",
+                    "currency": "GBP",
+                    "payout_currency": "GBP",
+                    "responsible_authority": "",
+                    "official_info_url": "https://help.raisin.co.uk/hc/en-us/articles/4405438828049-What-happens-to-my-money-if-a-bank-fails-or-ceases-trading",
+                    "logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt271f880c0f70fc1b/66d70e92944f3a949a640566/Logos_CS_new-template_UK_FSCS.png"
+                },
+                "voluntary_deposit_guarantee_scheme": {
+                    "name": null,
+                    "country": null,
+                    "description": null,
+                    "insured_amount": null,
+                    "currency": null,
+                    "payout_currency": null,
+                    "responsible_authority": null,
+                    "official_info_url": null,
+                    "logo_url": null
+                },
+                "additional_details": null,
+                "customer_deposit_limit": [
+                    "85000"
+                ],
+                "shariah_compliant": false,
+                "custom_message": null
+            },
+            "distribution": {
+                "distributor_id": "Raisin",
+                "distributor_name": "Raisin UK",
+                "logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt150c637fe3fba719/6821fc29082383d7bbe7c25e/Logo_Raisin_RGB.png",
+                "distributor_channel_id": "raisin_direct_retail_gbr",
+                "distributor_address": {
+                    "street": "12-16 Mosley Street",
+                    "city": "Manchester",
+                    "region": "",
+                    "postal_code": "MA23AQ",
+                    "country": "United Kingdom"
+                }
+            },
+            "declarations": [],
+            "pre_contractual_documents": [
+                {
+                    "id": "PRODUCT_INFORMATION_SHEET",
+                    "display_name": "Product Information Sheet",
+                    "document_type": "PRODUCT_INFORMATION_SHEET",
+                    "url": "https://api2.raisin.co.uk/dbs/v1/public/products/BRO199/document/product_information_sheet?distributor_id=Raisin&distribution_channel_id=raisin_direct_retail_gbr",
+                    "version": 1,
+                    "created_at": "2025-06-22T00:00:00",
+                    "updated_at": "2025-06-22T00:00:00"
+                },
+                {
+                    "id": "bltb68112bc277032db",
+                    "display_name": "Terms and Conditions",
+                    "document_type": "DTB_TERMS_AND_CONDITIONS",
+                    "url": "https://eu-assets.contentstack.com/v3/assets/blt9e536e7f163b7c56/bltb68112bc277032db/683727b3a09f9e55f21a53ce/Raisin_Trust_T&Cs_V4_280525.pdf",
+                    "version": 3,
+                    "created_at": "2025-04-02T15:55:56",
+                    "updated_at": "2025-05-28T15:11:47"
+                },
+                {
+                    "id": "blt98c0da3776547819",
+                    "display_name": "Deposit Guarantee Scheme",
+                    "document_type": "DEPOSIT_GUARANTEE_SCHEME_INFORMATION_SHEET",
+                    "url": "https://eu-assets.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt98c0da3776547819/655b45afe7be070407ff06a4/Brown_Shipley_FSCS.pdf",
+                    "version": 1,
+                    "created_at": "2023-11-20T11:40:31",
+                    "updated_at": "2023-11-20T11:40:31"
+                }
+            ],
+            "display": {
+                "contract_model": "trust",
+                "tracked_accounts": "deposits_and_tranches",
+                "ledger_management_model": "managed",
+                "labels": []
+            },
+            "day_count": "ACTUAL_365_FIXED"
+        },
+        {
+            "id": "BRO003",
+            "product_type": "TERM",
+            "marketed_as_product_type": "TERM",
+            "currency": "GBP",
+            "term": {
+                "unit": "months",
+                "period": 9
+            },
+            "term_normalized": {
+                "months": 9
+            },
+            "interest_rate_modality": "FIXED",
+            "interest_rates": {
+                "interest_rate_nominal": "3.73",
+                "interest_rate_effective": "3.75",
+                "termination_interest_rate_nominal": null,
+                "termination_interest_rate_effective": null,
+                "renewal_interest_rate_nominal": "3.73",
+                "renewal_interest_rate_effective": "3.75",
+                "headline_interest_rate": "EFFECTIVE",
+                "upcoming_rates": [],
+                "effective_date": "2025-04-28"
+            },
+            "conditions": {
+                "limit_to_one_product": false,
+                "minimum_balance": "1000",
+                "maximum_balance": "85000",
+                "annuity": {
+                    "frequency": null,
+                    "enabled": false,
+                    "point_of_reference": null,
+                    "annuity_payout": false,
+                    "compound_interest": false
+                },
+                "opening": {
+                    "application_document": "not_applicable",
+                    "minimum_amount": "1000",
+                    "available_to_pep_customers": false,
+                    "restricted_to_new_customers": null
+                },
+                "top_up": {
+                    "enabled": false,
+                    "minimum_amount": null
+                },
+                "withdrawal": {
+                    "enabled": false,
+                    "minimum_amount": null
+                },
+                "termination": {
+                    "termination_policy_pro_rata": false,
+                    "notice_period": null,
+                    "statutory_termination_timeframe": 0,
+                    "contractual_termination_allowed": false,
+                    "interest_policy": "NOT_BOOKED"
+                },
+                "renewal": {
+                    "enabled": true,
+                    "default_product": null,
+                    "interest_capitalization": "capitalize_interest"
+                },
+                "rollover": {
+                    "enabled": false
+                },
+                "maturity": {
+                    "enabled": true,
+                    "maturity_initiation_advance": "1"
+                },
+                "settlement_day": [
+                    "MONDAY",
+                    "TUESDAY",
+                    "WEDNESDAY",
+                    "THURSDAY",
+                    "FRIDAY"
+                ],
+                "daily_settlement": true,
+                "annuity_booking_frequency": "MATURITY",
+                "annuity_payout_frequency": null,
+                "test_group": null
+            },
+            "deposit_taking_bank": {
+                "id": "BSCOGB3L",
+                "name": "Brown Shipley",
+                "name_internal": "Brown Shipley",
+                "bank_slug": "brown-shipley",
+                "description": "Founded in 1810, Brown Shipley is a UK authorised private bank with over 200 years of experience, and is regulated by both the PRA and FCA.\n\nBrown Shipley is headquartered in London with offices in seven other UK cities, offering fully integrated wealth planning, investment management and banking services.\n\nBrown Shipley is owned by Quintet Private Bank, and is part of a group of boutique private banks and wealth managers operating across over 50 European cities. Being part of Quintet expands their scale and security and adds a truly global outlook to already strong foundations.\n\n\nAll eligible deposits made into Brown Shipley bank accounts are protected by the FSCS up to a total of £85,000 per individual.",
+                "bank_logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt7aca23ab41398f7f/6602d477be6c7e040ad060fe/Logos_Banks_UK_Specs_Prodtable_Brown_Shipley_.png",
+                "logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/bltb92f4afb95f2d7b4/669a34c9124028f2e75aa7d6/Logos_Banks_UK_Specs_Prodtable_640x320_Brown_Shipley.png",
+                "logo_darkmode_url": null,
+                "logo_icon_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/bltb92f4afb95f2d7b4/669a34c9124028f2e75aa7d6/Logos_Banks_UK_Specs_Prodtable_640x320_Brown_Shipley.png",
+                "logo_icon_darkmode_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/bltb92f4afb95f2d7b4/669a34c9124028f2e75aa7d6/Logos_Banks_UK_Specs_Prodtable_640x320_Brown_Shipley.png",
+                "branch_country": {
+                    "id": "GBR",
+                    "unique_country_id": "GBR_BSCOGB3L",
+                    "name": "United Kingdom",
+                    "description": "The United Kingdom of Great Britain and Northern Ireland is the largest island state in Europe and has one of the strongest privatised economies in the world, evidenced by the fact that it has the third largest Gross Domestic Product in Europe. The national currency is the British Pound (GBP). The Financial Services Compensation Scheme (FSCS), an independent body created by the British government, protects money held in UK-regulated banks (up to £85,000 per person, per banking group) and pays compensation in the event that the institution fails.",
+                    "rating": "AA",
+                    "withholding_tax_applicable": false,
+                    "withholding_tax_description": "",
+                    "domestic_taxation": false,
+                    "domestic_taxation_applicable": false,
+                    "source_tax_applicable": false,
+                    "source_tax_type": null,
+                    "source_tax_description": "",
+                    "source_tax_reduction_process_type": "NOT_REQUIRED",
+                    "source_tax_rates": {
+                        "flat_basic_rate": "0.0",
+                        "flat_reduced_rate": "0.0"
+                    }
+                },
+                "address": {
+                    "street": "2 Moorgate",
+                    "city": "London",
+                    "region": "United Kingdom",
+                    "postal_code": "EC2R6AG",
+                    "country": "United Kingdom"
+                },
+                "conditions": {
+                    "investment_amount_max": "85000",
+                    "investment_amount_min": null,
+                    "currency": null
+                },
+                "taxation_details": {
+                    "tin": "",
+                    "identification_number": "",
+                    "identification_document_name": "",
+                    "identification_document_number": "",
+                    "identification_document_issue_date": null
+                },
+                "statutory_deposit_guarantee_scheme": {
+                    "name": "The Financial Services Compensation Scheme",
+                    "country": {
+                        "id": "GBR",
+                        "unique_country_id": "GBR_BSCOGB3L",
+                        "name": "United Kingdom",
+                        "description": "The United Kingdom of Great Britain and Northern Ireland is the largest island state in Europe and has one of the strongest privatised economies in the world, evidenced by the fact that it has the third largest Gross Domestic Product in Europe. The national currency is the British Pound (GBP). The Financial Services Compensation Scheme (FSCS), an independent body created by the British government, protects money held in UK-regulated banks (up to £85,000 per person, per banking group) and pays compensation in the event that the institution fails.",
+                        "rating": "AA"
+                    },
+                    "description": "The FSCS is the United Kingdom’s statutory deposit guarantee scheme. If an FSCS-protected bank fails or is unable to meet its financial obligations, the FSCS can provide compensation for eligible customer deposits up to a limit of £85,000 per person, per bank. The FSCS’ £85,000 protection limit applies to all deposits held with a bank (including current and savings accounts), as well as any deposits held with intermediaries of the same bank (for example, where a bank operates multiple banks under different trading names). Read our dedicated FAQ page to learn more about the FSCS.",
+                    "insured_amount": "85000",
+                    "currency": "GBP",
+                    "payout_currency": "GBP",
+                    "responsible_authority": "",
+                    "official_info_url": "https://help.raisin.co.uk/hc/en-us/articles/4405438828049-What-happens-to-my-money-if-a-bank-fails-or-ceases-trading",
+                    "logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt271f880c0f70fc1b/66d70e92944f3a949a640566/Logos_CS_new-template_UK_FSCS.png"
+                },
+                "voluntary_deposit_guarantee_scheme": {
+                    "name": null,
+                    "country": null,
+                    "description": null,
+                    "insured_amount": null,
+                    "currency": null,
+                    "payout_currency": null,
+                    "responsible_authority": null,
+                    "official_info_url": null,
+                    "logo_url": null
+                },
+                "additional_details": null,
+                "customer_deposit_limit": [
+                    "85000"
+                ],
+                "shariah_compliant": false,
+                "custom_message": null
+            },
+            "distribution": {
+                "distributor_id": "Raisin",
+                "distributor_name": "Raisin UK",
+                "logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt150c637fe3fba719/6821fc29082383d7bbe7c25e/Logo_Raisin_RGB.png",
+                "distributor_channel_id": "raisin_direct_retail_gbr",
+                "distributor_address": {
+                    "street": "12-16 Mosley Street",
+                    "city": "Manchester",
+                    "region": "",
+                    "postal_code": "MA23AQ",
+                    "country": "United Kingdom"
+                }
+            },
+            "declarations": [],
+            "pre_contractual_documents": [
+                {
+                    "id": "PRODUCT_INFORMATION_SHEET",
+                    "display_name": "Product Information Sheet",
+                    "document_type": "PRODUCT_INFORMATION_SHEET",
+                    "url": "https://api2.raisin.co.uk/dbs/v1/public/products/BRO003/document/product_information_sheet?distributor_id=Raisin&distribution_channel_id=raisin_direct_retail_gbr",
+                    "version": 1,
+                    "created_at": "2025-06-22T00:00:00",
+                    "updated_at": "2025-06-22T00:00:00"
+                },
+                {
+                    "id": "bltb68112bc277032db",
+                    "display_name": "Terms and Conditions",
+                    "document_type": "DTB_TERMS_AND_CONDITIONS",
+                    "url": "https://eu-assets.contentstack.com/v3/assets/blt9e536e7f163b7c56/bltb68112bc277032db/683727b3a09f9e55f21a53ce/Raisin_Trust_T&Cs_V4_280525.pdf",
+                    "version": 3,
+                    "created_at": "2025-04-02T15:55:56",
+                    "updated_at": "2025-05-28T15:11:47"
+                },
+                {
+                    "id": "blt98c0da3776547819",
+                    "display_name": "Deposit Guarantee Scheme",
+                    "document_type": "DEPOSIT_GUARANTEE_SCHEME_INFORMATION_SHEET",
+                    "url": "https://eu-assets.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt98c0da3776547819/655b45afe7be070407ff06a4/Brown_Shipley_FSCS.pdf",
+                    "version": 1,
+                    "created_at": "2023-11-20T11:40:31",
+                    "updated_at": "2023-11-20T11:40:31"
+                }
+            ],
+            "display": {
+                "contract_model": "trust",
+                "tracked_accounts": "deposits_and_tranches",
+                "ledger_management_model": "managed",
+                "labels": []
+            },
+            "day_count": "ACTUAL_365_FIXED"
+        },
+        {
+            "id": "ALR003",
+            "product_type": "TERM",
+            "marketed_as_product_type": "TERM",
+            "currency": "GBP",
+            "term": {
+                "unit": "months",
+                "period": 36
+            },
+            "term_normalized": {
+                "months": 36
+            },
+            "interest_rate_modality": "FIXED",
+            "interest_rates": {
+                "interest_rate_nominal": "3.65",
+                "interest_rate_effective": "3.65",
+                "termination_interest_rate_nominal": null,
+                "termination_interest_rate_effective": null,
+                "renewal_interest_rate_nominal": "3.65",
+                "renewal_interest_rate_effective": "3.65",
+                "headline_interest_rate": "EFFECTIVE",
+                "upcoming_rates": [],
+                "effective_date": "2025-06-11"
+            },
+            "conditions": {
+                "limit_to_one_product": false,
+                "minimum_balance": "1000",
+                "maximum_balance": "85000",
+                "annuity": {
+                    "frequency": {
+                        "unit": "months",
+                        "period": 12
+                    },
+                    "enabled": true,
+                    "point_of_reference": "RELATIVE",
+                    "annuity_payout": false,
+                    "compound_interest": true
+                },
+                "opening": {
+                    "application_document": "not_applicable",
+                    "minimum_amount": "1000",
+                    "available_to_pep_customers": false,
+                    "restricted_to_new_customers": null
+                },
+                "top_up": {
+                    "enabled": false,
+                    "minimum_amount": null
+                },
+                "withdrawal": {
+                    "enabled": false,
+                    "minimum_amount": null
+                },
+                "termination": {
+                    "termination_policy_pro_rata": false,
+                    "notice_period": null,
+                    "statutory_termination_timeframe": 0,
+                    "contractual_termination_allowed": false,
+                    "interest_policy": "NOT_BOOKED"
+                },
+                "renewal": {
+                    "enabled": false,
+                    "default_product": null,
+                    "interest_capitalization": null
+                },
+                "rollover": {
+                    "enabled": false
+                },
+                "maturity": {
+                    "enabled": true,
+                    "maturity_initiation_advance": "1"
+                },
+                "settlement_day": [
+                    "MONDAY",
+                    "TUESDAY",
+                    "WEDNESDAY",
+                    "THURSDAY",
+                    "FRIDAY"
+                ],
+                "daily_settlement": true,
+                "annuity_booking_frequency": "ANNUAL",
+                "annuity_payout_frequency": null,
+                "test_group": null
+            },
+            "deposit_taking_bank": {
+                "id": "ARAYGB22",
+                "name": "Al Rayan Bank",
+                "name_internal": "Al Rayan Bank",
+                "bank_slug": "al-rayan-bank",
+                "description": "Founded in 2004, Al Rayan Bank is an inclusive Islamic bank which welcomes customers of all faiths and beliefs. As the oldest and largest Islamic bank in the UK, Al Rayan Bank serves over 85,000 customers throughout the UK with Sharia-compliant and FSCS protected banking products.\n\nBecause Al Rayan Bank is an ethical, Sharia-compliant bank, they adhere to Sharia banking principles, which you can read about on our Sharia banking page.\n\nAl Rayan Bank PLC is authorised by the Prudential Regulation Authority and regulated by the Financial Conduct Authority and the Prudential Regulation Authority.",
+                "bank_logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/bltef03db60d7dff4c7/682afc26baf3b9126b9b24b2/ARB-UK_H_RGB_20241105.png",
+                "logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt6a2480e95c26098f/682afbfacef50c6f51b5af24/ARB-UK_H_RGB_20241105.png",
+                "logo_darkmode_url": null,
+                "logo_icon_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blte02e22dda66284b3/684013c7e051e666ede08b51/BankLogo_112_112_Al-Rayan-Bank.png",
+                "logo_icon_darkmode_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blte02e22dda66284b3/684013c7e051e666ede08b51/BankLogo_112_112_Al-Rayan-Bank.png",
+                "branch_country": {
+                    "id": "GBR",
+                    "unique_country_id": "GBR_ARAYGB22",
+                    "name": "United Kingdom",
+                    "description": "The United Kingdom of Great Britain and Northern Ireland is the largest island state in Europe and has one of the strongest privatised economies in the world, evidenced by the fact that it has the third largest Gross Domestic Product in Europe. The national currency is the British Pound (GBP). The Financial Services Compensation Scheme (FSCS), an independent body created by the British government, protects money held in UK-regulated banks (up to £85,000 per person, per banking group) and pays compensation in the event that the institution fails.",
+                    "rating": "AA",
+                    "withholding_tax_applicable": false,
+                    "withholding_tax_description": "",
+                    "domestic_taxation": false,
+                    "domestic_taxation_applicable": false,
+                    "source_tax_applicable": false,
+                    "source_tax_type": null,
+                    "source_tax_description": "",
+                    "source_tax_reduction_process_type": "NOT_REQUIRED",
+                    "source_tax_rates": {
+                        "flat_basic_rate": "0.0",
+                        "flat_reduced_rate": "0.0"
+                    }
+                },
+                "address": {
+                    "street": "4 Stratford Place",
+                    "city": "London",
+                    "region": "London",
+                    "postal_code": "W1C 1AT",
+                    "country": "United Kingdom"
+                },
+                "conditions": {
+                    "investment_amount_max": "85000",
+                    "investment_amount_min": null,
+                    "currency": null
+                },
+                "taxation_details": {
+                    "tin": "",
+                    "identification_number": "",
+                    "identification_document_name": "",
+                    "identification_document_number": "",
+                    "identification_document_issue_date": null
+                },
+                "statutory_deposit_guarantee_scheme": {
+                    "name": "The Financial Services Compensation Scheme",
+                    "country": {
+                        "id": "GBR",
+                        "unique_country_id": "GBR_ARAYGB22",
+                        "name": "United Kingdom",
+                        "description": "The United Kingdom of Great Britain and Northern Ireland is the largest island state in Europe and has one of the strongest privatised economies in the world, evidenced by the fact that it has the third largest Gross Domestic Product in Europe. The national currency is the British Pound (GBP). The Financial Services Compensation Scheme (FSCS), an independent body created by the British government, protects money held in UK-regulated banks (up to £85,000 per person, per banking group) and pays compensation in the event that the institution fails.",
+                        "rating": "AA"
+                    },
+                    "description": "The FSCS is the United Kingdom’s statutory deposit guarantee scheme. If an FSCS-protected bank fails or is unable to meet its financial obligations, the FSCS can provide compensation for eligible customer deposits up to a limit of £85,000 per person, per bank. The FSCS’ £85,000 protection limit applies to all deposits held with a bank (including current and savings accounts), as well as any deposits held with intermediaries of the same bank (for example, where a bank operates multiple banks under different trading names). Read our dedicated FAQ page to learn more about the FSCS.",
+                    "insured_amount": "85000",
+                    "currency": "GBP",
+                    "payout_currency": "GBP",
+                    "responsible_authority": "",
+                    "official_info_url": "https://help.raisin.co.uk/hc/en-us/articles/4405438828049-What-happens-to-my-money-if-a-bank-fails-or-ceases-trading",
+                    "logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt271f880c0f70fc1b/66d70e92944f3a949a640566/Logos_CS_new-template_UK_FSCS.png"
+                },
+                "voluntary_deposit_guarantee_scheme": {
+                    "name": null,
+                    "country": null,
+                    "description": null,
+                    "insured_amount": null,
+                    "currency": null,
+                    "payout_currency": null,
+                    "responsible_authority": null,
+                    "official_info_url": null,
+                    "logo_url": null
+                },
+                "additional_details": null,
+                "customer_deposit_limit": [
+                    "85000"
+                ],
+                "shariah_compliant": true,
+                "custom_message": null
+            },
+            "distribution": {
+                "distributor_id": "Raisin",
+                "distributor_name": "Raisin UK",
+                "logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt150c637fe3fba719/6821fc29082383d7bbe7c25e/Logo_Raisin_RGB.png",
+                "distributor_channel_id": "raisin_direct_retail_gbr",
+                "distributor_address": {
+                    "street": "12-16 Mosley Street",
+                    "city": "Manchester",
+                    "region": "",
+                    "postal_code": "MA23AQ",
+                    "country": "United Kingdom"
+                }
+            },
+            "declarations": [],
+            "pre_contractual_documents": [
+                {
+                    "id": "PRODUCT_INFORMATION_SHEET",
+                    "display_name": "Product Information Sheet",
+                    "document_type": "PRODUCT_INFORMATION_SHEET",
+                    "url": "https://api2.raisin.co.uk/dbs/v1/public/products/ALR003/document/product_information_sheet?distributor_id=Raisin&distribution_channel_id=raisin_direct_retail_gbr",
+                    "version": 1,
+                    "created_at": "2025-06-22T00:00:00",
+                    "updated_at": "2025-06-22T00:00:00"
+                },
+                {
+                    "id": "bltb68112bc277032db",
+                    "display_name": "Terms and Conditions",
+                    "document_type": "DTB_TERMS_AND_CONDITIONS",
+                    "url": "https://eu-assets.contentstack.com/v3/assets/blt9e536e7f163b7c56/bltb68112bc277032db/683727b3a09f9e55f21a53ce/Raisin_Trust_T&Cs_V4_280525.pdf",
+                    "version": 3,
+                    "created_at": "2025-04-02T15:55:56",
+                    "updated_at": "2025-05-28T15:11:47"
+                },
+                {
+                    "id": "blt4fd5960097fcbdeb",
+                    "display_name": "Deposit Guarantee Scheme",
+                    "document_type": "DEPOSIT_GUARANTEE_SCHEME_INFORMATION_SHEET",
+                    "url": "https://eu-assets.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt4fd5960097fcbdeb/66680afce84d1d4adad685bd/Al_Rayan_FSCS_Sheet.pdf",
+                    "version": 6,
+                    "created_at": "2023-10-27T13:47:26",
+                    "updated_at": "2024-06-11T08:29:56"
+                }
+            ],
+            "display": {
+                "contract_model": "trust",
+                "tracked_accounts": "deposits_and_tranches",
+                "ledger_management_model": "managed",
+                "labels": []
+            },
+            "day_count": "ACTUAL_365_FIXED"
+        },
+        {
+            "id": "ALR002",
+            "product_type": "TERM",
+            "marketed_as_product_type": "TERM",
+            "currency": "GBP",
+            "term": {
+                "unit": "months",
+                "period": 24
+            },
+            "term_normalized": {
+                "months": 24
+            },
+            "interest_rate_modality": "FIXED",
+            "interest_rates": {
+                "interest_rate_nominal": "3.75",
+                "interest_rate_effective": "3.75",
+                "termination_interest_rate_nominal": null,
+                "termination_interest_rate_effective": null,
+                "renewal_interest_rate_nominal": "3.75",
+                "renewal_interest_rate_effective": "3.75",
+                "headline_interest_rate": "EFFECTIVE",
+                "upcoming_rates": [],
+                "effective_date": "2025-06-11"
+            },
+            "conditions": {
+                "limit_to_one_product": false,
+                "minimum_balance": "1000",
+                "maximum_balance": "85000",
+                "annuity": {
+                    "frequency": {
+                        "unit": "months",
+                        "period": 12
+                    },
+                    "enabled": true,
+                    "point_of_reference": "RELATIVE",
+                    "annuity_payout": false,
+                    "compound_interest": true
+                },
+                "opening": {
+                    "application_document": "not_applicable",
+                    "minimum_amount": "1000",
+                    "available_to_pep_customers": false,
+                    "restricted_to_new_customers": null
+                },
+                "top_up": {
+                    "enabled": false,
+                    "minimum_amount": null
+                },
+                "withdrawal": {
+                    "enabled": false,
+                    "minimum_amount": null
+                },
+                "termination": {
+                    "termination_policy_pro_rata": false,
+                    "notice_period": null,
+                    "statutory_termination_timeframe": 0,
+                    "contractual_termination_allowed": false,
+                    "interest_policy": "NOT_BOOKED"
+                },
+                "renewal": {
+                    "enabled": false,
+                    "default_product": null,
+                    "interest_capitalization": null
+                },
+                "rollover": {
+                    "enabled": false
+                },
+                "maturity": {
+                    "enabled": true,
+                    "maturity_initiation_advance": "1"
+                },
+                "settlement_day": [
+                    "MONDAY",
+                    "TUESDAY",
+                    "WEDNESDAY",
+                    "THURSDAY",
+                    "FRIDAY"
+                ],
+                "daily_settlement": true,
+                "annuity_booking_frequency": "ANNUAL",
+                "annuity_payout_frequency": null,
+                "test_group": null
+            },
+            "deposit_taking_bank": {
+                "id": "ARAYGB22",
+                "name": "Al Rayan Bank",
+                "name_internal": "Al Rayan Bank",
+                "bank_slug": "al-rayan-bank",
+                "description": "Founded in 2004, Al Rayan Bank is an inclusive Islamic bank which welcomes customers of all faiths and beliefs. As the oldest and largest Islamic bank in the UK, Al Rayan Bank serves over 85,000 customers throughout the UK with Sharia-compliant and FSCS protected banking products.\n\nBecause Al Rayan Bank is an ethical, Sharia-compliant bank, they adhere to Sharia banking principles, which you can read about on our Sharia banking page.\n\nAl Rayan Bank PLC is authorised by the Prudential Regulation Authority and regulated by the Financial Conduct Authority and the Prudential Regulation Authority.",
+                "bank_logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/bltef03db60d7dff4c7/682afc26baf3b9126b9b24b2/ARB-UK_H_RGB_20241105.png",
+                "logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt6a2480e95c26098f/682afbfacef50c6f51b5af24/ARB-UK_H_RGB_20241105.png",
+                "logo_darkmode_url": null,
+                "logo_icon_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blte02e22dda66284b3/684013c7e051e666ede08b51/BankLogo_112_112_Al-Rayan-Bank.png",
+                "logo_icon_darkmode_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blte02e22dda66284b3/684013c7e051e666ede08b51/BankLogo_112_112_Al-Rayan-Bank.png",
+                "branch_country": {
+                    "id": "GBR",
+                    "unique_country_id": "GBR_ARAYGB22",
+                    "name": "United Kingdom",
+                    "description": "The United Kingdom of Great Britain and Northern Ireland is the largest island state in Europe and has one of the strongest privatised economies in the world, evidenced by the fact that it has the third largest Gross Domestic Product in Europe. The national currency is the British Pound (GBP). The Financial Services Compensation Scheme (FSCS), an independent body created by the British government, protects money held in UK-regulated banks (up to £85,000 per person, per banking group) and pays compensation in the event that the institution fails.",
+                    "rating": "AA",
+                    "withholding_tax_applicable": false,
+                    "withholding_tax_description": "",
+                    "domestic_taxation": false,
+                    "domestic_taxation_applicable": false,
+                    "source_tax_applicable": false,
+                    "source_tax_type": null,
+                    "source_tax_description": "",
+                    "source_tax_reduction_process_type": "NOT_REQUIRED",
+                    "source_tax_rates": {
+                        "flat_basic_rate": "0.0",
+                        "flat_reduced_rate": "0.0"
+                    }
+                },
+                "address": {
+                    "street": "4 Stratford Place",
+                    "city": "London",
+                    "region": "London",
+                    "postal_code": "W1C 1AT",
+                    "country": "United Kingdom"
+                },
+                "conditions": {
+                    "investment_amount_max": "85000",
+                    "investment_amount_min": null,
+                    "currency": null
+                },
+                "taxation_details": {
+                    "tin": "",
+                    "identification_number": "",
+                    "identification_document_name": "",
+                    "identification_document_number": "",
+                    "identification_document_issue_date": null
+                },
+                "statutory_deposit_guarantee_scheme": {
+                    "name": "The Financial Services Compensation Scheme",
+                    "country": {
+                        "id": "GBR",
+                        "unique_country_id": "GBR_ARAYGB22",
+                        "name": "United Kingdom",
+                        "description": "The United Kingdom of Great Britain and Northern Ireland is the largest island state in Europe and has one of the strongest privatised economies in the world, evidenced by the fact that it has the third largest Gross Domestic Product in Europe. The national currency is the British Pound (GBP). The Financial Services Compensation Scheme (FSCS), an independent body created by the British government, protects money held in UK-regulated banks (up to £85,000 per person, per banking group) and pays compensation in the event that the institution fails.",
+                        "rating": "AA"
+                    },
+                    "description": "The FSCS is the United Kingdom’s statutory deposit guarantee scheme. If an FSCS-protected bank fails or is unable to meet its financial obligations, the FSCS can provide compensation for eligible customer deposits up to a limit of £85,000 per person, per bank. The FSCS’ £85,000 protection limit applies to all deposits held with a bank (including current and savings accounts), as well as any deposits held with intermediaries of the same bank (for example, where a bank operates multiple banks under different trading names). Read our dedicated FAQ page to learn more about the FSCS.",
+                    "insured_amount": "85000",
+                    "currency": "GBP",
+                    "payout_currency": "GBP",
+                    "responsible_authority": "",
+                    "official_info_url": "https://help.raisin.co.uk/hc/en-us/articles/4405438828049-What-happens-to-my-money-if-a-bank-fails-or-ceases-trading",
+                    "logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt271f880c0f70fc1b/66d70e92944f3a949a640566/Logos_CS_new-template_UK_FSCS.png"
+                },
+                "voluntary_deposit_guarantee_scheme": {
+                    "name": null,
+                    "country": null,
+                    "description": null,
+                    "insured_amount": null,
+                    "currency": null,
+                    "payout_currency": null,
+                    "responsible_authority": null,
+                    "official_info_url": null,
+                    "logo_url": null
+                },
+                "additional_details": null,
+                "customer_deposit_limit": [
+                    "85000"
+                ],
+                "shariah_compliant": true,
+                "custom_message": null
+            },
+            "distribution": {
+                "distributor_id": "Raisin",
+                "distributor_name": "Raisin UK",
+                "logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt150c637fe3fba719/6821fc29082383d7bbe7c25e/Logo_Raisin_RGB.png",
+                "distributor_channel_id": "raisin_direct_retail_gbr",
+                "distributor_address": {
+                    "street": "12-16 Mosley Street",
+                    "city": "Manchester",
+                    "region": "",
+                    "postal_code": "MA23AQ",
+                    "country": "United Kingdom"
+                }
+            },
+            "declarations": [],
+            "pre_contractual_documents": [
+                {
+                    "id": "PRODUCT_INFORMATION_SHEET",
+                    "display_name": "Product Information Sheet",
+                    "document_type": "PRODUCT_INFORMATION_SHEET",
+                    "url": "https://api2.raisin.co.uk/dbs/v1/public/products/ALR002/document/product_information_sheet?distributor_id=Raisin&distribution_channel_id=raisin_direct_retail_gbr",
+                    "version": 1,
+                    "created_at": "2025-06-22T00:00:00",
+                    "updated_at": "2025-06-22T00:00:00"
+                },
+                {
+                    "id": "bltb68112bc277032db",
+                    "display_name": "Terms and Conditions",
+                    "document_type": "DTB_TERMS_AND_CONDITIONS",
+                    "url": "https://eu-assets.contentstack.com/v3/assets/blt9e536e7f163b7c56/bltb68112bc277032db/683727b3a09f9e55f21a53ce/Raisin_Trust_T&Cs_V4_280525.pdf",
+                    "version": 3,
+                    "created_at": "2025-04-02T15:55:56",
+                    "updated_at": "2025-05-28T15:11:47"
+                },
+                {
+                    "id": "blt4fd5960097fcbdeb",
+                    "display_name": "Deposit Guarantee Scheme",
+                    "document_type": "DEPOSIT_GUARANTEE_SCHEME_INFORMATION_SHEET",
+                    "url": "https://eu-assets.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt4fd5960097fcbdeb/66680afce84d1d4adad685bd/Al_Rayan_FSCS_Sheet.pdf",
+                    "version": 6,
+                    "created_at": "2023-10-27T13:47:26",
+                    "updated_at": "2024-06-11T08:29:56"
+                }
+            ],
+            "display": {
+                "contract_model": "trust",
+                "tracked_accounts": "deposits_and_tranches",
+                "ledger_management_model": "managed",
+                "labels": []
+            },
+            "day_count": "ACTUAL_365_FIXED"
+        },
+        {
+            "id": "ALR008",
+            "product_type": "TERM",
+            "marketed_as_product_type": "TERM",
+            "currency": "GBP",
+            "term": {
+                "unit": "months",
+                "period": 18
+            },
+            "term_normalized": {
+                "months": 18
+            },
+            "interest_rate_modality": "FIXED",
+            "interest_rates": {
+                "interest_rate_nominal": "3.8",
+                "interest_rate_effective": "3.8",
+                "termination_interest_rate_nominal": null,
+                "termination_interest_rate_effective": null,
+                "renewal_interest_rate_nominal": "3.8",
+                "renewal_interest_rate_effective": "3.8",
+                "headline_interest_rate": "EFFECTIVE",
+                "upcoming_rates": [],
+                "effective_date": "2025-06-11"
+            },
+            "conditions": {
+                "limit_to_one_product": false,
+                "minimum_balance": "1000",
+                "maximum_balance": "85000",
+                "annuity": {
+                    "frequency": {
+                        "unit": "months",
+                        "period": 12
+                    },
+                    "enabled": true,
+                    "point_of_reference": "RELATIVE",
+                    "annuity_payout": false,
+                    "compound_interest": true
+                },
+                "opening": {
+                    "application_document": "not_applicable",
+                    "minimum_amount": "1000",
+                    "available_to_pep_customers": false,
+                    "restricted_to_new_customers": null
+                },
+                "top_up": {
+                    "enabled": false,
+                    "minimum_amount": null
+                },
+                "withdrawal": {
+                    "enabled": false,
+                    "minimum_amount": null
+                },
+                "termination": {
+                    "termination_policy_pro_rata": false,
+                    "notice_period": null,
+                    "statutory_termination_timeframe": 0,
+                    "contractual_termination_allowed": false,
+                    "interest_policy": "NOT_BOOKED"
+                },
+                "renewal": {
+                    "enabled": false,
+                    "default_product": null,
+                    "interest_capitalization": null
+                },
+                "rollover": {
+                    "enabled": false
+                },
+                "maturity": {
+                    "enabled": true,
+                    "maturity_initiation_advance": "1"
+                },
+                "settlement_day": [
+                    "MONDAY",
+                    "TUESDAY",
+                    "WEDNESDAY",
+                    "THURSDAY",
+                    "FRIDAY"
+                ],
+                "daily_settlement": true,
+                "annuity_booking_frequency": "ANNUAL",
+                "annuity_payout_frequency": null,
+                "test_group": null
+            },
+            "deposit_taking_bank": {
+                "id": "ARAYGB22",
+                "name": "Al Rayan Bank",
+                "name_internal": "Al Rayan Bank",
+                "bank_slug": "al-rayan-bank",
+                "description": "Founded in 2004, Al Rayan Bank is an inclusive Islamic bank which welcomes customers of all faiths and beliefs. As the oldest and largest Islamic bank in the UK, Al Rayan Bank serves over 85,000 customers throughout the UK with Sharia-compliant and FSCS protected banking products.\n\nBecause Al Rayan Bank is an ethical, Sharia-compliant bank, they adhere to Sharia banking principles, which you can read about on our Sharia banking page.\n\nAl Rayan Bank PLC is authorised by the Prudential Regulation Authority and regulated by the Financial Conduct Authority and the Prudential Regulation Authority.",
+                "bank_logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/bltef03db60d7dff4c7/682afc26baf3b9126b9b24b2/ARB-UK_H_RGB_20241105.png",
+                "logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt6a2480e95c26098f/682afbfacef50c6f51b5af24/ARB-UK_H_RGB_20241105.png",
+                "logo_darkmode_url": null,
+                "logo_icon_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blte02e22dda66284b3/684013c7e051e666ede08b51/BankLogo_112_112_Al-Rayan-Bank.png",
+                "logo_icon_darkmode_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blte02e22dda66284b3/684013c7e051e666ede08b51/BankLogo_112_112_Al-Rayan-Bank.png",
+                "branch_country": {
+                    "id": "GBR",
+                    "unique_country_id": "GBR_ARAYGB22",
+                    "name": "United Kingdom",
+                    "description": "The United Kingdom of Great Britain and Northern Ireland is the largest island state in Europe and has one of the strongest privatised economies in the world, evidenced by the fact that it has the third largest Gross Domestic Product in Europe. The national currency is the British Pound (GBP). The Financial Services Compensation Scheme (FSCS), an independent body created by the British government, protects money held in UK-regulated banks (up to £85,000 per person, per banking group) and pays compensation in the event that the institution fails.",
+                    "rating": "AA",
+                    "withholding_tax_applicable": false,
+                    "withholding_tax_description": "",
+                    "domestic_taxation": false,
+                    "domestic_taxation_applicable": false,
+                    "source_tax_applicable": false,
+                    "source_tax_type": null,
+                    "source_tax_description": "",
+                    "source_tax_reduction_process_type": "NOT_REQUIRED",
+                    "source_tax_rates": {
+                        "flat_basic_rate": "0.0",
+                        "flat_reduced_rate": "0.0"
+                    }
+                },
+                "address": {
+                    "street": "4 Stratford Place",
+                    "city": "London",
+                    "region": "London",
+                    "postal_code": "W1C 1AT",
+                    "country": "United Kingdom"
+                },
+                "conditions": {
+                    "investment_amount_max": "85000",
+                    "investment_amount_min": null,
+                    "currency": null
+                },
+                "taxation_details": {
+                    "tin": "",
+                    "identification_number": "",
+                    "identification_document_name": "",
+                    "identification_document_number": "",
+                    "identification_document_issue_date": null
+                },
+                "statutory_deposit_guarantee_scheme": {
+                    "name": "The Financial Services Compensation Scheme",
+                    "country": {
+                        "id": "GBR",
+                        "unique_country_id": "GBR_ARAYGB22",
+                        "name": "United Kingdom",
+                        "description": "The United Kingdom of Great Britain and Northern Ireland is the largest island state in Europe and has one of the strongest privatised economies in the world, evidenced by the fact that it has the third largest Gross Domestic Product in Europe. The national currency is the British Pound (GBP). The Financial Services Compensation Scheme (FSCS), an independent body created by the British government, protects money held in UK-regulated banks (up to £85,000 per person, per banking group) and pays compensation in the event that the institution fails.",
+                        "rating": "AA"
+                    },
+                    "description": "The FSCS is the United Kingdom’s statutory deposit guarantee scheme. If an FSCS-protected bank fails or is unable to meet its financial obligations, the FSCS can provide compensation for eligible customer deposits up to a limit of £85,000 per person, per bank. The FSCS’ £85,000 protection limit applies to all deposits held with a bank (including current and savings accounts), as well as any deposits held with intermediaries of the same bank (for example, where a bank operates multiple banks under different trading names). Read our dedicated FAQ page to learn more about the FSCS.",
+                    "insured_amount": "85000",
+                    "currency": "GBP",
+                    "payout_currency": "GBP",
+                    "responsible_authority": "",
+                    "official_info_url": "https://help.raisin.co.uk/hc/en-us/articles/4405438828049-What-happens-to-my-money-if-a-bank-fails-or-ceases-trading",
+                    "logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt271f880c0f70fc1b/66d70e92944f3a949a640566/Logos_CS_new-template_UK_FSCS.png"
+                },
+                "voluntary_deposit_guarantee_scheme": {
+                    "name": null,
+                    "country": null,
+                    "description": null,
+                    "insured_amount": null,
+                    "currency": null,
+                    "payout_currency": null,
+                    "responsible_authority": null,
+                    "official_info_url": null,
+                    "logo_url": null
+                },
+                "additional_details": null,
+                "customer_deposit_limit": [
+                    "85000"
+                ],
+                "shariah_compliant": true,
+                "custom_message": null
+            },
+            "distribution": {
+                "distributor_id": "Raisin",
+                "distributor_name": "Raisin UK",
+                "logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt150c637fe3fba719/6821fc29082383d7bbe7c25e/Logo_Raisin_RGB.png",
+                "distributor_channel_id": "raisin_direct_retail_gbr",
+                "distributor_address": {
+                    "street": "12-16 Mosley Street",
+                    "city": "Manchester",
+                    "region": "",
+                    "postal_code": "MA23AQ",
+                    "country": "United Kingdom"
+                }
+            },
+            "declarations": [],
+            "pre_contractual_documents": [
+                {
+                    "id": "PRODUCT_INFORMATION_SHEET",
+                    "display_name": "Product Information Sheet",
+                    "document_type": "PRODUCT_INFORMATION_SHEET",
+                    "url": "https://api2.raisin.co.uk/dbs/v1/public/products/ALR008/document/product_information_sheet?distributor_id=Raisin&distribution_channel_id=raisin_direct_retail_gbr",
+                    "version": 1,
+                    "created_at": "2025-06-22T00:00:00",
+                    "updated_at": "2025-06-22T00:00:00"
+                },
+                {
+                    "id": "bltb68112bc277032db",
+                    "display_name": "Terms and Conditions",
+                    "document_type": "DTB_TERMS_AND_CONDITIONS",
+                    "url": "https://eu-assets.contentstack.com/v3/assets/blt9e536e7f163b7c56/bltb68112bc277032db/683727b3a09f9e55f21a53ce/Raisin_Trust_T&Cs_V4_280525.pdf",
+                    "version": 3,
+                    "created_at": "2025-04-02T15:55:56",
+                    "updated_at": "2025-05-28T15:11:47"
+                },
+                {
+                    "id": "blt4fd5960097fcbdeb",
+                    "display_name": "Deposit Guarantee Scheme",
+                    "document_type": "DEPOSIT_GUARANTEE_SCHEME_INFORMATION_SHEET",
+                    "url": "https://eu-assets.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt4fd5960097fcbdeb/66680afce84d1d4adad685bd/Al_Rayan_FSCS_Sheet.pdf",
+                    "version": 6,
+                    "created_at": "2023-10-27T13:47:26",
+                    "updated_at": "2024-06-11T08:29:56"
+                }
+            ],
+            "display": {
+                "contract_model": "trust",
+                "tracked_accounts": "deposits_and_tranches",
+                "ledger_management_model": "managed",
+                "labels": []
+            },
+            "day_count": "ACTUAL_365_FIXED"
+        },
+        {
+            "id": "SAN003",
+            "product_type": "TERM",
+            "marketed_as_product_type": "TERM",
+            "currency": "GBP",
+            "term": {
+                "unit": "months",
+                "period": 6
+            },
+            "term_normalized": {
+                "months": 6
+            },
+            "interest_rate_modality": "FIXED",
+            "interest_rates": {
+                "interest_rate_nominal": "3.7",
+                "interest_rate_effective": "3.73",
+                "termination_interest_rate_nominal": null,
+                "termination_interest_rate_effective": null,
+                "renewal_interest_rate_nominal": "3.7",
+                "renewal_interest_rate_effective": "3.73",
+                "headline_interest_rate": "EFFECTIVE",
+                "upcoming_rates": [],
+                "effective_date": "2025-06-16"
+            },
+            "conditions": {
+                "limit_to_one_product": false,
+                "minimum_balance": "1000",
+                "maximum_balance": "85000",
+                "annuity": {
+                    "frequency": null,
+                    "enabled": false,
+                    "point_of_reference": null,
+                    "annuity_payout": false,
+                    "compound_interest": false
+                },
+                "opening": {
+                    "application_document": "not_applicable",
+                    "minimum_amount": "1000",
+                    "available_to_pep_customers": true,
+                    "restricted_to_new_customers": null
+                },
+                "top_up": {
+                    "enabled": false,
+                    "minimum_amount": null
+                },
+                "withdrawal": {
+                    "enabled": false,
+                    "minimum_amount": null
+                },
+                "termination": {
+                    "termination_policy_pro_rata": false,
+                    "notice_period": null,
+                    "statutory_termination_timeframe": 0,
+                    "contractual_termination_allowed": false,
+                    "interest_policy": "NOT_BOOKED"
+                },
+                "renewal": {
+                    "enabled": false,
+                    "default_product": null,
+                    "interest_capitalization": null
+                },
+                "rollover": {
+                    "enabled": false
+                },
+                "maturity": {
+                    "enabled": true,
+                    "maturity_initiation_advance": "1"
+                },
+                "settlement_day": [
+                    "MONDAY",
+                    "TUESDAY",
+                    "WEDNESDAY",
+                    "THURSDAY",
+                    "FRIDAY"
+                ],
+                "daily_settlement": true,
+                "annuity_booking_frequency": "MATURITY",
+                "annuity_payout_frequency": null,
+                "test_group": null
+            },
+            "deposit_taking_bank": {
+                "id": "SFSXGB2L",
+                "name": "Santander International Bank",
+                "name_internal": "Santander International Bank",
+                "bank_slug": "santander-international-bank",
+                "description": "Santander International is the trading name of Santander Financial Services plc, a non-ring fenced wholly owned subsidiary bank of Santander UK Group Holdings plc which is part of the Banco Santander Group.\n \nSantander Financial Services plc is authorised by the Prudential Regulation Authority and regulated by the Financial Conduct Authority and the Prudential Regulation Authority. Our UK saving products are protected by the Financial Services Compensation Scheme.\n",
+                "bank_logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/bltb2d1c750c34c11f7/6790db6c055b55e910a813f0/FA_SANTANDER_INTERNATIONAL_CV_POS_RGB_OBS.png",
+                "logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt085db67b1570b275/6790db6c5732c548389b1edd/FA_SANTANDER_INTERNATIONAL_CV_POS_RGB_CS.png",
+                "logo_darkmode_url": null,
+                "logo_icon_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt085db67b1570b275/6790db6c5732c548389b1edd/FA_SANTANDER_INTERNATIONAL_CV_POS_RGB_CS.png",
+                "logo_icon_darkmode_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt085db67b1570b275/6790db6c5732c548389b1edd/FA_SANTANDER_INTERNATIONAL_CV_POS_RGB_CS.png",
+                "branch_country": {
+                    "id": "GBR",
+                    "unique_country_id": "GBR_SFSXGB2L",
+                    "name": "United Kingdom",
+                    "description": "The United Kingdom of Great Britain and Northern Ireland is the largest island state in Europe and has one of the strongest privatised economies in the world, evidenced by the fact that it has the third largest Gross Domestic Product in Europe. The national currency is the British Pound (GBP). The Financial Services Compensation Scheme (FSCS), an independent body created by the British government, protects money held in UK-regulated banks (up to £85,000 per person, per banking group) and pays compensation in the event that the institution fails.",
+                    "rating": "AA",
+                    "withholding_tax_applicable": false,
+                    "withholding_tax_description": "",
+                    "domestic_taxation": false,
+                    "domestic_taxation_applicable": false,
+                    "source_tax_applicable": false,
+                    "source_tax_type": null,
+                    "source_tax_description": "",
+                    "source_tax_reduction_process_type": "NOT_REQUIRED",
+                    "source_tax_rates": {
+                        "flat_basic_rate": "0.0",
+                        "flat_reduced_rate": "0.0"
+                    }
+                },
+                "address": {
+                    "street": "2 Triton Square",
+                    "city": "London",
+                    "region": "",
+                    "postal_code": "NW1 3AN",
+                    "country": "United Kingdom"
+                },
+                "conditions": {
+                    "investment_amount_max": "85000",
+                    "investment_amount_min": null,
+                    "currency": null
+                },
+                "taxation_details": {
+                    "tin": "",
+                    "identification_number": "",
+                    "identification_document_name": "",
+                    "identification_document_number": "",
+                    "identification_document_issue_date": null
+                },
+                "statutory_deposit_guarantee_scheme": {
+                    "name": "The Financial Services Compensation Scheme",
+                    "country": {
+                        "id": "GBR",
+                        "unique_country_id": "GBR_SFSXGB2L",
+                        "name": "United Kingdom",
+                        "description": "The United Kingdom of Great Britain and Northern Ireland is the largest island state in Europe and has one of the strongest privatised economies in the world, evidenced by the fact that it has the third largest Gross Domestic Product in Europe. The national currency is the British Pound (GBP). The Financial Services Compensation Scheme (FSCS), an independent body created by the British government, protects money held in UK-regulated banks (up to £85,000 per person, per banking group) and pays compensation in the event that the institution fails.",
+                        "rating": "AA"
+                    },
+                    "description": "The FSCS is the United Kingdom’s statutory deposit guarantee scheme. If an FSCS-protected bank fails or is unable to meet its financial obligations, the FSCS can provide compensation for eligible customer deposits up to a limit of £85,000 per person, per bank. The FSCS’ £85,000 protection limit applies to all deposits held with a bank (including current and savings accounts), as well as any deposits held with intermediaries of the same bank (for example, where a bank operates multiple banks under different trading names). Read our dedicated FAQ page to learn more about the FSCS.",
+                    "insured_amount": "85000",
+                    "currency": "GBP",
+                    "payout_currency": "GBP",
+                    "responsible_authority": "",
+                    "official_info_url": "https://help.raisin.co.uk/hc/en-us/articles/4405438828049-What-happens-to-my-money-if-a-bank-fails-or-ceases-trading",
+                    "logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt271f880c0f70fc1b/66d70e92944f3a949a640566/Logos_CS_new-template_UK_FSCS.png"
+                },
+                "voluntary_deposit_guarantee_scheme": {
+                    "name": null,
+                    "country": null,
+                    "description": null,
+                    "insured_amount": null,
+                    "currency": null,
+                    "payout_currency": null,
+                    "responsible_authority": null,
+                    "official_info_url": null,
+                    "logo_url": null
+                },
+                "additional_details": null,
+                "customer_deposit_limit": [
+                    "85000"
+                ],
+                "shariah_compliant": false,
+                "custom_message": null
+            },
+            "distribution": {
+                "distributor_id": "Raisin",
+                "distributor_name": "Raisin UK",
+                "logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt150c637fe3fba719/6821fc29082383d7bbe7c25e/Logo_Raisin_RGB.png",
+                "distributor_channel_id": "raisin_direct_retail_gbr",
+                "distributor_address": {
+                    "street": "12-16 Mosley Street",
+                    "city": "Manchester",
+                    "region": "",
+                    "postal_code": "MA23AQ",
+                    "country": "United Kingdom"
+                }
+            },
+            "declarations": [],
+            "pre_contractual_documents": [
+                {
+                    "id": "PRODUCT_INFORMATION_SHEET",
+                    "display_name": "Product Information Sheet",
+                    "document_type": "PRODUCT_INFORMATION_SHEET",
+                    "url": "https://api2.raisin.co.uk/dbs/v1/public/products/SAN003/document/product_information_sheet?distributor_id=Raisin&distribution_channel_id=raisin_direct_retail_gbr",
+                    "version": 1,
+                    "created_at": "2025-06-22T00:00:00",
+                    "updated_at": "2025-06-22T00:00:00"
+                },
+                {
+                    "id": "bltb68112bc277032db",
+                    "display_name": "Terms and Conditions",
+                    "document_type": "DTB_TERMS_AND_CONDITIONS",
+                    "url": "https://eu-assets.contentstack.com/v3/assets/blt9e536e7f163b7c56/bltb68112bc277032db/683727b3a09f9e55f21a53ce/Raisin_Trust_T&Cs_V4_280525.pdf",
+                    "version": 3,
+                    "created_at": "2025-04-02T15:55:56",
+                    "updated_at": "2025-05-28T15:11:47"
+                },
+                {
+                    "id": "blt793b7bedbd049dc5",
+                    "display_name": "Deposit Guarantee Scheme",
+                    "document_type": "DEPOSIT_GUARANTEE_SCHEME_INFORMATION_SHEET",
+                    "url": "https://eu-assets.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt793b7bedbd049dc5/67ac8161824b2e55fb56615c/Santander_International_FSCS_Information_Sheet.pdf",
+                    "version": 3,
+                    "created_at": "2024-12-23T15:28:12",
+                    "updated_at": "2025-02-12T11:09:21"
+                }
+            ],
+            "display": {
+                "contract_model": "trust",
+                "tracked_accounts": "deposits_and_tranches",
+                "ledger_management_model": "managed",
+                "labels": []
+            },
+            "day_count": "ACTUAL_365_FIXED"
+        },
+        {
+            "id": "SAN004",
+            "product_type": "TERM",
+            "marketed_as_product_type": "TERM",
+            "currency": "GBP",
+            "term": {
+                "unit": "months",
+                "period": 9
+            },
+            "term_normalized": {
+                "months": 9
+            },
+            "interest_rate_modality": "FIXED",
+            "interest_rates": {
+                "interest_rate_nominal": "3.65",
+                "interest_rate_effective": "3.67",
+                "termination_interest_rate_nominal": null,
+                "termination_interest_rate_effective": null,
+                "renewal_interest_rate_nominal": "3.65",
+                "renewal_interest_rate_effective": "3.67",
+                "headline_interest_rate": "EFFECTIVE",
+                "upcoming_rates": [],
+                "effective_date": "2025-06-16"
+            },
+            "conditions": {
+                "limit_to_one_product": false,
+                "minimum_balance": "1000",
+                "maximum_balance": "85000",
+                "annuity": {
+                    "frequency": null,
+                    "enabled": false,
+                    "point_of_reference": null,
+                    "annuity_payout": false,
+                    "compound_interest": false
+                },
+                "opening": {
+                    "application_document": "not_applicable",
+                    "minimum_amount": "1000",
+                    "available_to_pep_customers": true,
+                    "restricted_to_new_customers": null
+                },
+                "top_up": {
+                    "enabled": false,
+                    "minimum_amount": null
+                },
+                "withdrawal": {
+                    "enabled": false,
+                    "minimum_amount": null
+                },
+                "termination": {
+                    "termination_policy_pro_rata": false,
+                    "notice_period": null,
+                    "statutory_termination_timeframe": 0,
+                    "contractual_termination_allowed": false,
+                    "interest_policy": "NOT_BOOKED"
+                },
+                "renewal": {
+                    "enabled": false,
+                    "default_product": null,
+                    "interest_capitalization": null
+                },
+                "rollover": {
+                    "enabled": false
+                },
+                "maturity": {
+                    "enabled": true,
+                    "maturity_initiation_advance": "1"
+                },
+                "settlement_day": [
+                    "MONDAY",
+                    "TUESDAY",
+                    "WEDNESDAY",
+                    "THURSDAY",
+                    "FRIDAY"
+                ],
+                "daily_settlement": true,
+                "annuity_booking_frequency": "MATURITY",
+                "annuity_payout_frequency": null,
+                "test_group": null
+            },
+            "deposit_taking_bank": {
+                "id": "SFSXGB2L",
+                "name": "Santander International Bank",
+                "name_internal": "Santander International Bank",
+                "bank_slug": "santander-international-bank",
+                "description": "Santander International is the trading name of Santander Financial Services plc, a non-ring fenced wholly owned subsidiary bank of Santander UK Group Holdings plc which is part of the Banco Santander Group.\n \nSantander Financial Services plc is authorised by the Prudential Regulation Authority and regulated by the Financial Conduct Authority and the Prudential Regulation Authority. Our UK saving products are protected by the Financial Services Compensation Scheme.\n",
+                "bank_logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/bltb2d1c750c34c11f7/6790db6c055b55e910a813f0/FA_SANTANDER_INTERNATIONAL_CV_POS_RGB_OBS.png",
+                "logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt085db67b1570b275/6790db6c5732c548389b1edd/FA_SANTANDER_INTERNATIONAL_CV_POS_RGB_CS.png",
+                "logo_darkmode_url": null,
+                "logo_icon_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt085db67b1570b275/6790db6c5732c548389b1edd/FA_SANTANDER_INTERNATIONAL_CV_POS_RGB_CS.png",
+                "logo_icon_darkmode_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt085db67b1570b275/6790db6c5732c548389b1edd/FA_SANTANDER_INTERNATIONAL_CV_POS_RGB_CS.png",
+                "branch_country": {
+                    "id": "GBR",
+                    "unique_country_id": "GBR_SFSXGB2L",
+                    "name": "United Kingdom",
+                    "description": "The United Kingdom of Great Britain and Northern Ireland is the largest island state in Europe and has one of the strongest privatised economies in the world, evidenced by the fact that it has the third largest Gross Domestic Product in Europe. The national currency is the British Pound (GBP). The Financial Services Compensation Scheme (FSCS), an independent body created by the British government, protects money held in UK-regulated banks (up to £85,000 per person, per banking group) and pays compensation in the event that the institution fails.",
+                    "rating": "AA",
+                    "withholding_tax_applicable": false,
+                    "withholding_tax_description": "",
+                    "domestic_taxation": false,
+                    "domestic_taxation_applicable": false,
+                    "source_tax_applicable": false,
+                    "source_tax_type": null,
+                    "source_tax_description": "",
+                    "source_tax_reduction_process_type": "NOT_REQUIRED",
+                    "source_tax_rates": {
+                        "flat_basic_rate": "0.0",
+                        "flat_reduced_rate": "0.0"
+                    }
+                },
+                "address": {
+                    "street": "2 Triton Square",
+                    "city": "London",
+                    "region": "",
+                    "postal_code": "NW1 3AN",
+                    "country": "United Kingdom"
+                },
+                "conditions": {
+                    "investment_amount_max": "85000",
+                    "investment_amount_min": null,
+                    "currency": null
+                },
+                "taxation_details": {
+                    "tin": "",
+                    "identification_number": "",
+                    "identification_document_name": "",
+                    "identification_document_number": "",
+                    "identification_document_issue_date": null
+                },
+                "statutory_deposit_guarantee_scheme": {
+                    "name": "The Financial Services Compensation Scheme",
+                    "country": {
+                        "id": "GBR",
+                        "unique_country_id": "GBR_SFSXGB2L",
+                        "name": "United Kingdom",
+                        "description": "The United Kingdom of Great Britain and Northern Ireland is the largest island state in Europe and has one of the strongest privatised economies in the world, evidenced by the fact that it has the third largest Gross Domestic Product in Europe. The national currency is the British Pound (GBP). The Financial Services Compensation Scheme (FSCS), an independent body created by the British government, protects money held in UK-regulated banks (up to £85,000 per person, per banking group) and pays compensation in the event that the institution fails.",
+                        "rating": "AA"
+                    },
+                    "description": "The FSCS is the United Kingdom’s statutory deposit guarantee scheme. If an FSCS-protected bank fails or is unable to meet its financial obligations, the FSCS can provide compensation for eligible customer deposits up to a limit of £85,000 per person, per bank. The FSCS’ £85,000 protection limit applies to all deposits held with a bank (including current and savings accounts), as well as any deposits held with intermediaries of the same bank (for example, where a bank operates multiple banks under different trading names). Read our dedicated FAQ page to learn more about the FSCS.",
+                    "insured_amount": "85000",
+                    "currency": "GBP",
+                    "payout_currency": "GBP",
+                    "responsible_authority": "",
+                    "official_info_url": "https://help.raisin.co.uk/hc/en-us/articles/4405438828049-What-happens-to-my-money-if-a-bank-fails-or-ceases-trading",
+                    "logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt271f880c0f70fc1b/66d70e92944f3a949a640566/Logos_CS_new-template_UK_FSCS.png"
+                },
+                "voluntary_deposit_guarantee_scheme": {
+                    "name": null,
+                    "country": null,
+                    "description": null,
+                    "insured_amount": null,
+                    "currency": null,
+                    "payout_currency": null,
+                    "responsible_authority": null,
+                    "official_info_url": null,
+                    "logo_url": null
+                },
+                "additional_details": null,
+                "customer_deposit_limit": [
+                    "85000"
+                ],
+                "shariah_compliant": false,
+                "custom_message": null
+            },
+            "distribution": {
+                "distributor_id": "Raisin",
+                "distributor_name": "Raisin UK",
+                "logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt150c637fe3fba719/6821fc29082383d7bbe7c25e/Logo_Raisin_RGB.png",
+                "distributor_channel_id": "raisin_direct_retail_gbr",
+                "distributor_address": {
+                    "street": "12-16 Mosley Street",
+                    "city": "Manchester",
+                    "region": "",
+                    "postal_code": "MA23AQ",
+                    "country": "United Kingdom"
+                }
+            },
+            "declarations": [],
+            "pre_contractual_documents": [
+                {
+                    "id": "PRODUCT_INFORMATION_SHEET",
+                    "display_name": "Product Information Sheet",
+                    "document_type": "PRODUCT_INFORMATION_SHEET",
+                    "url": "https://api2.raisin.co.uk/dbs/v1/public/products/SAN004/document/product_information_sheet?distributor_id=Raisin&distribution_channel_id=raisin_direct_retail_gbr",
+                    "version": 1,
+                    "created_at": "2025-06-22T00:00:00",
+                    "updated_at": "2025-06-22T00:00:00"
+                },
+                {
+                    "id": "bltb68112bc277032db",
+                    "display_name": "Terms and Conditions",
+                    "document_type": "DTB_TERMS_AND_CONDITIONS",
+                    "url": "https://eu-assets.contentstack.com/v3/assets/blt9e536e7f163b7c56/bltb68112bc277032db/683727b3a09f9e55f21a53ce/Raisin_Trust_T&Cs_V4_280525.pdf",
+                    "version": 3,
+                    "created_at": "2025-04-02T15:55:56",
+                    "updated_at": "2025-05-28T15:11:47"
+                },
+                {
+                    "id": "blt793b7bedbd049dc5",
+                    "display_name": "Deposit Guarantee Scheme",
+                    "document_type": "DEPOSIT_GUARANTEE_SCHEME_INFORMATION_SHEET",
+                    "url": "https://eu-assets.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt793b7bedbd049dc5/67ac8161824b2e55fb56615c/Santander_International_FSCS_Information_Sheet.pdf",
+                    "version": 3,
+                    "created_at": "2024-12-23T15:28:12",
+                    "updated_at": "2025-02-12T11:09:21"
+                }
+            ],
+            "display": {
+                "contract_model": "trust",
+                "tracked_accounts": "deposits_and_tranches",
+                "ledger_management_model": "managed",
+                "labels": []
+            },
+            "day_count": "ACTUAL_365_FIXED"
+        },
+        {
+            "id": "ZEN003",
+            "product_type": "TERM",
+            "marketed_as_product_type": "TERM",
+            "currency": "GBP",
+            "term": {
+                "unit": "months",
+                "period": 36
+            },
+            "term_normalized": {
+                "months": 36
+            },
+            "interest_rate_modality": "FIXED",
+            "interest_rates": {
+                "interest_rate_nominal": "4.25",
+                "interest_rate_effective": "4.25",
+                "termination_interest_rate_nominal": null,
+                "termination_interest_rate_effective": null,
+                "renewal_interest_rate_nominal": "4.25",
+                "renewal_interest_rate_effective": "4.25",
+                "headline_interest_rate": "EFFECTIVE",
+                "upcoming_rates": [],
+                "effective_date": "2025-05-16"
+            },
+            "conditions": {
+                "limit_to_one_product": false,
+                "minimum_balance": "1000",
+                "maximum_balance": "85000",
+                "annuity": {
+                    "frequency": {
+                        "unit": "months",
+                        "period": 12
+                    },
+                    "enabled": true,
+                    "point_of_reference": "RELATIVE",
+                    "annuity_payout": true,
+                    "compound_interest": false
+                },
+                "opening": {
+                    "application_document": "not_applicable",
+                    "minimum_amount": "1000",
+                    "available_to_pep_customers": false,
+                    "restricted_to_new_customers": null
+                },
+                "top_up": {
+                    "enabled": false,
+                    "minimum_amount": null
+                },
+                "withdrawal": {
+                    "enabled": false,
+                    "minimum_amount": null
+                },
+                "termination": {
+                    "termination_policy_pro_rata": false,
+                    "notice_period": null,
+                    "statutory_termination_timeframe": 0,
+                    "contractual_termination_allowed": false,
+                    "interest_policy": "NOT_BOOKED"
+                },
+                "renewal": {
+                    "enabled": false,
+                    "default_product": null,
+                    "interest_capitalization": null
+                },
+                "rollover": {
+                    "enabled": false
+                },
+                "maturity": {
+                    "enabled": true,
+                    "maturity_initiation_advance": "5"
+                },
+                "settlement_day": [
+                    "SUNDAY",
+                    "MONDAY",
+                    "TUESDAY",
+                    "WEDNESDAY",
+                    "THURSDAY",
+                    "FRIDAY",
+                    "SATURDAY"
+                ],
+                "daily_settlement": true,
+                "annuity_booking_frequency": "ANNUAL",
+                "annuity_payout_frequency": "ANNUAL",
+                "test_group": null
+            },
+            "deposit_taking_bank": {
+                "id": "ZEIBGB2L",
+                "name": "Zenith Bank UK Ltd",
+                "name_internal": "Zenith Bank UK Ltd",
+                "bank_slug": "zenith-bank-uk-ltd",
+                "description": "Zenith Bank (UK) Ltd is a UK subsidiary of Zenith Bank PLC, one of the leading banks in Nigeria. Zenith Bank (UK) Ltd is authorised by the Prudential Regulation Authority and regulated by the Financial Conduct Authority and the Prudential Regulation Authority. The Bank is also a member of the UK’s Financial Services Compensation Scheme.",
+                "bank_logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt12983fb322bb1d3b/6602d5a32cc308040a022762/Logos_Banks_UK_Specs_Prodtable_Zenith.png",
+                "logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt2c8a521f6f3cfe9d/669a3be39b38f857deb6a5f1/Logos_CS_new-template_UK_Zenith.png",
+                "logo_darkmode_url": null,
+                "logo_icon_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt2c8a521f6f3cfe9d/669a3be39b38f857deb6a5f1/Logos_CS_new-template_UK_Zenith.png",
+                "logo_icon_darkmode_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt2c8a521f6f3cfe9d/669a3be39b38f857deb6a5f1/Logos_CS_new-template_UK_Zenith.png",
+                "branch_country": {
+                    "id": "GBR",
+                    "unique_country_id": "GBR_ZEIBGB2L",
+                    "name": "United Kingdom",
+                    "description": "The United Kingdom of Great Britain and Northern Ireland is the largest island state in Europe and has one of the strongest privatised economies in the world, evidenced by the fact that it has the third largest Gross Domestic Product in Europe. The national currency is the British Pound (GBP). The Financial Services Compensation Scheme (FSCS), an independent body created by the British government, protects money held in UK-regulated banks (up to £85,000 per person, per banking group) and pays compensation in the event that the institution fails.",
+                    "rating": "AA",
+                    "withholding_tax_applicable": false,
+                    "withholding_tax_description": "",
+                    "domestic_taxation": false,
+                    "domestic_taxation_applicable": false,
+                    "source_tax_applicable": false,
+                    "source_tax_type": null,
+                    "source_tax_description": "",
+                    "source_tax_reduction_process_type": "NOT_REQUIRED",
+                    "source_tax_rates": {
+                        "flat_basic_rate": "0.0",
+                        "flat_reduced_rate": "0.0"
+                    }
+                },
+                "address": {
+                    "street": "39 Cornhill",
+                    "city": "London",
+                    "region": "",
+                    "postal_code": "EC3V 3ND",
+                    "country": "United Kingdom"
+                },
+                "conditions": {
+                    "investment_amount_max": "85000",
+                    "investment_amount_min": null,
+                    "currency": null
+                },
+                "taxation_details": {
+                    "tin": "",
+                    "identification_number": "",
+                    "identification_document_name": "",
+                    "identification_document_number": "",
+                    "identification_document_issue_date": null
+                },
+                "statutory_deposit_guarantee_scheme": {
+                    "name": "The Financial Services Compensation Scheme",
+                    "country": {
+                        "id": "GBR",
+                        "unique_country_id": "GBR_ZEIBGB2L",
+                        "name": "United Kingdom",
+                        "description": "The United Kingdom of Great Britain and Northern Ireland is the largest island state in Europe and has one of the strongest privatised economies in the world, evidenced by the fact that it has the third largest Gross Domestic Product in Europe. The national currency is the British Pound (GBP). The Financial Services Compensation Scheme (FSCS), an independent body created by the British government, protects money held in UK-regulated banks (up to £85,000 per person, per banking group) and pays compensation in the event that the institution fails.",
+                        "rating": "AA"
+                    },
+                    "description": "The FSCS is the United Kingdom’s statutory deposit guarantee scheme. If an FSCS-protected bank fails or is unable to meet its financial obligations, the FSCS can provide compensation for eligible customer deposits up to a limit of £85,000 per person, per bank. The FSCS’ £85,000 protection limit applies to all deposits held with a bank (including current and savings accounts), as well as any deposits held with intermediaries of the same bank (for example, where a bank operates multiple banks under different trading names). Read our dedicated FAQ page to learn more about the FSCS.",
+                    "insured_amount": "85000",
+                    "currency": "GBP",
+                    "payout_currency": "GBP",
+                    "responsible_authority": "",
+                    "official_info_url": "https://help.raisin.co.uk/hc/en-us/articles/4405438828049-What-happens-to-my-money-if-a-bank-fails-or-ceases-trading",
+                    "logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt271f880c0f70fc1b/66d70e92944f3a949a640566/Logos_CS_new-template_UK_FSCS.png"
+                },
+                "voluntary_deposit_guarantee_scheme": {
+                    "name": null,
+                    "country": null,
+                    "description": null,
+                    "insured_amount": null,
+                    "currency": null,
+                    "payout_currency": null,
+                    "responsible_authority": null,
+                    "official_info_url": null,
+                    "logo_url": null
+                },
+                "additional_details": null,
+                "customer_deposit_limit": [
+                    "85000"
+                ],
+                "shariah_compliant": false,
+                "custom_message": null
+            },
+            "distribution": {
+                "distributor_id": "Raisin",
+                "distributor_name": "Raisin UK",
+                "logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt150c637fe3fba719/6821fc29082383d7bbe7c25e/Logo_Raisin_RGB.png",
+                "distributor_channel_id": "raisin_direct_retail_gbr",
+                "distributor_address": {
+                    "street": "12-16 Mosley Street",
+                    "city": "Manchester",
+                    "region": "",
+                    "postal_code": "MA23AQ",
+                    "country": "United Kingdom"
+                }
+            },
+            "declarations": [],
+            "pre_contractual_documents": [
+                {
+                    "id": "blt1fb8830b9cf404e6",
+                    "display_name": "Product Information Sheet",
+                    "document_type": "PRODUCT_INFORMATION_SHEET",
+                    "url": "https://eu-assets.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt1fb8830b9cf404e6/6852b16af79d3010da41ebbe/16.05.2025_Zenith_36m_FTD.pdf",
+                    "version": 11,
+                    "created_at": "2023-11-21T20:07:15",
+                    "updated_at": "2025-06-18T12:30:34"
+                },
+                {
+                    "id": "bltcf043714447f6728",
+                    "display_name": "Terms and Conditions",
+                    "document_type": "DTB_TERMS_AND_CONDITIONS",
+                    "url": "https://eu-assets.contentstack.com/v3/assets/blt9e536e7f163b7c56/bltcf043714447f6728/655d0de7881059040a445aa0/Zenith_T&Cs.pdf",
+                    "version": 1,
+                    "created_at": "2023-11-21T20:07:03",
+                    "updated_at": "2023-11-21T20:07:03"
+                },
+                {
+                    "id": "blt823490e7c4de8c3f",
+                    "display_name": "Deposit Guarantee Scheme",
+                    "document_type": "DEPOSIT_GUARANTEE_SCHEME_INFORMATION_SHEET",
+                    "url": "https://eu-assets.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt823490e7c4de8c3f/655d0ddc1083d6040a344ecf/Zenith_FSCS.pdf",
+                    "version": 1,
+                    "created_at": "2023-11-21T20:06:52",
+                    "updated_at": "2023-11-21T20:06:52"
+                }
+            ],
+            "display": {
+                "contract_model": "direct",
+                "tracked_accounts": "deposits",
+                "ledger_management_model": "synchronized",
+                "labels": []
+            },
+            "day_count": "ACTUAL_365_FIXED"
+        },
+        {
+            "id": "SAN001",
+            "product_type": "TERM",
+            "marketed_as_product_type": "TERM",
+            "currency": "GBP",
+            "term": {
+                "unit": "months",
+                "period": 12
+            },
+            "term_normalized": {
+                "months": 12
+            },
+            "interest_rate_modality": "FIXED",
+            "interest_rates": {
+                "interest_rate_nominal": "3.6",
+                "interest_rate_effective": "3.6",
+                "termination_interest_rate_nominal": null,
+                "termination_interest_rate_effective": null,
+                "renewal_interest_rate_nominal": "3.6",
+                "renewal_interest_rate_effective": "3.6",
+                "headline_interest_rate": "EFFECTIVE",
+                "upcoming_rates": [],
+                "effective_date": "2025-06-16"
+            },
+            "conditions": {
+                "limit_to_one_product": false,
+                "minimum_balance": "1000",
+                "maximum_balance": "85000",
+                "annuity": {
+                    "frequency": null,
+                    "enabled": false,
+                    "point_of_reference": null,
+                    "annuity_payout": false,
+                    "compound_interest": false
+                },
+                "opening": {
+                    "application_document": "not_applicable",
+                    "minimum_amount": "1000",
+                    "available_to_pep_customers": true,
+                    "restricted_to_new_customers": null
+                },
+                "top_up": {
+                    "enabled": false,
+                    "minimum_amount": null
+                },
+                "withdrawal": {
+                    "enabled": false,
+                    "minimum_amount": null
+                },
+                "termination": {
+                    "termination_policy_pro_rata": false,
+                    "notice_period": null,
+                    "statutory_termination_timeframe": 0,
+                    "contractual_termination_allowed": false,
+                    "interest_policy": "NOT_BOOKED"
+                },
+                "renewal": {
+                    "enabled": false,
+                    "default_product": null,
+                    "interest_capitalization": null
+                },
+                "rollover": {
+                    "enabled": false
+                },
+                "maturity": {
+                    "enabled": true,
+                    "maturity_initiation_advance": "1"
+                },
+                "settlement_day": [
+                    "MONDAY",
+                    "TUESDAY",
+                    "WEDNESDAY",
+                    "THURSDAY",
+                    "FRIDAY"
+                ],
+                "daily_settlement": true,
+                "annuity_booking_frequency": "MATURITY",
+                "annuity_payout_frequency": null,
+                "test_group": null
+            },
+            "deposit_taking_bank": {
+                "id": "SFSXGB2L",
+                "name": "Santander International Bank",
+                "name_internal": "Santander International Bank",
+                "bank_slug": "santander-international-bank",
+                "description": "Santander International is the trading name of Santander Financial Services plc, a non-ring fenced wholly owned subsidiary bank of Santander UK Group Holdings plc which is part of the Banco Santander Group.\n \nSantander Financial Services plc is authorised by the Prudential Regulation Authority and regulated by the Financial Conduct Authority and the Prudential Regulation Authority. Our UK saving products are protected by the Financial Services Compensation Scheme.\n",
+                "bank_logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/bltb2d1c750c34c11f7/6790db6c055b55e910a813f0/FA_SANTANDER_INTERNATIONAL_CV_POS_RGB_OBS.png",
+                "logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt085db67b1570b275/6790db6c5732c548389b1edd/FA_SANTANDER_INTERNATIONAL_CV_POS_RGB_CS.png",
+                "logo_darkmode_url": null,
+                "logo_icon_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt085db67b1570b275/6790db6c5732c548389b1edd/FA_SANTANDER_INTERNATIONAL_CV_POS_RGB_CS.png",
+                "logo_icon_darkmode_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt085db67b1570b275/6790db6c5732c548389b1edd/FA_SANTANDER_INTERNATIONAL_CV_POS_RGB_CS.png",
+                "branch_country": {
+                    "id": "GBR",
+                    "unique_country_id": "GBR_SFSXGB2L",
+                    "name": "United Kingdom",
+                    "description": "The United Kingdom of Great Britain and Northern Ireland is the largest island state in Europe and has one of the strongest privatised economies in the world, evidenced by the fact that it has the third largest Gross Domestic Product in Europe. The national currency is the British Pound (GBP). The Financial Services Compensation Scheme (FSCS), an independent body created by the British government, protects money held in UK-regulated banks (up to £85,000 per person, per banking group) and pays compensation in the event that the institution fails.",
+                    "rating": "AA",
+                    "withholding_tax_applicable": false,
+                    "withholding_tax_description": "",
+                    "domestic_taxation": false,
+                    "domestic_taxation_applicable": false,
+                    "source_tax_applicable": false,
+                    "source_tax_type": null,
+                    "source_tax_description": "",
+                    "source_tax_reduction_process_type": "NOT_REQUIRED",
+                    "source_tax_rates": {
+                        "flat_basic_rate": "0.0",
+                        "flat_reduced_rate": "0.0"
+                    }
+                },
+                "address": {
+                    "street": "2 Triton Square",
+                    "city": "London",
+                    "region": "",
+                    "postal_code": "NW1 3AN",
+                    "country": "United Kingdom"
+                },
+                "conditions": {
+                    "investment_amount_max": "85000",
+                    "investment_amount_min": null,
+                    "currency": null
+                },
+                "taxation_details": {
+                    "tin": "",
+                    "identification_number": "",
+                    "identification_document_name": "",
+                    "identification_document_number": "",
+                    "identification_document_issue_date": null
+                },
+                "statutory_deposit_guarantee_scheme": {
+                    "name": "The Financial Services Compensation Scheme",
+                    "country": {
+                        "id": "GBR",
+                        "unique_country_id": "GBR_SFSXGB2L",
+                        "name": "United Kingdom",
+                        "description": "The United Kingdom of Great Britain and Northern Ireland is the largest island state in Europe and has one of the strongest privatised economies in the world, evidenced by the fact that it has the third largest Gross Domestic Product in Europe. The national currency is the British Pound (GBP). The Financial Services Compensation Scheme (FSCS), an independent body created by the British government, protects money held in UK-regulated banks (up to £85,000 per person, per banking group) and pays compensation in the event that the institution fails.",
+                        "rating": "AA"
+                    },
+                    "description": "The FSCS is the United Kingdom’s statutory deposit guarantee scheme. If an FSCS-protected bank fails or is unable to meet its financial obligations, the FSCS can provide compensation for eligible customer deposits up to a limit of £85,000 per person, per bank. The FSCS’ £85,000 protection limit applies to all deposits held with a bank (including current and savings accounts), as well as any deposits held with intermediaries of the same bank (for example, where a bank operates multiple banks under different trading names). Read our dedicated FAQ page to learn more about the FSCS.",
+                    "insured_amount": "85000",
+                    "currency": "GBP",
+                    "payout_currency": "GBP",
+                    "responsible_authority": "",
+                    "official_info_url": "https://help.raisin.co.uk/hc/en-us/articles/4405438828049-What-happens-to-my-money-if-a-bank-fails-or-ceases-trading",
+                    "logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt271f880c0f70fc1b/66d70e92944f3a949a640566/Logos_CS_new-template_UK_FSCS.png"
+                },
+                "voluntary_deposit_guarantee_scheme": {
+                    "name": null,
+                    "country": null,
+                    "description": null,
+                    "insured_amount": null,
+                    "currency": null,
+                    "payout_currency": null,
+                    "responsible_authority": null,
+                    "official_info_url": null,
+                    "logo_url": null
+                },
+                "additional_details": null,
+                "customer_deposit_limit": [
+                    "85000"
+                ],
+                "shariah_compliant": false,
+                "custom_message": null
+            },
+            "distribution": {
+                "distributor_id": "Raisin",
+                "distributor_name": "Raisin UK",
+                "logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt150c637fe3fba719/6821fc29082383d7bbe7c25e/Logo_Raisin_RGB.png",
+                "distributor_channel_id": "raisin_direct_retail_gbr",
+                "distributor_address": {
+                    "street": "12-16 Mosley Street",
+                    "city": "Manchester",
+                    "region": "",
+                    "postal_code": "MA23AQ",
+                    "country": "United Kingdom"
+                }
+            },
+            "declarations": [],
+            "pre_contractual_documents": [
+                {
+                    "id": "PRODUCT_INFORMATION_SHEET",
+                    "display_name": "Product Information Sheet",
+                    "document_type": "PRODUCT_INFORMATION_SHEET",
+                    "url": "https://api2.raisin.co.uk/dbs/v1/public/products/SAN001/document/product_information_sheet?distributor_id=Raisin&distribution_channel_id=raisin_direct_retail_gbr",
+                    "version": 1,
+                    "created_at": "2025-06-22T00:00:00",
+                    "updated_at": "2025-06-22T00:00:00"
+                },
+                {
+                    "id": "bltb68112bc277032db",
+                    "display_name": "Terms and Conditions",
+                    "document_type": "DTB_TERMS_AND_CONDITIONS",
+                    "url": "https://eu-assets.contentstack.com/v3/assets/blt9e536e7f163b7c56/bltb68112bc277032db/683727b3a09f9e55f21a53ce/Raisin_Trust_T&Cs_V4_280525.pdf",
+                    "version": 3,
+                    "created_at": "2025-04-02T15:55:56",
+                    "updated_at": "2025-05-28T15:11:47"
+                },
+                {
+                    "id": "blt793b7bedbd049dc5",
+                    "display_name": "Deposit Guarantee Scheme",
+                    "document_type": "DEPOSIT_GUARANTEE_SCHEME_INFORMATION_SHEET",
+                    "url": "https://eu-assets.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt793b7bedbd049dc5/67ac8161824b2e55fb56615c/Santander_International_FSCS_Information_Sheet.pdf",
+                    "version": 3,
+                    "created_at": "2024-12-23T15:28:12",
+                    "updated_at": "2025-02-12T11:09:21"
+                }
+            ],
+            "display": {
+                "contract_model": "trust",
+                "tracked_accounts": "deposits_and_tranches",
+                "ledger_management_model": "managed",
+                "labels": []
+            },
+            "day_count": "ACTUAL_365_FIXED"
+        },
+        {
+            "id": "PSC003",
+            "product_type": "TERM",
+            "marketed_as_product_type": "TERM",
+            "currency": "GBP",
+            "term": {
+                "unit": "months",
+                "period": 12
+            },
+            "term_normalized": {
+                "months": 12
+            },
+            "interest_rate_modality": "FIXED",
+            "interest_rates": {
+                "interest_rate_nominal": "4.3",
+                "interest_rate_effective": "4.3",
+                "termination_interest_rate_nominal": null,
+                "termination_interest_rate_effective": null,
+                "renewal_interest_rate_nominal": "4.3",
+                "renewal_interest_rate_effective": "4.3",
+                "headline_interest_rate": "EFFECTIVE",
+                "upcoming_rates": [],
+                "effective_date": "2025-06-18"
+            },
+            "conditions": {
+                "limit_to_one_product": false,
+                "minimum_balance": "5000",
+                "maximum_balance": "85000",
+                "annuity": {
+                    "frequency": null,
+                    "enabled": false,
+                    "point_of_reference": null,
+                    "annuity_payout": false,
+                    "compound_interest": false
+                },
+                "opening": {
+                    "application_document": "not_applicable",
+                    "minimum_amount": "5000",
+                    "available_to_pep_customers": false,
+                    "restricted_to_new_customers": null
+                },
+                "top_up": {
+                    "enabled": false,
+                    "minimum_amount": null
+                },
+                "withdrawal": {
+                    "enabled": false,
+                    "minimum_amount": null
+                },
+                "termination": {
+                    "termination_policy_pro_rata": false,
+                    "notice_period": null,
+                    "statutory_termination_timeframe": 14,
+                    "contractual_termination_allowed": false,
+                    "interest_policy": "NOT_BOOKED"
+                },
+                "renewal": {
+                    "enabled": true,
+                    "default_product": "PSC003",
+                    "interest_capitalization": "payout_interest"
+                },
+                "rollover": {
+                    "enabled": false
+                },
+                "maturity": {
+                    "enabled": true,
+                    "maturity_initiation_advance": "5"
+                },
+                "settlement_day": [
+                    "SUNDAY",
+                    "MONDAY",
+                    "TUESDAY",
+                    "WEDNESDAY",
+                    "THURSDAY",
+                    "FRIDAY",
+                    "SATURDAY"
+                ],
+                "daily_settlement": true,
+                "annuity_booking_frequency": "MATURITY",
+                "annuity_payout_frequency": null,
+                "test_group": null
+            },
+            "deposit_taking_bank": {
+                "id": "PLSVGB22XXX",
+                "name": "Plane Saver",
+                "name_internal": "Plane Saver Credit Union",
+                "bank_slug": "plane-saver",
+                "description": "Plane Saver was founded in 1993 by a group of British Airways Engineers. They had a passion to provide a range of flexible savings and affordable loans to their colleagues. Now with over 25,500 members, it is one of the largest Credit Unions in the UK.\nOver the last 30 years, Plane Saver has been dedicated to assisting people in managing their finances. As we have grown, we have evolved, embracing modern technology while preserving the essence of personalised service. We firmly believe that the human touch is what matters most when handling money matters, and this principle remains unchanged. At the core of our mission lies a commitment to your financial well-being.",
+                "bank_logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/bltda8ef9106bf605ba/6602d54bb4173b040a487b71/Logos_Banks_UK_Specs_Prodtable_Planesaver.png",
+                "logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt7074d73dec92a769/669a3a682f1b86023b7488d8/Logos_CS_new-template_UK_Planesaver.png",
+                "logo_darkmode_url": null,
+                "logo_icon_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt7074d73dec92a769/669a3a682f1b86023b7488d8/Logos_CS_new-template_UK_Planesaver.png",
+                "logo_icon_darkmode_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt7074d73dec92a769/669a3a682f1b86023b7488d8/Logos_CS_new-template_UK_Planesaver.png",
+                "branch_country": {
+                    "id": "GBR",
+                    "unique_country_id": "GBR_PLSVGB22XXX",
+                    "name": "United Kingdom",
+                    "description": "The United Kingdom of Great Britain and Northern Ireland is the largest island state in Europe and has one of the strongest privatised economies in the world, evidenced by the fact that it has the third largest Gross Domestic Product in Europe. The national currency is the British Pound (GBP). The Financial Services Compensation Scheme (FSCS), an independent body created by the British government, protects money held in UK-regulated banks (up to £85,000 per person, per banking group) and pays compensation in the event that the institution fails.",
+                    "rating": "AA",
+                    "withholding_tax_applicable": false,
+                    "withholding_tax_description": "",
+                    "domestic_taxation": false,
+                    "domestic_taxation_applicable": false,
+                    "source_tax_applicable": false,
+                    "source_tax_type": null,
+                    "source_tax_description": "",
+                    "source_tax_reduction_process_type": "NOT_REQUIRED",
+                    "source_tax_rates": {
+                        "flat_basic_rate": "0.0",
+                        "flat_reduced_rate": "0.0"
+                    }
+                },
+                "address": {
+                    "street": "Profile West, 950 Great West Road",
+                    "city": "Brentford",
+                    "region": "",
+                    "postal_code": "TW8 9ES",
+                    "country": "United Kingdom"
+                },
+                "conditions": {
+                    "investment_amount_max": "85000",
+                    "investment_amount_min": null,
+                    "currency": null
+                },
+                "taxation_details": {
+                    "tin": "",
+                    "identification_number": "",
+                    "identification_document_name": "",
+                    "identification_document_number": "",
+                    "identification_document_issue_date": null
+                },
+                "statutory_deposit_guarantee_scheme": {
+                    "name": "The Financial Services Compensation Scheme",
+                    "country": {
+                        "id": "GBR",
+                        "unique_country_id": "GBR_PLSVGB22XXX",
+                        "name": "United Kingdom",
+                        "description": "The United Kingdom of Great Britain and Northern Ireland is the largest island state in Europe and has one of the strongest privatised economies in the world, evidenced by the fact that it has the third largest Gross Domestic Product in Europe. The national currency is the British Pound (GBP). The Financial Services Compensation Scheme (FSCS), an independent body created by the British government, protects money held in UK-regulated banks (up to £85,000 per person, per banking group) and pays compensation in the event that the institution fails.",
+                        "rating": "AA"
+                    },
+                    "description": "The FSCS is the United Kingdom’s statutory deposit guarantee scheme. If an FSCS-protected bank fails or is unable to meet its financial obligations, the FSCS can provide compensation for eligible customer deposits up to a limit of £85,000 per person, per bank. The FSCS’ £85,000 protection limit applies to all deposits held with a bank (including current and savings accounts), as well as any deposits held with intermediaries of the same bank (for example, where a bank operates multiple banks under different trading names). Read our dedicated FAQ page to learn more about the FSCS.",
+                    "insured_amount": "85000",
+                    "currency": "GBP",
+                    "payout_currency": "GBP",
+                    "responsible_authority": "",
+                    "official_info_url": "https://help.raisin.co.uk/hc/en-us/articles/4405438828049-What-happens-to-my-money-if-a-bank-fails-or-ceases-trading",
+                    "logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt271f880c0f70fc1b/66d70e92944f3a949a640566/Logos_CS_new-template_UK_FSCS.png"
+                },
+                "voluntary_deposit_guarantee_scheme": {
+                    "name": null,
+                    "country": null,
+                    "description": null,
+                    "insured_amount": null,
+                    "currency": null,
+                    "payout_currency": null,
+                    "responsible_authority": null,
+                    "official_info_url": null,
+                    "logo_url": null
+                },
+                "additional_details": null,
+                "customer_deposit_limit": [
+                    "85000"
+                ],
+                "shariah_compliant": false,
+                "custom_message": null
+            },
+            "distribution": {
+                "distributor_id": "Raisin",
+                "distributor_name": "Raisin UK",
+                "logo_url": "https://eu-images.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt150c637fe3fba719/6821fc29082383d7bbe7c25e/Logo_Raisin_RGB.png",
+                "distributor_channel_id": "raisin_direct_retail_gbr",
+                "distributor_address": {
+                    "street": "12-16 Mosley Street",
+                    "city": "Manchester",
+                    "region": "",
+                    "postal_code": "MA23AQ",
+                    "country": "United Kingdom"
+                }
+            },
+            "declarations": [],
+            "pre_contractual_documents": [
+                {
+                    "id": "blt69322cba36acffa8",
+                    "display_name": "Product Information Sheet",
+                    "document_type": "PRODUCT_INFORMATION_SHEET",
+                    "url": "https://eu-assets.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt69322cba36acffa8/68398de6238cd56f111ced1e/02.06.2025_Plane_Saver_12_Month_FTD_PFS.pdf",
+                    "version": 31,
+                    "created_at": "2024-02-07T08:54:52",
+                    "updated_at": "2025-05-30T10:52:22"
+                },
+                {
+                    "id": "blt6332a18897ad9cad",
+                    "display_name": "Terms and Conditions",
+                    "document_type": "DTB_TERMS_AND_CONDITIONS",
+                    "url": "https://eu-assets.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt6332a18897ad9cad/65c34889ac1f4e040a50a7dd/FTD_Plane_Saver_Terms_and_Conditions.pdf",
+                    "version": 1,
+                    "created_at": "2024-02-07T09:08:25",
+                    "updated_at": "2024-02-07T09:08:25"
+                },
+                {
+                    "id": "bltf8882d628a9ffe46",
+                    "display_name": "Deposit Guarantee Scheme",
+                    "document_type": "DEPOSIT_GUARANTEE_SCHEME_INFORMATION_SHEET",
+                    "url": "https://eu-assets.contentstack.com/v3/assets/blt9e536e7f163b7c56/bltf8882d628a9ffe46/657c8c2c70feb2040a5e13c4/FSCS-attachment-2023.pdf",
+                    "version": 1,
+                    "created_at": "2023-12-15T17:26:04",
+                    "updated_at": "2023-12-15T17:26:04"
+                },
+                {
+                    "id": "blt00d4737343dd6afc",
+                    "display_name": "Common Bond Criteria",
+                    "document_type": "COMMON_BOND_CRITERIA",
+                    "url": "https://eu-assets.contentstack.com/v3/assets/blt9e536e7f163b7c56/blt00d4737343dd6afc/65bbb6c390810b040a7737c4/Common_Bond_List_-_Raisin_(1).pdf",
+                    "version": 1,
+                    "created_at": "2024-02-01T15:20:35",
+                    "updated_at": "2024-02-01T15:20:35"
+                }
+            ],
+            "display": {
+                "contract_model": "direct",
+                "tracked_accounts": "deposits",
+                "ledger_management_model": "synchronized",
+                "labels": [
+                    "top_product"
+                ]
+            },
+            "day_count": "ACTUAL_365_FIXED"
+        }
+    ],
+    "total": 109,
+    "offset": 0,
+    "limit": 100000,
+    "num_found": null
+}

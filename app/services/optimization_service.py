@@ -61,11 +61,23 @@ def optimize_savings(input_data: OptimizationInput, accounts: List[Account]) -> 
             amount = value(model.investments[acc.name])
             if amount > 1e-6: # Only include accounts with non-trivial investment
                 is_isa = 'isa' in acc.account_type
-                term = "Variable"
-                if '1 Year' in acc.name:
-                    term = "1 Year"
-                elif '2 Year' in acc.name:
-                    term = "2 Years"
+                term = "Easy access"
+                if '1 month' in acc.name:
+                    term = "1 month"
+                elif '3 months' in acc.name:
+                    term = "3 months"
+                elif '6 months' in acc.name:
+                    term = "6 months"
+                elif '1 year' in acc.name:
+                    term = "1 year"
+                elif '2 years' in acc.name:
+                    term = "2 years"
+                elif '3 years' in acc.name:
+                    term = "3 years"
+                elif '5 years' in acc.name:
+                    term = "5 years"
+
+                url = acc.url if acc.url else f"https://www.google.com/search?q={acc.name.replace(' ', '+')}"
 
                 investments.append(Investment(
                     account_name=acc.name,
@@ -73,7 +85,7 @@ def optimize_savings(input_data: OptimizationInput, accounts: List[Account]) -> 
                     aer=round(acc.interest_rate * 100, 2),
                     term=term,
                     is_isa=is_isa,
-                    url=f"https://www.google.com/search?q={acc.name.replace(' ', '+')}" # Placeholder URL
+                    url=url
                 ))
                 total_return += amount * acc.interest_rate
         
