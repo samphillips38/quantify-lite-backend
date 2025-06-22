@@ -2,4 +2,5 @@ Flask
 Pyomo
 requests
 gunicorn
-python-dotenv 
+python-dotenv
+Flask-Cors 
