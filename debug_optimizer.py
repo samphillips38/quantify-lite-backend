@@ -22,11 +22,11 @@ def run_debug_optimizer():
     # You can change these values to test different scenarios
     earnings = 125000.0  # Example: Higher rate taxpayer
     savings_goals = [
-        SavingsGoal(amount=20000.0, horizon=12*5),
-        SavingsGoal(amount=30000.0, horizon=0),
+        SavingsGoal(amount=20000.0, horizon=0),
+        # SavingsGoal(amount=30000.0, horizon=0),
     ]
     total_investment = sum(goal.amount for goal in savings_goals)
-    isa_allowance_remaining = 80000.0 # Example: User has already used £10,000 of their ISA allowance.
+    isa_allowance_remaining = 20_000.0
     
     optimization_input = OptimizationInput(
         total_investment=total_investment,

@@ -20,6 +20,31 @@ def _get_tax_info(earnings: float) -> dict:
         return {'psa': 0, 'tax_rate': 0.45}
 
 
+def _get_starting_rate_for_savings(earnings: float) -> float:
+    """
+    Calculates the Starting Rate for Savings band based on non-savings income.
+    https://www.gov.uk/apply-tax-free-interest-on-savings
+    """
+    if earnings is None:
+        return 0.0
+
+    personal_allowance = 12570
+    max_starting_rate_band = 5000
+
+    if earnings >= (personal_allowance + max_starting_rate_band):
+        # If income is £17,570 or more, no starting rate is available.
+        return 0.0
+
+    if earnings <= personal_allowance:
+        # If income is below the personal allowance, the full band is available.
+        return float(max_starting_rate_band)
+
+    # If income is between PA and PA + max_starting_rate_band, the band is reduced.
+    reduction = earnings - personal_allowance
+    starting_rate_band = max(0.0, max_starting_rate_band - reduction)
+    return starting_rate_band
+
+
 def optimize_savings(input_data: OptimizationInput, accounts: List[Account]) -> OptimizationResult:
     """
     Optimises savings allocation using Pyomo.
@@ -31,6 +56,8 @@ def optimize_savings(input_data: OptimizationInput, accounts: List[Account]) -> 
     tax_info = _get_tax_info(input_data.earnings)
     psa = tax_info['psa']
     tax_rate = tax_info['tax_rate']
+    starting_rate_for_savings = _get_starting_rate_for_savings(input_data.earnings)
+    total_tax_free_allowance = psa + starting_rate_for_savings
 
     # 2. Determine investment horizon from savings goals
     goal_horizons_years = [g.horizon / 12.0 for g in input_data.savings_goals]
@@ -95,10 +122,10 @@ def optimize_savings(input_data: OptimizationInput, accounts: List[Account]) -> 
         return m.taxable_interest + m.tax_free_interest_non_isa == total_non_isa_interest
     model.non_isa_interest_constraint = Constraint(rule=non_isa_interest_rule)
 
-    # 4. Personal Savings Allowance limit
-    def psa_limit_rule(m):
-        return m.tax_free_interest_non_isa <= psa
-    model.psa_limit = Constraint(rule=psa_limit_rule)
+    # 4. Total tax-free allowance limit (PSA + Starting Rate for Savings)
+    def tax_free_limit_rule(m):
+        return m.tax_free_interest_non_isa <= total_tax_free_allowance
+    model.tax_free_limit = Constraint(rule=tax_free_limit_rule)
 
     # 5. Individual account investment limits
     model.investment_limits = ConstraintList()
@@ -137,7 +164,7 @@ def optimize_savings(input_data: OptimizationInput, accounts: List[Account]) -> 
         
         # Calculate post-tax return for the final result
         non_isa_gross_return = sum(inv.amount * (inv.aer / 100) for inv in investments if not inv.is_isa)
-        taxable_return = max(0, non_isa_gross_return - psa)
+        taxable_return = max(0, non_isa_gross_return - total_tax_free_allowance)
         tax_paid = taxable_return * tax_rate
         total_net_return = total_gross_return - tax_paid
 
