@@ -37,7 +37,17 @@ class Investment:
     platform: str
 
 @dataclass
+class Summary:
+    total_investment: float
+    gross_annual_interest: float
+    net_annual_interest: float
+    net_effective_aer: float
+    tax_due: float
+    tax_band: str
+    personal_savings_allowance: float
+
+@dataclass
 class OptimizationResult:
     investments: List[Investment]
-    total_return: float
+    summary: Summary
     status: str 

@@ -1,5 +1,5 @@
 from pyomo.environ import ConcreteModel, Var, Objective, Constraint, SolverFactory, NonNegativeReals, value, ConstraintList
-from app.models import OptimizationInput, Account, OptimizationResult, Investment
+from app.models import OptimizationInput, Account, OptimizationResult, Investment, Summary
 from typing import List
 
 def _get_tax_info(earnings: float) -> dict:
@@ -8,16 +8,16 @@ def _get_tax_info(earnings: float) -> dict:
     Note: This is a simplified model for UK tax (excluding Scotland).
     """
     if earnings is None: # If earnings not provided, assume basic rate tax payer for conservative estimate.
-        return {'psa': 1000, 'tax_rate': 0.20}
+        return {'psa': 1000, 'tax_rate': 0.20, 'band': 'Basic Rate'}
     if earnings <= 50270:
         # Basic rate taxpayer
-        return {'psa': 1000, 'tax_rate': 0.20}
+        return {'psa': 1000, 'tax_rate': 0.20, 'band': 'Basic Rate'}
     elif earnings <= 125140:
         # Higher rate taxpayer
-        return {'psa': 500, 'tax_rate': 0.40}
+        return {'psa': 500, 'tax_rate': 0.40, 'band': 'Higher Rate'}
     else:
         # Additional rate taxpayer
-        return {'psa': 0, 'tax_rate': 0.45}
+        return {'psa': 0, 'tax_rate': 0.45, 'band': 'Additional Rate'}
 
 
 def _get_starting_rate_for_savings(earnings: float) -> float:
@@ -76,7 +76,7 @@ def optimize_savings(input_data: OptimizationInput, accounts: List[Account]) -> 
     if not eligible_accounts:
         return OptimizationResult(
             investments=[],
-            total_return=0,
+            summary=None,
             status="No eligible accounts found for the given investment horizon."
         )
 
@@ -169,14 +169,27 @@ def optimize_savings(input_data: OptimizationInput, accounts: List[Account]) -> 
         tax_paid = taxable_return * tax_rate
         total_net_return = total_gross_return - tax_paid
 
+        total_investment = input_data.total_investment
+        net_effective_aer = (total_net_return / total_investment) * 100 if total_investment > 0 else 0
+
+        summary = Summary(
+            total_investment=round(total_investment, 2),
+            gross_annual_interest=round(total_gross_return, 2),
+            net_annual_interest=round(total_net_return, 2),
+            net_effective_aer=round(net_effective_aer, 2),
+            tax_due=round(tax_paid, 2),
+            tax_band=tax_info['band'],
+            personal_savings_allowance=tax_info['psa']
+        )
+
         return OptimizationResult(
             investments=investments,
-            total_return=round(total_net_return, 2),
+            summary=summary,
             status="Optimal"
         )
     else:
         return OptimizationResult(
             investments=[],
-            total_return=0,
+            summary=None,
             status=f"Optimization failed. Status: {results.solver.termination_condition}"
         ) 
