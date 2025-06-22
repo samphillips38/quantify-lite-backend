@@ -13,8 +13,15 @@ class Account:
     url: Optional[str] = None
 
 @dataclass
+class SavingsGoal:
+    amount: float
+    horizon: str
+
+@dataclass
 class OptimizationInput:
     total_investment: float
+    savings_goals: List[SavingsGoal]
+    earnings: Optional[float] = None
     # Other constraints can be added here
     # e.g., max_isa_investment: float = 20000
 
