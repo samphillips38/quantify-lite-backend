@@ -18,7 +18,10 @@ def create_app(config_class=Config):
     from app.routes import bp as main_bp
     app.register_blueprint(main_bp)
 
-    with app.app_context():
+    @app.cli.command("init-db")
+    def init_db_command():
+        """Creates the database tables."""
         db.create_all()
+        print("Initialized the database.")
 
     return app 
