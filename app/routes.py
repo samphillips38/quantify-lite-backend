@@ -2,7 +2,9 @@ from flask import Blueprint, request, jsonify
 from app.services.account_data_service import get_accounts
 from app.services.optimization_service import optimize_savings
 from app.models import OptimizationInput, SavingsGoal
+from app.database_models import db, OptimizationRecord
 from dataclasses import asdict
+import json
 
 bp = Blueprint('main', __name__)
 
@@ -59,7 +61,32 @@ def optimize():
     # 3. Run optimization
     result = optimize_savings(opt_input, accounts)
 
-    # 4. Return result
+    # 4. Save optimization record to database
+    try:
+        record = OptimizationRecord(
+            total_investment=opt_input.total_investment,
+            earnings=opt_input.earnings,
+            isa_allowance_used=opt_input.isa_allowance_used,
+            savings_goals_json=json.dumps([asdict(goal) for goal in opt_input.savings_goals]),
+            status=result.status,
+            total_gross_interest=result.summary.gross_annual_interest if result.summary else None,
+            total_net_interest=result.summary.net_annual_interest if result.summary else None,
+            net_effective_aer=result.summary.net_effective_aer if result.summary else None,
+            tax_due=result.summary.tax_due if result.summary else None,
+            tax_band=result.summary.tax_band if result.summary else None,
+            personal_savings_allowance=result.summary.personal_savings_allowance if result.summary else None,
+            investments_json=json.dumps([asdict(inv) for inv in result.investments]) if result.investments else None,
+            user_agent=request.headers.get('User-Agent'),
+            ip_address=request.remote_addr
+        )
+        db.session.add(record)
+        db.session.commit()
+    except Exception as e:
+        db.session.rollback()
+        print(f"Error saving optimization record to database: {e}")
+        # We don't want to fail the main request if logging fails, so we just print the error.
+
+    # 5. Return result
     return jsonify(asdict(result))
 
 @bp.route('/health', methods=['GET'])
@@ -67,4 +94,25 @@ def health_check():
     """
     A simple health check endpoint.
     """
-    return jsonify({"status": "healthy"}), 200 
+    return jsonify({"status": "healthy"}), 200
+
+@bp.route('/analytics', methods=['GET'])
+def get_analytics():
+    """
+    A simple analytics endpoint to view aggregated optimization data.
+    """
+    try:
+        total_optimizations = OptimizationRecord.query.count()
+        successful_optimizations = OptimizationRecord.query.filter_by(status="Optimal").count()
+        
+        # Using func for aggregations
+        avg_investment = db.session.query(db.func.avg(OptimizationRecord.total_investment)).scalar()
+        
+        analytics_data = {
+            'total_optimizations': total_optimizations,
+            'successful_optimizations': successful_optimizations,
+            'average_investment_amount': round(avg_investment, 2) if avg_investment else 0,
+        }
+        return jsonify(analytics_data)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500 

@@ -3,4 +3,6 @@ Pyomo
 requests
 gunicorn
 python-dotenv
-Flask-Cors 
+Flask-Cors
+Flask-SQLAlchemy
+psycopg2-binary 
