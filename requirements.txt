@@ -5,4 +5,6 @@ gunicorn
 python-dotenv
 Flask-Cors
 Flask-SQLAlchemy
-psycopg2-binary 
+psycopg2-binary
+pytest
+pytest-flask 

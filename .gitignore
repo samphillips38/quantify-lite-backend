@@ -131,4 +131,11 @@ dmypy.json
 .pytype/
 
 # Cython debug symbols
-cython_debug/ 
+cython_debug/
+
+# SQLite
+*.sqlite3
+dev.sqlite
+
+# Pytest
+.pytest_cache/ 
