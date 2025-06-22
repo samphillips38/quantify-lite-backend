@@ -62,7 +62,6 @@ def optimize():
     result = optimize_savings(opt_input, accounts)
 
     # 4. Save optimization record to database
-    record_id = None
     try:
         record = OptimizationRecord(
             total_investment=opt_input.total_investment,
@@ -82,43 +81,17 @@ def optimize():
         )
         db.session.add(record)
         db.session.commit()
-        record_id = record.id
+
+        # Add the record ID to the result
+        result.optimization_record_id = record.id
+
     except Exception as e:
         db.session.rollback()
         print(f"Error saving optimization record to database: {e}")
         # We don't want to fail the main request if logging fails, so we just print the error.
 
     # 5. Return result
-    response_data = asdict(result)
-    response_data['optimization_record_id'] = record_id
-    return jsonify(response_data)
-
-@bp.route('/api/feedback', methods=['POST'])
-def submit_feedback():
-    """
-    Endpoint to receive user feedback.
-    Expects a JSON payload with feedback data.
-    """
-    data = request.get_json()
-    if not data:
-        return jsonify({"error": "Missing data"}), 400
-
-    try:
-        feedback = Feedback(
-            optimization_record_id=data.get('optimization_record_id'),
-            recommend_rating=data.get('recommend_rating'),
-            satisfaction_rating=data.get('satisfaction_rating'),
-            feedback_text=data.get('feedback_text'),
-            user_agent=request.headers.get('User-Agent'),
-            ip_address=request.remote_addr
-        )
-        db.session.add(feedback)
-        db.session.commit()
-        return jsonify({"message": "Feedback received"}), 201
-    except Exception as e:
-        db.session.rollback()
-        print(f"Error saving feedback to database: {e}")
-        return jsonify({"error": "Could not save feedback"}), 500
+    return jsonify(asdict(result))
 
 @bp.route('/health', methods=['GET'])
 def health_check():
@@ -146,4 +119,37 @@ def get_analytics():
         }
         return jsonify(analytics_data)
     except Exception as e:
-        return jsonify({"error": str(e)}), 500 
+        return jsonify({"error": str(e)}), 500
+
+@bp.route('/feedback', methods=['POST'])
+def feedback():
+    """
+    Endpoint to submit feedback.
+    Expects a JSON payload with 'optimization_record_id', 'nps_score', 'useful', and 'improvements'.
+    """
+    data = request.get_json()
+    if not data:
+        return jsonify({"error": "Missing data in request body"}), 400
+
+    required_fields = ['optimization_record_id', 'nps_score', 'useful']
+    if not all(field in data for field in required_fields):
+        return jsonify({"error": f"Missing required fields: {required_fields}"}), 400
+
+    try:
+        feedback_entry = Feedback(
+            optimization_record_id=int(data['optimization_record_id']),
+            nps_score=int(data['nps_score']),
+            useful=str(data['useful']),
+            improvements=data.get('improvements')
+        )
+        db.session.add(feedback_entry)
+        db.session.commit()
+    except (ValueError, TypeError, KeyError) as e:
+        db.session.rollback()
+        return jsonify({"error": f"Invalid data provided: {e}"}), 400
+    except Exception as e:
+        db.session.rollback()
+        print(f"Error saving feedback to database: {e}")
+        return jsonify({"error": "Failed to save feedback"}), 500
+
+    return jsonify({"message": "Feedback submitted successfully"}), 201 

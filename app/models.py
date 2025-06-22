@@ -51,3 +51,4 @@ class OptimizationResult:
     investments: List[Investment]
     summary: Summary
     status: str 
+    optimization_record_id: Optional[int] = None 

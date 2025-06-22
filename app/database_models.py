@@ -28,23 +28,16 @@ class OptimizationRecord(db.Model):
     
     # Metadata
     user_agent = db.Column(db.String(500), nullable=True)
-    ip_address = db.Column(db.String(45), nullable=True)
+    ip_address = db.Column(db.String(45), nullable=True) 
 
 class Feedback(db.Model):
     __tablename__ = 'feedback'
 
     id = db.Column(db.Integer, primary_key=True)
     timestamp = db.Column(db.DateTime, default=datetime.utcnow)
-    
-    # Foreign Key to OptimizationRecord
-    optimization_record_id = db.Column(db.Integer, db.ForeignKey('optimization_records.id'), nullable=True)
-    optimization_record = db.relationship('OptimizationRecord', backref=db.backref('feedback', lazy=True, uselist=False))
+    optimization_record_id = db.Column(db.Integer, db.ForeignKey('optimization_records.id'), nullable=False)
+    nps_score = db.Column(db.Integer, nullable=False)
+    useful = db.Column(db.String(10), nullable=False)
+    improvements = db.Column(db.Text, nullable=True)
 
-    # Feedback data
-    recommend_rating = db.Column(db.Integer, nullable=True)
-    satisfaction_rating = db.Column(db.Integer, nullable=True)
-    feedback_text = db.Column(db.Text, nullable=True)
-    
-    # Metadata
-    user_agent = db.Column(db.String(500), nullable=True)
-    ip_address = db.Column(db.String(45), nullable=True) 
+    optimization_record = db.relationship('OptimizationRecord', backref=db.backref('feedbacks', lazy=True)) 

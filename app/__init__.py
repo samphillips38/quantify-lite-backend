@@ -1,4 +1,3 @@
-import os
 from flask import Flask
 from config import Config
 from flask_cors import CORS
@@ -18,10 +17,7 @@ def create_app(config_class=Config):
     from app.routes import bp as main_bp
     app.register_blueprint(main_bp)
 
-    @app.cli.command("init-db")
-    def init_db_command():
-        """Creates the database tables."""
+    with app.app_context():
         db.create_all()
-        print("Initialized the database.")
 
     return app 
