@@ -2,7 +2,7 @@ from flask import Blueprint, request, jsonify
 from app.services.account_data_service import get_accounts
 from app.services.optimization_service import optimize_savings
 from app.models import OptimizationInput, SavingsGoal
-from app.database_models import db, OptimizationRecord
+from app.database_models import db, OptimizationRecord, Feedback
 from dataclasses import asdict
 import json
 
@@ -88,6 +88,32 @@ def optimize():
 
     # 5. Return result
     return jsonify(asdict(result))
+
+@bp.route('/api/feedback', methods=['POST'])
+def submit_feedback():
+    """
+    Endpoint to receive user feedback.
+    Expects a JSON payload with feedback data.
+    """
+    data = request.get_json()
+    if not data:
+        return jsonify({"error": "Missing data"}), 400
+
+    try:
+        feedback = Feedback(
+            recommend_rating=data.get('recommend_rating'),
+            satisfaction_rating=data.get('satisfaction_rating'),
+            feedback_text=data.get('feedback_text'),
+            user_agent=request.headers.get('User-Agent'),
+            ip_address=request.remote_addr
+        )
+        db.session.add(feedback)
+        db.session.commit()
+        return jsonify({"message": "Feedback received"}), 201
+    except Exception as e:
+        db.session.rollback()
+        print(f"Error saving feedback to database: {e}")
+        return jsonify({"error": "Could not save feedback"}), 500
 
 @bp.route('/health', methods=['GET'])
 def health_check():

@@ -7,4 +7,5 @@ Flask-Cors
 Flask-SQLAlchemy
 psycopg2-binary
 pytest
-pytest-flask 
+pytest-flask
+Flask-Migrate 

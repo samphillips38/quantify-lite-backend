@@ -28,4 +28,19 @@ class OptimizationRecord(db.Model):
     
     # Metadata
     user_agent = db.Column(db.String(500), nullable=True)
+    ip_address = db.Column(db.String(45), nullable=True)
+
+class Feedback(db.Model):
+    __tablename__ = 'feedback'
+
+    id = db.Column(db.Integer, primary_key=True)
+    timestamp = db.Column(db.DateTime, default=datetime.utcnow)
+    
+    # Feedback data
+    recommend_rating = db.Column(db.Integer, nullable=True)
+    satisfaction_rating = db.Column(db.Integer, nullable=True)
+    feedback_text = db.Column(db.Text, nullable=True)
+    
+    # Metadata
+    user_agent = db.Column(db.String(500), nullable=True)
     ip_address = db.Column(db.String(45), nullable=True) 
