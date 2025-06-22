@@ -85,7 +85,8 @@ def optimize_savings(input_data: OptimizationInput, accounts: List[Account]) -> 
                     aer=round(acc.interest_rate * 100, 2),
                     term=term,
                     is_isa=is_isa,
-                    url=url
+                    url=url,
+                    platform=acc.platform
                 ))
                 total_return += amount * acc.interest_rate
         

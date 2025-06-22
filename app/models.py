@@ -6,6 +6,7 @@ class Account:
     name: str
     interest_rate: float
     account_type: str # e.g., 'fixed_term', 'easy_access', 'fixed_term_isa', 'easy_access_isa'
+    platform: str
     min_investment: float = 0
     max_investment: float = float('inf')
     term: int = 0 # Term in months, 0 for easy access
@@ -25,6 +26,7 @@ class Investment:
     term: str
     is_isa: bool
     url: str
+    platform: str
 
 @dataclass
 class OptimizationResult:
