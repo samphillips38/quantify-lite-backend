@@ -23,14 +23,14 @@ def optimize_savings(input_data: OptimizationInput, accounts: List[Account]) -> 
     # --- Define Constraints ---
     # 1. Total investment constraint
     def total_investment_rule(m):
-        return sum(m.investments[acc.name] for acc in accounts) == input_data.total_investment
+        return sum(m.investments[acc.name] for acc in accounts) <= input_data.total_investment
     model.total_investment_constraint = Constraint(rule=total_investment_rule)
 
     # 2. Individual account investment limits
     model.investment_limits = ConstraintList()
     for acc in accounts:
         # Min investment constraint
-        model.investment_limits.add(model.investments[acc.name] >= acc.min_investment)
+        # model.investment_limits.add(model.investments[acc.name] >= acc.min_investment) For now ignore min investment
         # Max investment constraint
         model.investment_limits.add(model.investments[acc.name] <= acc.max_investment)
 

@@ -1,0 +1,1382 @@
+{
+    "instruments": [
+        {
+            "@type": "BroadcastInstrument",
+            "instrumentID": 31083,
+            "instrumentCode": "EASY_ACCESS",
+            "status": "PUBLISHED",
+            "bankInstrumentExtRef": "OakNorthEAISA4",
+            "bankInstrumentName": "Easy Access ISA",
+            "term": 0,
+            "accrualPeriod": "MONTHLY",
+            "rate": 3.45000000000000017763568394002504646778106689453125,
+            "aer": 3.5,
+            "fromDate": "2024-08-01T13:00:00Z",
+            "toDate": null,
+            "investmentDates": {
+                "startDate": null,
+                "endDate": null
+            },
+            "rollingFlag": null,
+            "currencyCode": "GBP",
+            "bankingLicense": "OakNorth Bank plc",
+            "maturityEligible": "N",
+            "rules": [
+                {
+                    "ruleCode": "CANCEL",
+                    "value": "true",
+                    "type": "BOOLEAN",
+                    "fees": [
+                        {
+                            "feeCode": "PERIOD",
+                            "value": 0
+                        }
+                    ]
+                },
+                {
+                    "ruleCode": "INTERESTMETHOD",
+                    "value": "Actual/365",
+                    "type": "STRING"
+                },
+                {
+                    "ruleCode": "COOLOFFPERIOD",
+                    "value": "0",
+                    "type": "NUMBER"
+                }
+            ],
+            "documents": {
+                "fscsDisclosure": null,
+                "productTAndC": null,
+                "tAndC": null,
+                "bankFactSheet": {
+                    "docURL": "/bank/pdf/factsheet/441"
+                },
+                "summaryBox": {
+                    "docURL": "/instrument/pdf/summary/31083"
+                },
+                "otherDocument": []
+            },
+            "bankInstrumentShortDesc": null,
+            "minInvestment": 1,
+            "minBalance": 0,
+            "maxBalance": 500000,
+            "totalAmountAvailable": 98806017.0999999940395355224609375,
+            "onlineAmountAvailable": 98805920.0999999940395355224609375,
+            "bankName": "OakNorth Bank Plc",
+            "logo": "/download/r1iE6M-WR7alFQjQNdQr_Q.png",
+            "interestType": "VARIABLE",
+            "productCode": "53",
+            "bonusRate": null,
+            "bonusRateEndDate": null,
+            "penaltyFreeWithdrawals": null,
+            "penaltyDays": null
+        },
+        {
+            "@type": "BroadcastInstrument",
+            "instrumentID": 16661,
+            "instrumentCode": "EASY_ACCESS",
+            "status": "PUBLISHED",
+            "bankInstrumentExtRef": "HLSEA0009",
+            "bankInstrumentName": "Easy Access Savings Account Issue 9",
+            "term": 0,
+            "accrualPeriod": "MONTHLY",
+            "rate": 3.979999999999999982236431605997495353221893310546875,
+            "aer": 4.04999999999999982236431605997495353221893310546875,
+            "fromDate": "2021-08-06T08:00:00Z",
+            "toDate": null,
+            "investmentDates": {
+                "startDate": null,
+                "endDate": null
+            },
+            "rollingFlag": null,
+            "currencyCode": "GBP",
+            "bankingLicense": "Paragon Bank Plc",
+            "maturityEligible": "N",
+            "rules": [
+                {
+                    "ruleCode": "CANCEL",
+                    "value": "true",
+                    "type": "BOOLEAN",
+                    "fees": [
+                        {
+                            "feeCode": "PERIOD",
+                            "value": 0
+                        }
+                    ]
+                },
+                {
+                    "ruleCode": "INTERESTMETHOD",
+                    "value": "Actual/365",
+                    "type": "STRING"
+                },
+                {
+                    "ruleCode": "COOLOFFPERIOD",
+                    "value": "0",
+                    "type": "NUMBER"
+                }
+            ],
+            "documents": {
+                "fscsDisclosure": {
+                    "docURL": "/instrument/document/view/1.0/J_XuxP82RU-D1HSYULCM7w",
+                    "docVersion": "1.0"
+                },
+                "productTAndC": null,
+                "tAndC": {
+                    "docURL": "/instrument/document/view/1.0/32HfeZwVS4KycWh5eKrwbQ",
+                    "docVersion": "1.0"
+                },
+                "bankFactSheet": {
+                    "docURL": "/bank/pdf/factsheet/181"
+                },
+                "summaryBox": {
+                    "docURL": "/instrument/pdf/summary/16661"
+                },
+                "otherDocument": []
+            },
+            "bankInstrumentShortDesc": "Easy Access Savings Account",
+            "minInvestment": 1,
+            "minBalance": 0,
+            "maxBalance": 500000,
+            "totalAmountAvailable": 69398066.8400000035762786865234375,
+            "onlineAmountAvailable": 69376403.26000000536441802978515625,
+            "bankName": "Paragon",
+            "logo": "/download/t8QvlsOTTCqGRkMXOZJSvA.png",
+            "interestType": "VARIABLE",
+            "productCode": "54",
+            "bonusRate": null,
+            "bonusRateEndDate": null,
+            "penaltyFreeWithdrawals": null,
+            "penaltyDays": null
+        },
+        {
+            "@type": "BroadcastInstrument",
+            "instrumentID": 22853,
+            "instrumentCode": "EASY_ACCESS",
+            "status": "PUBLISHED",
+            "bankInstrumentExtRef": "EA01ZOPAHL",
+            "bankInstrumentName": "Easy Access",
+            "term": 0,
+            "accrualPeriod": "MONTHLY",
+            "rate": 3.689999999999999946709294817992486059665679931640625,
+            "aer": 3.75,
+            "fromDate": "2023-03-30T12:00:00Z",
+            "toDate": null,
+            "investmentDates": {
+                "startDate": null,
+                "endDate": null
+            },
+            "rollingFlag": null,
+            "currencyCode": "GBP",
+            "bankingLicense": "Zopa Bank Limited",
+            "maturityEligible": "N",
+            "rules": [
+                {
+                    "ruleCode": "CANCEL",
+                    "value": "true",
+                    "type": "BOOLEAN",
+                    "fees": [
+                        {
+                            "feeCode": "PERIOD",
+                            "value": 0
+                        }
+                    ]
+                },
+                {
+                    "ruleCode": "INTERESTMETHOD",
+                    "value": "Actual/365",
+                    "type": "STRING"
+                },
+                {
+                    "ruleCode": "COOLOFFPERIOD",
+                    "value": "0",
+                    "type": "NUMBER"
+                }
+            ],
+            "documents": {
+                "fscsDisclosure": null,
+                "productTAndC": null,
+                "tAndC": null,
+                "bankFactSheet": {
+                    "docURL": "/bank/pdf/factsheet/321"
+                },
+                "summaryBox": {
+                    "docURL": "/instrument/pdf/summary/22853"
+                },
+                "otherDocument": []
+            },
+            "bankInstrumentShortDesc": "1st easy access product",
+            "minInvestment": 1,
+            "minBalance": 0,
+            "maxBalance": 250000,
+            "totalAmountAvailable": 453965642.699999988079071044921875,
+            "onlineAmountAvailable": 454932797,
+            "bankName": "Zopa",
+            "logo": "/download/Xz4SwERHQnS3UoNt5-kpfw.png",
+            "interestType": "VARIABLE",
+            "productCode": "54",
+            "bonusRate": null,
+            "bonusRateEndDate": null,
+            "penaltyFreeWithdrawals": null,
+            "penaltyDays": null
+        },
+        {
+            "@type": "BroadcastInstrument",
+            "instrumentID": 29488,
+            "instrumentCode": "EASY_ACCESS",
+            "status": "PUBLISHED",
+            "bankInstrumentExtRef": "ADHLEAISA",
+            "bankInstrumentName": "AD HL Easy Access ISA",
+            "term": 0,
+            "accrualPeriod": "MONTHLY",
+            "rate": 3.899999999999999911182158029987476766109466552734375,
+            "aer": 3.970000000000000195399252334027551114559173583984375,
+            "fromDate": "2024-06-06T11:17:00Z",
+            "toDate": null,
+            "investmentDates": {
+                "startDate": null,
+                "endDate": null
+            },
+            "rollingFlag": null,
+            "currencyCode": "GBP",
+            "bankingLicense": "Arbuthnot Latham Co Limited",
+            "maturityEligible": "N",
+            "rules": [
+                {
+                    "ruleCode": "CANCEL",
+                    "value": "true",
+                    "type": "BOOLEAN",
+                    "fees": [
+                        {
+                            "feeCode": "PERIOD",
+                            "value": 0
+                        }
+                    ]
+                },
+                {
+                    "ruleCode": "INTERESTMETHOD",
+                    "value": "Actual/365",
+                    "type": "STRING"
+                },
+                {
+                    "ruleCode": "COOLOFFPERIOD",
+                    "value": "0",
+                    "type": "NUMBER"
+                }
+            ],
+            "documents": {
+                "fscsDisclosure": null,
+                "productTAndC": null,
+                "tAndC": null,
+                "bankFactSheet": {
+                    "docURL": "/bank/pdf/factsheet/521"
+                },
+                "summaryBox": {
+                    "docURL": "/instrument/pdf/summary/29488"
+                },
+                "otherDocument": []
+            },
+            "bankInstrumentShortDesc": null,
+            "minInvestment": 1,
+            "minBalance": 0,
+            "maxBalance": 250000,
+            "totalAmountAvailable": 27169199.7199999988079071044921875,
+            "onlineAmountAvailable": 27213105.6200000010430812835693359375,
+            "bankName": "Arbuthnot Direct part of Arbuthnot Latham",
+            "logo": "/download/Uc4bgzkKSoOceGmcommxSg.png",
+            "interestType": "VARIABLE",
+            "productCode": "53",
+            "bonusRate": null,
+            "bonusRateEndDate": null,
+            "penaltyFreeWithdrawals": null,
+            "penaltyDays": null
+        },
+        {
+            "@type": "BroadcastInstrument",
+            "instrumentID": 28518,
+            "instrumentCode": "EASY_ACCESS",
+            "status": "PUBLISHED",
+            "bankInstrumentExtRef": "ENBDEasyAccess",
+            "bankInstrumentName": "Easy Access",
+            "term": 0,
+            "accrualPeriod": "MONTHLY",
+            "rate": 3.70000000000000017763568394002504646778106689453125,
+            "aer": 3.770000000000000017763568394002504646778106689453125,
+            "fromDate": "2024-04-29T10:13:00Z",
+            "toDate": null,
+            "investmentDates": {
+                "startDate": null,
+                "endDate": null
+            },
+            "rollingFlag": null,
+            "currencyCode": "GBP",
+            "bankingLicense": "UK establishment number BR014405",
+            "maturityEligible": "N",
+            "rules": [
+                {
+                    "ruleCode": "CANCEL",
+                    "value": "true",
+                    "type": "BOOLEAN",
+                    "fees": [
+                        {
+                            "feeCode": "PERIOD",
+                            "value": 0
+                        }
+                    ]
+                },
+                {
+                    "ruleCode": "INTERESTMETHOD",
+                    "value": "Actual/365",
+                    "type": "STRING"
+                },
+                {
+                    "ruleCode": "COOLOFFPERIOD",
+                    "value": "0",
+                    "type": "NUMBER"
+                }
+            ],
+            "documents": {
+                "fscsDisclosure": null,
+                "productTAndC": null,
+                "tAndC": null,
+                "bankFactSheet": {
+                    "docURL": "/bank/pdf/factsheet/341"
+                },
+                "summaryBox": {
+                    "docURL": "/instrument/pdf/summary/28518"
+                },
+                "otherDocument": []
+            },
+            "bankInstrumentShortDesc": "reduction in rate to 3.70%",
+            "minInvestment": 1,
+            "minBalance": 0,
+            "maxBalance": 10000000,
+            "totalAmountAvailable": 970841577.78999996185302734375,
+            "onlineAmountAvailable": 970775442.71000003814697265625,
+            "bankName": "Emirates NBD",
+            "logo": "/download/amKRjHsGTZCoeb7T52g7sA.png",
+            "interestType": "VARIABLE",
+            "productCode": "54",
+            "bonusRate": null,
+            "bonusRateEndDate": null,
+            "penaltyFreeWithdrawals": null,
+            "penaltyDays": null
+        },
+        {
+            "@type": "BroadcastInstrument",
+            "instrumentID": 26744,
+            "instrumentCode": "EASY_ACCESS",
+            "status": "PUBLISHED",
+            "bankInstrumentExtRef": "MM0206",
+            "bankInstrumentName": "Easy Access ISA",
+            "term": 0,
+            "accrualPeriod": "MONTHLY",
+            "rate": 3,
+            "aer": 3.04999999999999982236431605997495353221893310546875,
+            "fromDate": "2024-01-25T14:12:00Z",
+            "toDate": null,
+            "investmentDates": {
+                "startDate": null,
+                "endDate": null
+            },
+            "rollingFlag": null,
+            "currencyCode": "GBP",
+            "bankingLicense": "Santander Financial Services Plc",
+            "maturityEligible": "N",
+            "rules": [
+                {
+                    "ruleCode": "CANCEL",
+                    "value": "true",
+                    "type": "BOOLEAN",
+                    "fees": [
+                        {
+                            "feeCode": "PERIOD",
+                            "value": 0
+                        }
+                    ]
+                },
+                {
+                    "ruleCode": "INTERESTMETHOD",
+                    "value": "Actual/365",
+                    "type": "STRING"
+                },
+                {
+                    "ruleCode": "COOLOFFPERIOD",
+                    "value": "0",
+                    "type": "NUMBER"
+                }
+            ],
+            "documents": {
+                "fscsDisclosure": null,
+                "productTAndC": null,
+                "tAndC": null,
+                "bankFactSheet": {
+                    "docURL": "/bank/pdf/factsheet/262"
+                },
+                "summaryBox": {
+                    "docURL": "/instrument/pdf/summary/26744"
+                },
+                "otherDocument": []
+            },
+            "bankInstrumentShortDesc": null,
+            "minInvestment": 1,
+            "minBalance": 0,
+            "maxBalance": 500000,
+            "totalAmountAvailable": 11830500.929999999701976776123046875,
+            "onlineAmountAvailable": 11873292.679999999701976776123046875,
+            "bankName": "Santander International",
+            "logo": "/download/cuqdIKvRQe62v28iIJShNA.png",
+            "interestType": "VARIABLE",
+            "productCode": "53",
+            "bonusRate": null,
+            "bonusRateEndDate": null,
+            "penaltyFreeWithdrawals": null,
+            "penaltyDays": null
+        },
+        {
+            "@type": "BroadcastInstrument",
+            "instrumentID": 27141,
+            "instrumentCode": "EASY_ACCESS",
+            "status": "PUBLISHED",
+            "bankInstrumentExtRef": "LHV Easy Access 1",
+            "bankInstrumentName": "LHV Easy Access",
+            "term": 0,
+            "accrualPeriod": "MONTHLY",
+            "rate": 3.95000000000000017763568394002504646778106689453125,
+            "aer": 4.019999999999999573674358543939888477325439453125,
+            "fromDate": "2024-02-23T15:18:00Z",
+            "toDate": null,
+            "investmentDates": {
+                "startDate": null,
+                "endDate": null
+            },
+            "rollingFlag": null,
+            "currencyCode": "GBP",
+            "bankingLicense": "LHV Bank Limited",
+            "maturityEligible": "N",
+            "rules": [
+                {
+                    "ruleCode": "CANCEL",
+                    "value": "true",
+                    "type": "BOOLEAN",
+                    "fees": [
+                        {
+                            "feeCode": "PERIOD",
+                            "value": 0
+                        }
+                    ]
+                },
+                {
+                    "ruleCode": "INTERESTMETHOD",
+                    "value": "Actual/365",
+                    "type": "STRING"
+                },
+                {
+                    "ruleCode": "COOLOFFPERIOD",
+                    "value": "0",
+                    "type": "NUMBER"
+                }
+            ],
+            "documents": {
+                "fscsDisclosure": null,
+                "productTAndC": null,
+                "tAndC": null,
+                "bankFactSheet": {
+                    "docURL": "/bank/pdf/factsheet/481"
+                },
+                "summaryBox": {
+                    "docURL": "/instrument/pdf/summary/27141"
+                },
+                "otherDocument": []
+            },
+            "bankInstrumentShortDesc": null,
+            "minInvestment": 1,
+            "minBalance": 0,
+            "maxBalance": 85000,
+            "totalAmountAvailable": 8123263.3399999998509883880615234375,
+            "onlineAmountAvailable": 8144243.41999999992549419403076171875,
+            "bankName": "LHV Bank",
+            "logo": "/download/Qle7_IyjTdm0G8niPZwMBA.png",
+            "interestType": "VARIABLE",
+            "productCode": "54",
+            "bonusRate": null,
+            "bonusRateEndDate": null,
+            "penaltyFreeWithdrawals": null,
+            "penaltyDays": null
+        },
+        {
+            "@type": "BroadcastInstrument",
+            "instrumentID": 25802,
+            "instrumentCode": "EASY_ACCESS",
+            "status": "PUBLISHED",
+            "bankInstrumentExtRef": "MM0161",
+            "bankInstrumentName": "Easy Access Issue 2",
+            "term": 0,
+            "accrualPeriod": "MONTHLY",
+            "rate": 3,
+            "aer": 3.04999999999999982236431605997495353221893310546875,
+            "fromDate": "2023-11-20T02:00:00Z",
+            "toDate": null,
+            "investmentDates": {
+                "startDate": null,
+                "endDate": null
+            },
+            "rollingFlag": null,
+            "currencyCode": "GBP",
+            "bankingLicense": "Santander Financial Services Plc",
+            "maturityEligible": "N",
+            "rules": [
+                {
+                    "ruleCode": "CANCEL",
+                    "value": "true",
+                    "type": "BOOLEAN",
+                    "fees": [
+                        {
+                            "feeCode": "PERIOD",
+                            "value": 0
+                        }
+                    ]
+                },
+                {
+                    "ruleCode": "INTERESTMETHOD",
+                    "value": "Actual/365",
+                    "type": "STRING"
+                },
+                {
+                    "ruleCode": "COOLOFFPERIOD",
+                    "value": "0",
+                    "type": "NUMBER"
+                }
+            ],
+            "documents": {
+                "fscsDisclosure": null,
+                "productTAndC": null,
+                "tAndC": null,
+                "bankFactSheet": {
+                    "docURL": "/bank/pdf/factsheet/262"
+                },
+                "summaryBox": {
+                    "docURL": "/instrument/pdf/summary/25802"
+                },
+                "otherDocument": []
+            },
+            "bankInstrumentShortDesc": "2nd Easy Access",
+            "minInvestment": 1,
+            "minBalance": 0,
+            "maxBalance": 500000,
+            "totalAmountAvailable": 64183410.5,
+            "onlineAmountAvailable": 63884180.070000000298023223876953125,
+            "bankName": "Santander International",
+            "logo": "/download/cuqdIKvRQe62v28iIJShNA.png",
+            "interestType": "VARIABLE",
+            "productCode": "54",
+            "bonusRate": null,
+            "bonusRateEndDate": null,
+            "penaltyFreeWithdrawals": null,
+            "penaltyDays": null
+        },
+        {
+            "@type": "BroadcastInstrument",
+            "instrumentID": 44993,
+            "instrumentCode": "FIXED_TERM_FIXED_DATES",
+            "status": "PUBLISHED",
+            "bankInstrumentExtRef": "HL 12 FTD 20/06/2025",
+            "bankInstrumentName": "Fixed Term Deposit",
+            "term": 12,
+            "accrualPeriod": "MATURITY",
+            "rate": 4.2599999999999997868371792719699442386627197265625,
+            "aer": 4.2599999999999997868371792719699442386627197265625,
+            "fromDate": "2025-06-20T09:00:00Z",
+            "toDate": "2025-06-26T22:59:00Z",
+            "investmentDates": {
+                "startDate": "2025-06-29T23:00:00Z",
+                "endDate": "2026-06-29T23:00:00Z"
+            },
+            "rollingFlag": null,
+            "currencyCode": "GBP",
+            "bankingLicense": "Aldermore Bank Plc",
+            "maturityEligible": "N",
+            "rules": [
+                {
+                    "ruleCode": "CANCEL",
+                    "value": "false",
+                    "type": "BOOLEAN",
+                    "fees": [
+                        {
+                            "feeCode": "PERIOD",
+                            "value": 0
+                        }
+                    ]
+                },
+                {
+                    "ruleCode": "INTERESTMETHOD",
+                    "value": "Actual/365",
+                    "type": "STRING"
+                },
+                {
+                    "ruleCode": "COOLOFFPERIOD",
+                    "value": "0",
+                    "type": "NUMBER"
+                }
+            ],
+            "documents": {
+                "fscsDisclosure": null,
+                "productTAndC": null,
+                "tAndC": null,
+                "bankFactSheet": {
+                    "docURL": "/bank/pdf/factsheet/62"
+                },
+                "summaryBox": {
+                    "docURL": "/instrument/pdf/summary/44993"
+                },
+                "otherDocument": []
+            },
+            "bankInstrumentShortDesc": null,
+            "minInvestment": null,
+            "minBalance": 5000,
+            "maxBalance": 5000000,
+            "totalAmountAvailable": 25000000,
+            "onlineAmountAvailable": 24798339.75,
+            "bankName": "Aldermore",
+            "logo": "/download/bfNlQvPxSLm0gMU2LmO0uQ.png",
+            "interestType": "FIXED",
+            "productCode": "54",
+            "bonusRate": null,
+            "bonusRateEndDate": null,
+            "penaltyFreeWithdrawals": null,
+            "penaltyDays": null
+        },
+        {
+            "@type": "BroadcastInstrument",
+            "instrumentID": 44874,
+            "instrumentCode": "FIXED_TERM_FIXED_DATES",
+            "status": "PUBLISHED",
+            "bankInstrumentExtRef": "FTS0558ZOPAHL",
+            "bankInstrumentName": "5 year fixed",
+            "term": 60,
+            "accrualPeriod": "ANNUALLY",
+            "rate": 3.70000000000000017763568394002504646778106689453125,
+            "aer": 3.70000000000000017763568394002504646778106689453125,
+            "fromDate": "2025-06-18T00:00:00Z",
+            "toDate": "2025-06-23T22:00:00Z",
+            "investmentDates": {
+                "startDate": "2025-06-24T23:00:00Z",
+                "endDate": "2030-06-24T23:00:00Z"
+            },
+            "rollingFlag": null,
+            "currencyCode": "GBP",
+            "bankingLicense": "Zopa Bank Limited",
+            "maturityEligible": "N",
+            "rules": [
+                {
+                    "ruleCode": "CANCEL",
+                    "value": "false",
+                    "type": "BOOLEAN",
+                    "fees": [
+                        {
+                            "feeCode": "PERIOD",
+                            "value": 0
+                        }
+                    ]
+                },
+                {
+                    "ruleCode": "INTERESTMETHOD",
+                    "value": "Actual/365",
+                    "type": "STRING"
+                },
+                {
+                    "ruleCode": "COOLOFFPERIOD",
+                    "value": "0",
+                    "type": "NUMBER"
+                }
+            ],
+            "documents": {
+                "fscsDisclosure": null,
+                "productTAndC": null,
+                "tAndC": null,
+                "bankFactSheet": {
+                    "docURL": "/bank/pdf/factsheet/321"
+                },
+                "summaryBox": {
+                    "docURL": "/instrument/pdf/summary/44874"
+                },
+                "otherDocument": []
+            },
+            "bankInstrumentShortDesc": null,
+            "minInvestment": null,
+            "minBalance": 1000,
+            "maxBalance": 85000,
+            "totalAmountAvailable": 5000000,
+            "onlineAmountAvailable": 5000000,
+            "bankName": "Zopa",
+            "logo": "/download/Xz4SwERHQnS3UoNt5-kpfw.png",
+            "interestType": "FIXED",
+            "productCode": "54",
+            "bonusRate": null,
+            "bonusRateEndDate": null,
+            "penaltyFreeWithdrawals": null,
+            "penaltyDays": null
+        },
+        {
+            "@type": "BroadcastInstrument",
+            "instrumentID": 44936,
+            "instrumentCode": "FIXED_TERM_FIXED_DATES",
+            "status": "PUBLISHED",
+            "bankInstrumentExtRef": "ENBD03M300625418",
+            "bankInstrumentName": "ENBD03M300625418",
+            "term": 3,
+            "accrualPeriod": "MATURITY",
+            "rate": 4.17999999999999971578290569595992565155029296875,
+            "aer": 4.25,
+            "fromDate": "2025-06-19T13:00:00Z",
+            "toDate": "2025-06-26T10:00:00Z",
+            "investmentDates": {
+                "startDate": "2025-06-29T23:00:00Z",
+                "endDate": "2025-09-29T23:00:00Z"
+            },
+            "rollingFlag": null,
+            "currencyCode": "GBP",
+            "bankingLicense": "UK establishment number BR014405",
+            "maturityEligible": "N",
+            "rules": [
+                {
+                    "ruleCode": "CANCEL",
+                    "value": "false",
+                    "type": "BOOLEAN",
+                    "fees": [
+                        {
+                            "feeCode": "PERIOD",
+                            "value": 0
+                        }
+                    ]
+                },
+                {
+                    "ruleCode": "INTERESTMETHOD",
+                    "value": "Actual/365",
+                    "type": "STRING"
+                },
+                {
+                    "ruleCode": "COOLOFFPERIOD",
+                    "value": "0",
+                    "type": "NUMBER"
+                }
+            ],
+            "documents": {
+                "fscsDisclosure": null,
+                "productTAndC": null,
+                "tAndC": null,
+                "bankFactSheet": {
+                    "docURL": "/bank/pdf/factsheet/341"
+                },
+                "summaryBox": {
+                    "docURL": "/instrument/pdf/summary/44936"
+                },
+                "otherDocument": []
+            },
+            "bankInstrumentShortDesc": null,
+            "minInvestment": null,
+            "minBalance": 1000,
+            "maxBalance": 10000000,
+            "totalAmountAvailable": 10000000,
+            "onlineAmountAvailable": 8414931.08000000007450580596923828125,
+            "bankName": "Emirates NBD",
+            "logo": "/download/amKRjHsGTZCoeb7T52g7sA.png",
+            "interestType": "FIXED",
+            "productCode": "54",
+            "bonusRate": null,
+            "bonusRateEndDate": null,
+            "penaltyFreeWithdrawals": null,
+            "penaltyDays": null
+        },
+        {
+            "@type": "BroadcastInstrument",
+            "instrumentID": 44991,
+            "instrumentCode": "FIXED_TERM_FIXED_DATES",
+            "status": "PUBLISHED",
+            "bankInstrumentExtRef": "HLGBP60M20250630390",
+            "bankInstrumentName": "FTD - 60M",
+            "term": 60,
+            "accrualPeriod": "ANNUALLY",
+            "rate": 3.899999999999999911182158029987476766109466552734375,
+            "aer": 3.899999999999999911182158029987476766109466552734375,
+            "fromDate": "2025-06-20T07:30:00Z",
+            "toDate": "2025-06-26T22:59:00Z",
+            "investmentDates": {
+                "startDate": "2025-06-29T23:00:00Z",
+                "endDate": "2030-06-27T23:00:00Z"
+            },
+            "rollingFlag": null,
+            "currencyCode": "GBP",
+            "bankingLicense": "Bank of London and The Middle East plc",
+            "maturityEligible": "N",
+            "rules": [
+                {
+                    "ruleCode": "CANCEL",
+                    "value": "false",
+                    "type": "BOOLEAN",
+                    "fees": [
+                        {
+                            "feeCode": "PERIOD",
+                            "value": 0
+                        }
+                    ]
+                },
+                {
+                    "ruleCode": "INTERESTMETHOD",
+                    "value": "Actual/365",
+                    "type": "STRING"
+                },
+                {
+                    "ruleCode": "COOLOFFPERIOD",
+                    "value": "14",
+                    "type": "NUMBER"
+                }
+            ],
+            "documents": {
+                "fscsDisclosure": null,
+                "productTAndC": null,
+                "tAndC": null,
+                "bankFactSheet": {
+                    "docURL": "/bank/pdf/factsheet/201"
+                },
+                "summaryBox": {
+                    "docURL": "/instrument/pdf/summary/44991"
+                },
+                "otherDocument": []
+            },
+            "bankInstrumentShortDesc": null,
+            "minInvestment": null,
+            "minBalance": 1000,
+            "maxBalance": 2000000,
+            "totalAmountAvailable": 2000000,
+            "onlineAmountAvailable": 1999000,
+            "bankName": "BLME",
+            "logo": "/download/1yVqsI8tQgu7bss5mqIXXQ.png",
+            "interestType": "FIXED",
+            "productCode": "54",
+            "bonusRate": null,
+            "bonusRateEndDate": null,
+            "penaltyFreeWithdrawals": null,
+            "penaltyDays": null
+        },
+        {
+            "@type": "BroadcastInstrument",
+            "instrumentID": 44897,
+            "instrumentCode": "FIXED_TERM_FIXED_DATES",
+            "status": "PUBLISHED",
+            "bankInstrumentExtRef": "HL_4Y26062025",
+            "bankInstrumentName": "4 Year Fixed Term",
+            "term": 48,
+            "accrualPeriod": "ANNUALLY",
+            "rate": 4.05999999999999960920149533194489777088165283203125,
+            "aer": 4.05999999999999960920149533194489777088165283203125,
+            "fromDate": "2025-06-17T23:01:00Z",
+            "toDate": "2025-06-24T22:59:00Z",
+            "investmentDates": {
+                "startDate": "2025-06-25T23:00:00Z",
+                "endDate": "2029-06-25T23:00:00Z"
+            },
+            "rollingFlag": null,
+            "currencyCode": "GBP",
+            "bankingLicense": "Chetwood Financial Limited",
+            "maturityEligible": "N",
+            "rules": [
+                {
+                    "ruleCode": "CANCEL",
+                    "value": "false",
+                    "type": "BOOLEAN",
+                    "fees": [
+                        {
+                            "feeCode": "PERIOD",
+                            "value": 0
+                        }
+                    ]
+                },
+                {
+                    "ruleCode": "INTERESTMETHOD",
+                    "value": "Actual/365",
+                    "type": "STRING"
+                },
+                {
+                    "ruleCode": "COOLOFFPERIOD",
+                    "value": "0",
+                    "type": "NUMBER"
+                }
+            ],
+            "documents": {
+                "fscsDisclosure": null,
+                "productTAndC": null,
+                "tAndC": null,
+                "bankFactSheet": {
+                    "docURL": "/bank/pdf/factsheet/721"
+                },
+                "summaryBox": {
+                    "docURL": "/instrument/pdf/summary/44897"
+                },
+                "otherDocument": []
+            },
+            "bankInstrumentShortDesc": null,
+            "minInvestment": null,
+            "minBalance": 1000,
+            "maxBalance": 1000000,
+            "totalAmountAvailable": 10000000,
+            "onlineAmountAvailable": 9996500,
+            "bankName": "Chetwood Bank",
+            "logo": "/download/aFabHx2JStCL0mxjrymtWw.png",
+            "interestType": "FIXED",
+            "productCode": "54",
+            "bonusRate": null,
+            "bonusRateEndDate": null,
+            "penaltyFreeWithdrawals": null,
+            "penaltyDays": null
+        },
+        {
+            "@type": "BroadcastInstrument",
+            "instrumentID": 44898,
+            "instrumentCode": "FIXED_TERM_FIXED_DATES",
+            "status": "PUBLISHED",
+            "bankInstrumentExtRef": "FTS0556ZOPAHL",
+            "bankInstrumentName": "3 year fixed",
+            "term": 36,
+            "accrualPeriod": "ANNUALLY",
+            "rate": 4,
+            "aer": 4,
+            "fromDate": "2025-06-18T00:00:00Z",
+            "toDate": "2025-06-23T22:00:00Z",
+            "investmentDates": {
+                "startDate": "2025-06-24T23:00:00Z",
+                "endDate": "2028-06-26T23:00:00Z"
+            },
+            "rollingFlag": null,
+            "currencyCode": "GBP",
+            "bankingLicense": "Zopa Bank Limited",
+            "maturityEligible": "N",
+            "rules": [
+                {
+                    "ruleCode": "CANCEL",
+                    "value": "false",
+                    "type": "BOOLEAN",
+                    "fees": [
+                        {
+                            "feeCode": "PERIOD",
+                            "value": 0
+                        }
+                    ]
+                },
+                {
+                    "ruleCode": "INTERESTMETHOD",
+                    "value": "Actual/365",
+                    "type": "STRING"
+                },
+                {
+                    "ruleCode": "COOLOFFPERIOD",
+                    "value": "0",
+                    "type": "NUMBER"
+                }
+            ],
+            "documents": {
+                "fscsDisclosure": null,
+                "productTAndC": null,
+                "tAndC": null,
+                "bankFactSheet": {
+                    "docURL": "/bank/pdf/factsheet/321"
+                },
+                "summaryBox": {
+                    "docURL": "/instrument/pdf/summary/44898"
+                },
+                "otherDocument": []
+            },
+            "bankInstrumentShortDesc": null,
+            "minInvestment": null,
+            "minBalance": 1000,
+            "maxBalance": 85000,
+            "totalAmountAvailable": 5000000,
+            "onlineAmountAvailable": 4975429.5,
+            "bankName": "Zopa",
+            "logo": "/download/Xz4SwERHQnS3UoNt5-kpfw.png",
+            "interestType": "FIXED",
+            "productCode": "54",
+            "bonusRate": null,
+            "bonusRateEndDate": null,
+            "penaltyFreeWithdrawals": null,
+            "penaltyDays": null
+        },
+        {
+            "@type": "BroadcastInstrument",
+            "instrumentID": 44971,
+            "instrumentCode": "FIXED_TERM_FIXED_DATES",
+            "status": "PUBLISHED",
+            "bankInstrumentExtRef": "HLS24FI0013",
+            "bankInstrumentName": "2 Year Fixed Rate ISA Account",
+            "term": 24,
+            "accrualPeriod": "ANNUALLY",
+            "rate": 3.850000000000000088817841970012523233890533447265625,
+            "aer": 3.850000000000000088817841970012523233890533447265625,
+            "fromDate": "2025-06-18T23:01:00Z",
+            "toDate": "2025-06-25T22:59:00Z",
+            "investmentDates": {
+                "startDate": "2025-06-26T23:00:00Z",
+                "endDate": "2027-06-26T23:00:00Z"
+            },
+            "rollingFlag": null,
+            "currencyCode": "GBP",
+            "bankingLicense": "Paragon Bank Plc",
+            "maturityEligible": "N",
+            "rules": [
+                {
+                    "ruleCode": "CANCEL",
+                    "value": "false",
+                    "type": "BOOLEAN",
+                    "fees": [
+                        {
+                            "feeCode": "PERIOD",
+                            "value": 0
+                        }
+                    ]
+                },
+                {
+                    "ruleCode": "INTERESTMETHOD",
+                    "value": "Actual/365",
+                    "type": "STRING"
+                },
+                {
+                    "ruleCode": "COOLOFFPERIOD",
+                    "value": "0",
+                    "type": "NUMBER"
+                }
+            ],
+            "documents": {
+                "fscsDisclosure": null,
+                "productTAndC": null,
+                "tAndC": null,
+                "bankFactSheet": {
+                    "docURL": "/bank/pdf/factsheet/181"
+                },
+                "summaryBox": {
+                    "docURL": "/instrument/pdf/summary/44971"
+                },
+                "otherDocument": []
+            },
+            "bankInstrumentShortDesc": "2 Year Fixed Rate ISA Account",
+            "minInvestment": null,
+            "minBalance": 1000,
+            "maxBalance": 500000,
+            "totalAmountAvailable": 35000000,
+            "onlineAmountAvailable": 35000000,
+            "bankName": "Paragon",
+            "logo": "/download/t8QvlsOTTCqGRkMXOZJSvA.png",
+            "interestType": "FIXED",
+            "productCode": "53",
+            "bonusRate": null,
+            "bonusRateEndDate": null,
+            "penaltyFreeWithdrawals": null,
+            "penaltyDays": 180
+        },
+        {
+            "@type": "BroadcastInstrument",
+            "instrumentID": 44970,
+            "instrumentCode": "FIXED_TERM_FIXED_DATES",
+            "status": "PUBLISHED",
+            "bankInstrumentExtRef": "HLS06FI0013",
+            "bankInstrumentName": "6 Month Fixed ISA Account",
+            "term": 6,
+            "accrualPeriod": "MATURITY",
+            "rate": 4.11000000000000031974423109204508364200592041015625,
+            "aer": 4.1500000000000003552713678800500929355621337890625,
+            "fromDate": "2025-06-18T23:01:00Z",
+            "toDate": "2025-06-25T22:59:00Z",
+            "investmentDates": {
+                "startDate": "2025-06-26T23:00:00Z",
+                "endDate": "2025-12-27T00:00:00Z"
+            },
+            "rollingFlag": null,
+            "currencyCode": "GBP",
+            "bankingLicense": "Paragon Bank Plc",
+            "maturityEligible": "N",
+            "rules": [
+                {
+                    "ruleCode": "CANCEL",
+                    "value": "false",
+                    "type": "BOOLEAN",
+                    "fees": [
+                        {
+                            "feeCode": "PERIOD",
+                            "value": 0
+                        }
+                    ]
+                },
+                {
+                    "ruleCode": "INTERESTMETHOD",
+                    "value": "Actual/365",
+                    "type": "STRING"
+                },
+                {
+                    "ruleCode": "COOLOFFPERIOD",
+                    "value": "0",
+                    "type": "NUMBER"
+                }
+            ],
+            "documents": {
+                "fscsDisclosure": null,
+                "productTAndC": null,
+                "tAndC": null,
+                "bankFactSheet": {
+                    "docURL": "/bank/pdf/factsheet/181"
+                },
+                "summaryBox": {
+                    "docURL": "/instrument/pdf/summary/44970"
+                },
+                "otherDocument": []
+            },
+            "bankInstrumentShortDesc": "6 Month Fixed ISA Account",
+            "minInvestment": null,
+            "minBalance": 1000,
+            "maxBalance": 500000,
+            "totalAmountAvailable": 35000000,
+            "onlineAmountAvailable": 34652534.29999999701976776123046875,
+            "bankName": "Paragon",
+            "logo": "/download/t8QvlsOTTCqGRkMXOZJSvA.png",
+            "interestType": "FIXED",
+            "productCode": "53",
+            "bonusRate": null,
+            "bonusRateEndDate": null,
+            "penaltyFreeWithdrawals": null,
+            "penaltyDays": 45
+        },
+        {
+            "@type": "BroadcastInstrument",
+            "instrumentID": 44756,
+            "instrumentCode": "FIXED_TERM_FIXED_DATES",
+            "status": "PUBLISHED",
+            "bankInstrumentExtRef": "HRT24M013v7",
+            "bankInstrumentName": "24 month Fixed Term Deposit Issue 13",
+            "term": 24,
+            "accrualPeriod": "ANNUALLY",
+            "rate": 4.0999999999999996447286321199499070644378662109375,
+            "aer": 4.0999999999999996447286321199499070644378662109375,
+            "fromDate": "2025-06-15T23:01:00Z",
+            "toDate": "2025-06-22T22:59:00Z",
+            "investmentDates": {
+                "startDate": "2025-06-23T23:00:00Z",
+                "endDate": "2027-06-23T23:00:00Z"
+            },
+            "rollingFlag": null,
+            "currencyCode": "GBP",
+            "bankingLicense": "Allica Bank Limited",
+            "maturityEligible": "N",
+            "rules": [
+                {
+                    "ruleCode": "CANCEL",
+                    "value": "false",
+                    "type": "BOOLEAN",
+                    "fees": [
+                        {
+                            "feeCode": "PERIOD",
+                            "value": 0
+                        }
+                    ]
+                },
+                {
+                    "ruleCode": "INTERESTMETHOD",
+                    "value": "Actual/365",
+                    "type": "STRING"
+                },
+                {
+                    "ruleCode": "COOLOFFPERIOD",
+                    "value": "0",
+                    "type": "NUMBER"
+                }
+            ],
+            "documents": {
+                "fscsDisclosure": null,
+                "productTAndC": null,
+                "tAndC": null,
+                "bankFactSheet": {
+                    "docURL": "/bank/pdf/factsheet/281"
+                },
+                "summaryBox": {
+                    "docURL": "/instrument/pdf/summary/44756"
+                },
+                "otherDocument": []
+            },
+            "bankInstrumentShortDesc": null,
+            "minInvestment": null,
+            "minBalance": 1000,
+            "maxBalance": 250000,
+            "totalAmountAvailable": 10000000,
+            "onlineAmountAvailable": 9818538,
+            "bankName": "Allica Bank",
+            "logo": "/download/asTK8qBTTXukfju_wpg0OQ.jpg",
+            "interestType": "FIXED",
+            "productCode": "54",
+            "bonusRate": null,
+            "bonusRateEndDate": null,
+            "penaltyFreeWithdrawals": null,
+            "penaltyDays": null
+        },
+        {
+            "@type": "BroadcastInstrument",
+            "instrumentID": 44995,
+            "instrumentCode": "FIXED_TERM_FIXED_DATES",
+            "status": "PUBLISHED",
+            "bankInstrumentExtRef": "HL 36 FTD 20/06/2025",
+            "bankInstrumentName": "Fixed Term Deposit",
+            "term": 36,
+            "accrualPeriod": "MATURITY",
+            "rate": 4.1500000000000003552713678800500929355621337890625,
+            "aer": 3.9900000000000002131628207280300557613372802734375,
+            "fromDate": "2025-06-20T09:00:00Z",
+            "toDate": "2025-06-26T22:59:00Z",
+            "investmentDates": {
+                "startDate": "2025-06-29T23:00:00Z",
+                "endDate": "2028-06-29T23:00:00Z"
+            },
+            "rollingFlag": null,
+            "currencyCode": "GBP",
+            "bankingLicense": "Aldermore Bank Plc",
+            "maturityEligible": "N",
+            "rules": [
+                {
+                    "ruleCode": "CANCEL",
+                    "value": "false",
+                    "type": "BOOLEAN",
+                    "fees": [
+                        {
+                            "feeCode": "PERIOD",
+                            "value": 0
+                        }
+                    ]
+                },
+                {
+                    "ruleCode": "INTERESTMETHOD",
+                    "value": "Actual/365",
+                    "type": "STRING"
+                },
+                {
+                    "ruleCode": "COOLOFFPERIOD",
+                    "value": "0",
+                    "type": "NUMBER"
+                }
+            ],
+            "documents": {
+                "fscsDisclosure": null,
+                "productTAndC": null,
+                "tAndC": null,
+                "bankFactSheet": {
+                    "docURL": "/bank/pdf/factsheet/62"
+                },
+                "summaryBox": {
+                    "docURL": "/instrument/pdf/summary/44995"
+                },
+                "otherDocument": []
+            },
+            "bankInstrumentShortDesc": null,
+            "minInvestment": null,
+            "minBalance": 5000,
+            "maxBalance": 5000000,
+            "totalAmountAvailable": 25000000,
+            "onlineAmountAvailable": 25000000,
+            "bankName": "Aldermore",
+            "logo": "/download/bfNlQvPxSLm0gMU2LmO0uQ.png",
+            "interestType": "FIXED",
+            "productCode": "54",
+            "bonusRate": null,
+            "bonusRateEndDate": null,
+            "penaltyFreeWithdrawals": null,
+            "penaltyDays": null
+        },
+        {
+            "@type": "BroadcastInstrument",
+            "instrumentID": 44997,
+            "instrumentCode": "FIXED_TERM_FIXED_DATES",
+            "status": "PUBLISHED",
+            "bankInstrumentExtRef": "HL 60 FTD 20/06/2025",
+            "bankInstrumentName": "Fixed Term Deposit",
+            "term": 60,
+            "accrualPeriod": "MATURITY",
+            "rate": 4.1500000000000003552713678800500929355621337890625,
+            "aer": 3.839999999999999857891452847979962825775146484375,
+            "fromDate": "2025-06-20T09:30:00Z",
+            "toDate": "2025-06-26T22:59:00Z",
+            "investmentDates": {
+                "startDate": "2025-06-29T23:00:00Z",
+                "endDate": "2030-06-27T23:00:00Z"
+            },
+            "rollingFlag": null,
+            "currencyCode": "GBP",
+            "bankingLicense": "Aldermore Bank Plc",
+            "maturityEligible": "N",
+            "rules": [
+                {
+                    "ruleCode": "CANCEL",
+                    "value": "false",
+                    "type": "BOOLEAN",
+                    "fees": [
+                        {
+                            "feeCode": "PERIOD",
+                            "value": 0
+                        }
+                    ]
+                },
+                {
+                    "ruleCode": "INTERESTMETHOD",
+                    "value": "Actual/365",
+                    "type": "STRING"
+                },
+                {
+                    "ruleCode": "COOLOFFPERIOD",
+                    "value": "0",
+                    "type": "NUMBER"
+                }
+            ],
+            "documents": {
+                "fscsDisclosure": null,
+                "productTAndC": null,
+                "tAndC": null,
+                "bankFactSheet": {
+                    "docURL": "/bank/pdf/factsheet/62"
+                },
+                "summaryBox": {
+                    "docURL": "/instrument/pdf/summary/44997"
+                },
+                "otherDocument": []
+            },
+            "bankInstrumentShortDesc": null,
+            "minInvestment": null,
+            "minBalance": 5000,
+            "maxBalance": 1000000,
+            "totalAmountAvailable": 25000000,
+            "onlineAmountAvailable": 25000000,
+            "bankName": "Aldermore",
+            "logo": "/download/bfNlQvPxSLm0gMU2LmO0uQ.png",
+            "interestType": "FIXED",
+            "productCode": "54",
+            "bonusRate": null,
+            "bonusRateEndDate": null,
+            "penaltyFreeWithdrawals": null,
+            "penaltyDays": null
+        }
+    ],
+    "accountBalance": [
+        {
+            "accountType": "22",
+            "minOpeningBalance": 0,
+            "minCashTransfer": 0
+        },
+        {
+            "accountType": "53",
+            "minOpeningBalance": 1,
+            "minCashTransfer": 0.01000000000000000020816681711721685132943093776702880859375
+        },
+        {
+            "accountType": "54",
+            "minOpeningBalance": 1,
+            "minCashTransfer": 0.01000000000000000020816681711721685132943093776702880859375
+        },
+        {
+            "accountType": "98",
+            "minOpeningBalance": 0,
+            "minCashTransfer": 0
+        }
+    ],
+    "SStatus": "Y"
+}
