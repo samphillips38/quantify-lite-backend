@@ -1,6 +1,6 @@
 # Savings Optimization Backend
 
-This backend is a Python-based application that uses Flask and Pyomo to provide an API for optimizing savings investments. It takes a total investment amount and determines the best allocation across various types of savings accounts to maximize interest returns, while respecting account-specific and regulatory constraints (like ISA limits).
+This backend is a Python-based application that uses Flask and Pyomo to provide an API for optimizing savings investments. It takes a user's earnings and a list of savings goals, and determines the best allocation across various types of savings accounts to maximize interest returns, while respecting account-specific and regulatory constraints (like ISA limits).
 
 ## Features
 
@@ -105,58 +105,93 @@ The application exposes the following endpoints:
 - **Endpoint**: `/optimize`
 - **Method**: `POST`
 - **Description**: Triggers the savings optimization.
-- **Request Body**: A JSON object with the total amount to invest.
+- **Request Body**: A JSON object containing the user's annual earnings and a list of their savings goals.
   ```json
   {
-    "total_investment": 50000
+    "earnings": 50000,
+    "savings_goals": [
+      {
+        "amount": 10000,
+        "horizon": "1 year"
+      },
+      {
+        "amount": 15000,
+        "horizon": "Variable access"
+      }
+    ]
   }
   ```
 - **Example `curl` command**:
   ```bash
   curl -X POST -H "Content-Type: application/json" \
-  -d '{"total_investment": 50000}' \
+  -d '{"earnings": 50000, "savings_goals": [{"amount": 10000, "horizon": "1 year"}]}' \
   http://127.0.0.1:5001/optimize
   ```
-- **Success Response**:
+- **Success Response**: A JSON object containing the list of investments and the overall status.
   ```json
   {
     "investments": [
       {
-        "account_name": "Fixed Rate Bond 1 Year",
-        "amount": 29000.0
-      },
-      {
         "account_name": "Fixed Rate ISA 2 Year",
-        "amount": 20000.0
+        "amount": 20000.0,
+        "aer": 7.0,
+        "term": "2 Years",
+        "is_isa": true,
+        "url": "https://www.google.com/search?q=Fixed+Rate+ISA+2+Year"
       },
       {
-        "account_name": "Super Saver",
-        "amount": 1000.0
+        "account_name": "Fixed Rate Bond 1 Year",
+        "amount": 30000.0,
+        "aer": 6.5,
+        "term": "1 Year",
+        "is_isa": false,
+        "url": "https://www.google.com/search?q=Fixed+Rate+Bond+1+Year"
       }
     ],
     "status": "Optimal",
-    "total_return": 3325.0
+    "total_return": 3350.0
   }
   ```
 
 ## How It Works
 
 ### 1. API Request
-The user sends a `POST` request to the `/optimize` endpoint with the total investment amount.
+The user sends a `POST` request to the `/optimize` endpoint with their annual earnings and a list of savings goals (amount and horizon).
 
-### 2. Data Fetching
+### 2. Data Processing
+The backend currently sums the amounts from all savings goals to determine a single `total_investment` figure. The `earnings` figure is used by the frontend to calculate post-tax returns but is not yet used in the backend optimization logic itself.
+
+### 3. Data Fetching
 The `account_data_service` is called to retrieve a list of available savings accounts. Currently, this service returns hardcoded mock data. In a production environment, this would be replaced with calls to a real financial data API.
 
-### 3. Optimization
+### 4. Optimization
 The `optimization_service` creates a Pyomo `ConcreteModel` with:
 - **Variables**: The amount to invest in each account.
 - **Objective Function**: Maximize the total interest earned from all investments.
 - **Constraints**:
-    - The sum of all investments must equal the `total_investment` provided by the user.
+    - The sum of all investments must equal the total calculated from the user's savings goals.
     - Each investment must be within the account's minimum and maximum investment limits.
     - The total investment in ISA accounts cannot exceed the annual limit (e.g., £20,000).
 
 The model is then solved using the `glpk` solver.
 
 ### 4. Response
-The optimization results, including the recommended investments and the total expected return, are formatted into a JSON object and returned to the user. 
+The optimization results, including a detailed list of recommended investments and the total expected return, are formatted into a JSON object and returned to the user.
+
+## Version Control
+
+This project is managed using Git and is hosted on GitHub.
+
+### Cloning the Repository
+To get a local copy of the project, clone the repository using the following command:
+```bash
+git clone https://github.com/samphillips38/quantify-lite-backend.git
+cd quantify-lite-backend
+```
+
+### Contribution Workflow
+If you wish to contribute, please follow this basic workflow:
+1.  Create a new branch for your feature or bug fix: `git checkout -b feature/your-feature-name`
+2.  Make your changes and commit them with a clear message: `git commit -m "Add some feature"`
+3.  Push your branch to the repository: `git push origin feature/your-feature-name`
+4.  Open a pull request on GitHub. 
