@@ -195,3 +195,20 @@ If you wish to contribute, please follow this basic workflow:
 2.  Make your changes and commit them with a clear message: `git commit -m "Add some feature"`
 3.  Push your branch to the repository: `git push origin feature/your-feature-name`
 4.  Open a pull request on GitHub. 
+
+## Deployment on Railway
+
+This application is configured for deployment on [Railway](https://railway.app/).
+
+To deploy this application, you can fork this repository and connect it to a new Railway project. The deployment will be handled automatically by Railway's Nixpacks build process.
+
+The following files are used for the deployment configuration:
+
+- `nixpacks.toml`: This file configures the build environment on Railway and ensures that the `glpk` solver is installed.
+- `Procfile`: This file specifies the command to run the application on the server using `gunicorn`.
+
+When you create a service on Railway and point it to this repository, Railway will automatically:
+1. Detect the Python application.
+2. Install the system packages specified in `nixpacks.toml` (i.e., `glpk`).
+3. Install the Python dependencies from `requirements.txt`.
+4. Run the application using the command from the `Procfile`. 
