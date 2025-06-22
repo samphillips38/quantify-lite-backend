@@ -82,11 +82,11 @@ def optimize_savings(input_data: OptimizationInput, accounts: List[Account]) -> 
     unique_horizons = sorted(list(set(g.horizon for g in input_data.savings_goals)))
 
     for horizon_months in unique_horizons:
-        cumulative_goal_amount = sum(g.amount for g in input_data.savings_goals if g.horizon <= horizon_months)
+        cumulative_goal_amount = sum(g.amount for g in input_data.savings_goals if g.horizon == horizon_months)
         
-        relevant_accounts = [acc.name for acc in eligible_accounts if acc.term <= horizon_months]
+        relevant_accounts = [acc.name for acc in eligible_accounts if acc.term == horizon_months]
 
-        expr = sum(model.investments[acc_name] for acc_name in relevant_accounts) >= cumulative_goal_amount
+        expr = sum(model.investments[acc_name] for acc_name in relevant_accounts) == cumulative_goal_amount
         model.horizon_constraints.add(expr)
 
     # 3. Non-ISA interest split for tax calculation

@@ -132,28 +132,3 @@ def get_accounts() -> List[Account]:
     print(f"Found a total of {len(all_accounts)} accounts.")
     
     return all_accounts
-
-# Example of what a real implementation might look like
-# def get_accounts_from_api() -> List[Account]:
-#     try:
-#         headers = {"Authorization": f"Bearer {API_KEY}"}
-#         response = requests.get(API_URL, headers=headers)
-#         response.raise_for_status()  # Raises an HTTPError for bad responses (4xx or 5xx)
-#         
-#         accounts_data = response.json()
-#         
-#         accounts = []
-#         for item in accounts_data:
-#             account = Account(
-#                 name=item.get('name'),
-#                 interest_rate=item.get('interest_rate'),
-#                 account_type=item.get('account_type'),
-#                 min_investment=item.get('min_investment', 0),
-#                 max_investment=item.get('max_investment', float('inf'))
-#             )
-#             accounts.append(account)
-#         return accounts
-#
-#     except requests.exceptions.RequestException as e:
-#         print(f"Error fetching account data from API: {e}")
-#         return [] # Return empty list or handle error as appropriate 
