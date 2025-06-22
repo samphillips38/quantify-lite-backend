@@ -62,6 +62,7 @@ def optimize():
     result = optimize_savings(opt_input, accounts)
 
     # 4. Save optimization record to database
+    record_id = None
     try:
         record = OptimizationRecord(
             total_investment=opt_input.total_investment,
@@ -81,13 +82,16 @@ def optimize():
         )
         db.session.add(record)
         db.session.commit()
+        record_id = record.id
     except Exception as e:
         db.session.rollback()
         print(f"Error saving optimization record to database: {e}")
         # We don't want to fail the main request if logging fails, so we just print the error.
 
     # 5. Return result
-    return jsonify(asdict(result))
+    response_data = asdict(result)
+    response_data['optimization_record_id'] = record_id
+    return jsonify(response_data)
 
 @bp.route('/api/feedback', methods=['POST'])
 def submit_feedback():
@@ -101,6 +105,7 @@ def submit_feedback():
 
     try:
         feedback = Feedback(
+            optimization_record_id=data.get('optimization_record_id'),
             recommend_rating=data.get('recommend_rating'),
             satisfaction_rating=data.get('satisfaction_rating'),
             feedback_text=data.get('feedback_text'),

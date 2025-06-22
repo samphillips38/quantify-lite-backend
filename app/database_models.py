@@ -36,6 +36,10 @@ class Feedback(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     timestamp = db.Column(db.DateTime, default=datetime.utcnow)
     
+    # Foreign Key to OptimizationRecord
+    optimization_record_id = db.Column(db.Integer, db.ForeignKey('optimization_records.id'), nullable=True)
+    optimization_record = db.relationship('OptimizationRecord', backref=db.backref('feedback', lazy=True, uselist=False))
+
     # Feedback data
     recommend_rating = db.Column(db.Integer, nullable=True)
     satisfaction_rating = db.Column(db.Integer, nullable=True)
