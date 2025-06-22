@@ -22,7 +22,7 @@ class OptimizationInput:
     total_investment: float
     savings_goals: List[SavingsGoal]
     earnings: Optional[float] = None
-    isa_allowance_remaining: Optional[float] = 20000.0
+    isa_allowance_used: Optional[float] = 0.0
     # Other constraints can be added here
     # e.g., max_isa_investment: float = 20000
 

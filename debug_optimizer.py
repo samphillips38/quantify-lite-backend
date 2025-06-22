@@ -26,19 +26,19 @@ def run_debug_optimizer():
         # SavingsGoal(amount=30000.0, horizon=0),
     ]
     total_investment = sum(goal.amount for goal in savings_goals)
-    isa_allowance_remaining = 20_000.0
+    isa_allowance_used = 5000.0 # Example: User has already used £5,000 of their ISA allowance.
     
     optimization_input = OptimizationInput(
         total_investment=total_investment,
         savings_goals=savings_goals,
         earnings=earnings,
-        isa_allowance_remaining=isa_allowance_remaining
+        isa_allowance_used=isa_allowance_used
     )
 
     print(f"\n--- Running Optimizer with Test Data ---")
     print(f"  - Total Investment: £{total_investment:,.2f}")
     print(f"  - Annual Earnings: £{earnings:,.2f}")
-    print(f"  - Remaining ISA Allowance: £{isa_allowance_remaining:,.2f}")
+    print(f"  - ISA Allowance Used: £{isa_allowance_used:,.2f}")
     print("  - Savings Goals:")
     for goal in savings_goals:
         print(f"    - Amount: £{goal.amount:,.2f}, Horizon: {goal.horizon} months")

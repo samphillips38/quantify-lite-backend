@@ -58,6 +58,7 @@ def optimize_savings(input_data: OptimizationInput, accounts: List[Account]) -> 
     tax_rate = tax_info['tax_rate']
     starting_rate_for_savings = _get_starting_rate_for_savings(input_data.earnings)
     total_tax_free_allowance = psa + starting_rate_for_savings
+    isa_allowance_remaining = 20000.0 - (input_data.isa_allowance_used or 0.0)
 
     # 2. Determine investment horizon from savings goals
     goal_horizons_years = [g.horizon / 12.0 for g in input_data.savings_goals]
@@ -135,7 +136,7 @@ def optimize_savings(input_data: OptimizationInput, accounts: List[Account]) -> 
     # 6. ISA investment limit
     if isa_accounts:
         def isa_limit_rule(m):
-            return sum(m.investments[acc_name] for acc_name in [acc.name for acc in isa_accounts]) <= input_data.isa_allowance_remaining
+            return sum(m.investments[acc_name] for acc_name in [acc.name for acc in isa_accounts]) <= isa_allowance_remaining
         model.isa_limit_constraint = Constraint(rule=isa_limit_rule)
     
     print("Pyomo model created. Solving...")

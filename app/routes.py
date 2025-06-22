@@ -34,14 +34,14 @@ def optimize():
         if earnings is not None:
             earnings = float(earnings)
 
-        isa_allowance_remaining = data.get('isa_allowance_remaining')
-        if isa_allowance_remaining is not None:
-            isa_allowance_remaining = float(isa_allowance_remaining)
+        isa_allowance_used = data.get('isa_allowance_used')
+        if isa_allowance_used is not None:
+            isa_allowance_used = float(isa_allowance_used)
         else:
-            isa_allowance_remaining = 20000.0
+            isa_allowance_used = 0.0
 
     except (ValueError, TypeError, KeyError):
-        return jsonify({"error": "Invalid data in 'savings_goals' or 'earnings' or 'isa_allowance_remaining'"}), 400
+        return jsonify({"error": "Invalid data in 'savings_goals' or 'earnings' or 'isa_allowance_used'"}), 400
 
     # 1. Get account data
     accounts = get_accounts()
@@ -53,7 +53,7 @@ def optimize():
         total_investment=total_investment,
         savings_goals=savings_goals,
         earnings=earnings,
-        isa_allowance_remaining=isa_allowance_remaining
+        isa_allowance_used=isa_allowance_used
     )
 
     # 3. Run optimization
