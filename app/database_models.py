@@ -39,5 +39,6 @@ class Feedback(db.Model):
     nps_score = db.Column(db.Integer, nullable=False)
     useful = db.Column(db.String(10), nullable=False)
     improvements = db.Column(db.Text, nullable=True)
+    age = db.Column(db.Integer, nullable=True)
 
     optimization_record = db.relationship('OptimizationRecord', backref=db.backref('feedbacks', lazy=True)) 

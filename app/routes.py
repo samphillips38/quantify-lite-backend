@@ -140,7 +140,8 @@ def feedback():
             optimization_record_id=int(data['optimization_record_id']),
             nps_score=int(data['nps_score']),
             useful=str(data['useful']),
-            improvements=data.get('improvements')
+            improvements=data.get('improvements'),
+            age=int(data['age'])
         )
         db.session.add(feedback_entry)
         db.session.commit()
