@@ -95,8 +95,9 @@ def optimize_savings(input_data: OptimizationInput, accounts: List[Account]) -> 
     def objective_rule(m):
         total_isa_interest = sum(m.investments[acc.name] * acc.interest_rate for acc in isa_accounts)
         post_tax_non_isa_interest = m.tax_free_interest_non_isa + m.taxable_interest * (1 - tax_rate)
-        return total_isa_interest + post_tax_non_isa_interest
-    model.objective = Objective(rule=objective_rule, sense=-1)
+        final_remaining_isa_allowance = isa_allowance_remaining - sum(m.investments[acc.name] for acc in isa_accounts)
+        return total_isa_interest + post_tax_non_isa_interest + final_remaining_isa_allowance * 2e-7
+    model.objective = Objective(rule=objective_rule, sense=-1) # Maximising, with a small penalty (< £0.004) for using up the ISA allowance
 
     # --- Define Constraints ---
     # 1. Total investment constraint: must invest the full amount
