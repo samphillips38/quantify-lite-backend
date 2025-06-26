@@ -1,0 +1,1049 @@
+{
+    "productItems": [
+        {
+            "id": "237",
+            "termType": "FixedTerm",
+            "termLengthUnit": "Month",
+            "termLength": 12,
+            "noticeLengthUnit": "NoNotice",
+            "noticeLength": 0,
+            "financialInstitution": {
+                "id": "18",
+                "isFscsProtected": true,
+                "isSharia": false,
+                "name": "Castle Trust Bank",
+                "shortName": "CTB",
+                "countryCode": "GBR",
+                "inidicationColour": "#132c4a",
+                "logoUri": "https://staticassets.flagstoneim.com/Logos/Banks/CTB.png",
+                "fitchRating": "NotAvailable",
+                "hasRingfencingEnabled": true,
+                "creditUnion": false,
+                "fscsGroupId": "12",
+                "fscsGroupName": null,
+                "depositDivisibleAmount": null
+            },
+            "currencyCode": "GBP",
+            "interestPaidType": "AtMaturity",
+            "interestPaysPlan": "NoPaysPlan",
+            "interestPaysFrequency": "Month",
+            "interestPaysSpecificDates": [],
+            "dateLastUpdatedUTC": "2022-11-10T11:10:38Z",
+            "productIssues": [
+                {
+                    "tAndCs": {
+                        "id": "1054",
+                        "version": 2,
+                        "documentType": "ProductTermsAndConditions",
+                        "contentTypes": [
+                            "application/pdf"
+                        ],
+                        "uri": "fim-livefgl-cdp-tx-api-uks.fimliveuks.appserviceenvironment.net/products/237/issue/1/version/25/document/ProductTermsAndConditions"
+                    },
+                    "issueNumber": 1,
+                    "issueVersionNumber": 25,
+                    "isClosedToNewClients": false,
+                    "ratePercent": 4.510000,
+                    "aer": 4.51,
+                    "depositPerClientMinimum": 1000,
+                    "depositPerClientMaximum": 85000,
+                    "createdDateTimeUtc": "2025-06-25T10:01:49Z"
+                }
+            ],
+            "isTopRate": true,
+            "isNonPooled": false,
+            "eligibleProductIssue": null
+        },
+        {
+            "id": "227",
+            "termType": "FixedTerm",
+            "termLengthUnit": "Month",
+            "termLength": 6,
+            "noticeLengthUnit": "NoNotice",
+            "noticeLength": 0,
+            "financialInstitution": {
+                "id": "11",
+                "isFscsProtected": true,
+                "isSharia": false,
+                "name": "ABC International Bank plc",
+                "shortName": "ABC",
+                "countryCode": "GBR",
+                "inidicationColour": "#326D93",
+                "logoUri": "https://staticassets.flagstoneim.com/Logos/Banks/ABC.svg",
+                "fitchRating": "BBB",
+                "hasRingfencingEnabled": true,
+                "creditUnion": false,
+                "fscsGroupId": "9",
+                "fscsGroupName": null,
+                "depositDivisibleAmount": null
+            },
+            "currencyCode": "GBP",
+            "interestPaidType": "AtMaturity",
+            "interestPaysPlan": "NoPaysPlan",
+            "interestPaysFrequency": "Month",
+            "interestPaysSpecificDates": [],
+            "dateLastUpdatedUTC": "2022-10-31T13:28:59Z",
+            "productIssues": [
+                {
+                    "tAndCs": {
+                        "id": "470",
+                        "version": 1,
+                        "documentType": "ProductTermsAndConditions",
+                        "contentTypes": [
+                            "application/pdf"
+                        ],
+                        "uri": "fim-livefgl-cdp-tx-api-uks.fimliveuks.appserviceenvironment.net/products/227/issue/1/version/47/document/ProductTermsAndConditions"
+                    },
+                    "issueNumber": 1,
+                    "issueVersionNumber": 47,
+                    "isClosedToNewClients": false,
+                    "ratePercent": 4.260000,
+                    "aer": 4.30,
+                    "depositPerClientMinimum": 10000,
+                    "depositPerClientMaximum": 3000000,
+                    "createdDateTimeUtc": "2025-04-23T10:47:17Z"
+                }
+            ],
+            "isTopRate": true,
+            "isNonPooled": false,
+            "eligibleProductIssue": null
+        },
+        {
+            "id": "844",
+            "termType": "FixedTerm",
+            "termLengthUnit": "Month",
+            "termLength": 6,
+            "noticeLengthUnit": "NoNotice",
+            "noticeLength": 0,
+            "financialInstitution": {
+                "id": "74",
+                "isFscsProtected": true,
+                "isSharia": false,
+                "name": "National Bank of Kuwait (International) PLC",
+                "shortName": "NBK",
+                "countryCode": "GBR",
+                "inidicationColour": "#002D73",
+                "logoUri": "https://staticassets.flagstoneim.com/Logos/Banks/NBK.svg",
+                "fitchRating": "BBB",
+                "hasRingfencingEnabled": true,
+                "creditUnion": false,
+                "fscsGroupId": "81",
+                "fscsGroupName": null,
+                "depositDivisibleAmount": null
+            },
+            "currencyCode": "GBP",
+            "interestPaidType": "AtMaturity",
+            "interestPaysPlan": "NoPaysPlan",
+            "interestPaysFrequency": "Month",
+            "interestPaysSpecificDates": [],
+            "dateLastUpdatedUTC": "2024-02-19T10:04:18Z",
+            "productIssues": [
+                {
+                    "tAndCs": {
+                        "id": "1462",
+                        "version": 1,
+                        "documentType": "ProductTermsAndConditions",
+                        "contentTypes": [
+                            "application/pdf"
+                        ],
+                        "uri": "fim-livefgl-cdp-tx-api-uks.fimliveuks.appserviceenvironment.net/products/844/issue/1/version/25/document/ProductTermsAndConditions"
+                    },
+                    "issueNumber": 1,
+                    "issueVersionNumber": 25,
+                    "isClosedToNewClients": false,
+                    "ratePercent": 4.250000,
+                    "aer": 4.29,
+                    "depositPerClientMinimum": 10000,
+                    "depositPerClientMaximum": 500000,
+                    "createdDateTimeUtc": "2025-06-17T14:41:59Z"
+                }
+            ],
+            "isTopRate": false,
+            "isNonPooled": false,
+            "eligibleProductIssue": null
+        },
+        {
+            "id": "4412",
+            "termType": "InstantAccess",
+            "termLengthUnit": "NoTerm",
+            "termLength": 0,
+            "noticeLengthUnit": "NoNotice",
+            "noticeLength": 0,
+            "financialInstitution": {
+                "id": "1",
+                "isFscsProtected": true,
+                "isSharia": false,
+                "name": "Paragon Bank PLC",
+                "shortName": "PAR",
+                "countryCode": "GBR",
+                "inidicationColour": null,
+                "logoUri": "https://staticassets.flagstoneim.com/Logos/Banks/PAR.svg",
+                "fitchRating": "BBBPlus",
+                "hasRingfencingEnabled": true,
+                "creditUnion": false,
+                "fscsGroupId": "8",
+                "fscsGroupName": null,
+                "depositDivisibleAmount": null
+            },
+            "currencyCode": "GBP",
+            "interestPaidType": "Variable",
+            "interestPaysPlan": "FirstOfCalendar",
+            "interestPaysFrequency": "Month",
+            "interestPaysSpecificDates": [],
+            "dateLastUpdatedUTC": "2025-06-11T16:10:16Z",
+            "productIssues": [
+                {
+                    "tAndCs": {
+                        "id": "3452",
+                        "version": 4,
+                        "documentType": "ProductTermsAndConditions",
+                        "contentTypes": [
+                            "application/pdf"
+                        ],
+                        "uri": "fim-livefgl-cdp-tx-api-uks.fimliveuks.appserviceenvironment.net/products/4412/issue/4/version/2/document/ProductTermsAndConditions"
+                    },
+                    "issueNumber": 4,
+                    "issueVersionNumber": 2,
+                    "isClosedToNewClients": false,
+                    "ratePercent": 4.150000,
+                    "aer": 4.22,
+                    "depositPerClientMinimum": 1000,
+                    "depositPerClientMaximum": 85000,
+                    "createdDateTimeUtc": "2025-06-12T09:46:38Z"
+                }
+            ],
+            "isTopRate": true,
+            "isNonPooled": false,
+            "eligibleProductIssue": null
+        },
+        {
+            "id": "1430",
+            "termType": "FixedTerm",
+            "termLengthUnit": "Month",
+            "termLength": 12,
+            "noticeLengthUnit": "NoNotice",
+            "noticeLength": 0,
+            "financialInstitution": {
+                "id": "74",
+                "isFscsProtected": true,
+                "isSharia": false,
+                "name": "National Bank of Kuwait (International) PLC",
+                "shortName": "NBK",
+                "countryCode": "GBR",
+                "inidicationColour": "#002D73",
+                "logoUri": "https://staticassets.flagstoneim.com/Logos/Banks/NBK.svg",
+                "fitchRating": "BBB",
+                "hasRingfencingEnabled": true,
+                "creditUnion": false,
+                "fscsGroupId": "81",
+                "fscsGroupName": null,
+                "depositDivisibleAmount": null
+            },
+            "currencyCode": "GBP",
+            "interestPaidType": "AtMaturity",
+            "interestPaysPlan": "NoPaysPlan",
+            "interestPaysFrequency": "Month",
+            "interestPaysSpecificDates": [],
+            "dateLastUpdatedUTC": "2024-05-07T07:03:41Z",
+            "productIssues": [
+                {
+                    "tAndCs": {
+                        "id": "2196",
+                        "version": 1,
+                        "documentType": "ProductTermsAndConditions",
+                        "contentTypes": [
+                            "application/pdf"
+                        ],
+                        "uri": "fim-livefgl-cdp-tx-api-uks.fimliveuks.appserviceenvironment.net/products/1430/issue/1/version/27/document/ProductTermsAndConditions"
+                    },
+                    "issueNumber": 1,
+                    "issueVersionNumber": 27,
+                    "isClosedToNewClients": false,
+                    "ratePercent": 4.150000,
+                    "aer": 4.15,
+                    "depositPerClientMinimum": 10000,
+                    "depositPerClientMaximum": 500000,
+                    "createdDateTimeUtc": "2025-06-23T14:18:49Z"
+                }
+            ],
+            "isTopRate": false,
+            "isNonPooled": false,
+            "eligibleProductIssue": null
+        },
+        {
+            "id": "244",
+            "termType": "FixedTerm",
+            "termLengthUnit": "Month",
+            "termLength": 12,
+            "noticeLengthUnit": "NoNotice",
+            "noticeLength": 0,
+            "financialInstitution": {
+                "id": "13",
+                "isFscsProtected": true,
+                "isSharia": true,
+                "name": "BLME",
+                "shortName": "BLM",
+                "countryCode": "GBR",
+                "inidicationColour": "#003F5F",
+                "logoUri": "https://staticassets.flagstoneim.com/Logos/Banks/BLME.svg",
+                "fitchRating": "BBBMinus",
+                "hasRingfencingEnabled": true,
+                "creditUnion": false,
+                "fscsGroupId": "5",
+                "fscsGroupName": null,
+                "depositDivisibleAmount": null
+            },
+            "currencyCode": "GBP",
+            "interestPaidType": "AtMaturity",
+            "interestPaysPlan": "NoPaysPlan",
+            "interestPaysFrequency": "Month",
+            "interestPaysSpecificDates": [],
+            "dateLastUpdatedUTC": "2022-11-24T17:26:43Z",
+            "productIssues": [
+                {
+                    "tAndCs": {
+                        "id": "1205",
+                        "version": 3,
+                        "documentType": "ProductTermsAndConditions",
+                        "contentTypes": [
+                            "application/pdf"
+                        ],
+                        "uri": "fim-livefgl-cdp-tx-api-uks.fimliveuks.appserviceenvironment.net/products/244/issue/1/version/42/document/ProductTermsAndConditions"
+                    },
+                    "issueNumber": 1,
+                    "issueVersionNumber": 42,
+                    "isClosedToNewClients": false,
+                    "ratePercent": 4.120000,
+                    "aer": 4.12,
+                    "depositPerClientMinimum": 1000,
+                    "depositPerClientMaximum": 1000000,
+                    "createdDateTimeUtc": "2025-06-24T15:05:09Z"
+                }
+            ],
+            "isTopRate": false,
+            "isNonPooled": false,
+            "eligibleProductIssue": null
+        },
+        {
+            "id": "250",
+            "termType": "FixedTerm",
+            "termLengthUnit": "Month",
+            "termLength": 12,
+            "noticeLengthUnit": "NoNotice",
+            "noticeLength": 0,
+            "financialInstitution": {
+                "id": "3",
+                "isFscsProtected": true,
+                "isSharia": false,
+                "name": "Investec",
+                "shortName": "INV",
+                "countryCode": "GBR",
+                "inidicationColour": "#000F48",
+                "logoUri": "https://staticassets.flagstoneim.com/Logos/Banks/Investec.svg",
+                "fitchRating": "BBBPlus",
+                "hasRingfencingEnabled": true,
+                "creditUnion": false,
+                "fscsGroupId": "2",
+                "fscsGroupName": null,
+                "depositDivisibleAmount": null
+            },
+            "currencyCode": "GBP",
+            "interestPaidType": "AtMaturity",
+            "interestPaysPlan": "NoPaysPlan",
+            "interestPaysFrequency": "Month",
+            "interestPaysSpecificDates": [],
+            "dateLastUpdatedUTC": "2022-11-29T12:27:48Z",
+            "productIssues": [
+                {
+                    "tAndCs": {
+                        "id": "505",
+                        "version": 1,
+                        "documentType": "ProductTermsAndConditions",
+                        "contentTypes": [
+                            "application/pdf"
+                        ],
+                        "uri": "fim-livefgl-cdp-tx-api-uks.fimliveuks.appserviceenvironment.net/products/250/issue/1/version/49/document/ProductTermsAndConditions"
+                    },
+                    "issueNumber": 1,
+                    "issueVersionNumber": 49,
+                    "isClosedToNewClients": false,
+                    "ratePercent": 4.100000,
+                    "aer": 4.10,
+                    "depositPerClientMinimum": 1000,
+                    "depositPerClientMaximum": 5000000,
+                    "createdDateTimeUtc": "2025-06-18T13:43:58Z"
+                }
+            ],
+            "isTopRate": false,
+            "isNonPooled": false,
+            "eligibleProductIssue": null
+        },
+        {
+            "id": "442",
+            "termType": "Notice",
+            "termLengthUnit": "NoTerm",
+            "termLength": 0,
+            "noticeLengthUnit": "Day",
+            "noticeLength": 95,
+            "financialInstitution": {
+                "id": "3",
+                "isFscsProtected": true,
+                "isSharia": false,
+                "name": "Investec",
+                "shortName": "INV",
+                "countryCode": "GBR",
+                "inidicationColour": "#000F48",
+                "logoUri": "https://staticassets.flagstoneim.com/Logos/Banks/Investec.svg",
+                "fitchRating": "BBBPlus",
+                "hasRingfencingEnabled": true,
+                "creditUnion": false,
+                "fscsGroupId": "2",
+                "fscsGroupName": null,
+                "depositDivisibleAmount": null
+            },
+            "currencyCode": "GBP",
+            "interestPaidType": "Daily",
+            "interestPaysPlan": "NoPaysPlan",
+            "interestPaysFrequency": "Daily",
+            "interestPaysSpecificDates": [],
+            "dateLastUpdatedUTC": "2025-06-16T11:10:55Z",
+            "productIssues": [
+                {
+                    "tAndCs": {
+                        "id": "865",
+                        "version": 1,
+                        "documentType": "ProductTermsAndConditions",
+                        "contentTypes": [
+                            "application/pdf"
+                        ],
+                        "uri": "fim-livefgl-cdp-tx-api-uks.fimliveuks.appserviceenvironment.net/products/442/issue/4/version/2/document/ProductTermsAndConditions"
+                    },
+                    "issueNumber": 4,
+                    "issueVersionNumber": 2,
+                    "isClosedToNewClients": false,
+                    "ratePercent": 4.000000,
+                    "aer": 4.08,
+                    "depositPerClientMinimum": 1000,
+                    "depositPerClientMaximum": 2000000,
+                    "createdDateTimeUtc": "2025-06-18T08:08:56Z"
+                }
+            ],
+            "isTopRate": true,
+            "isNonPooled": false,
+            "eligibleProductIssue": null
+        },
+        {
+            "id": "1487",
+            "termType": "FixedTerm",
+            "termLengthUnit": "Month",
+            "termLength": 12,
+            "noticeLengthUnit": "NoNotice",
+            "noticeLength": 0,
+            "financialInstitution": {
+                "id": "81",
+                "isFscsProtected": true,
+                "isSharia": false,
+                "name": "National Bank of Egypt",
+                "shortName": "NBE",
+                "countryCode": "GBR",
+                "inidicationColour": "#0c644c",
+                "logoUri": "https://staticassets.flagstoneim.com/Logos/Banks/NBE.svg",
+                "fitchRating": "BBBMinus",
+                "hasRingfencingEnabled": true,
+                "creditUnion": false,
+                "fscsGroupId": "83",
+                "fscsGroupName": null,
+                "depositDivisibleAmount": null
+            },
+            "currencyCode": "GBP",
+            "interestPaidType": "AtMaturity",
+            "interestPaysPlan": "NoPaysPlan",
+            "interestPaysFrequency": "Month",
+            "interestPaysSpecificDates": [],
+            "dateLastUpdatedUTC": "2024-06-03T07:04:07Z",
+            "productIssues": [
+                {
+                    "tAndCs": {
+                        "id": "2806",
+                        "version": 2,
+                        "documentType": "ProductTermsAndConditions",
+                        "contentTypes": [
+                            "application/pdf"
+                        ],
+                        "uri": "fim-livefgl-cdp-tx-api-uks.fimliveuks.appserviceenvironment.net/products/1487/issue/1/version/20/document/ProductTermsAndConditions"
+                    },
+                    "issueNumber": 1,
+                    "issueVersionNumber": 20,
+                    "isClosedToNewClients": false,
+                    "ratePercent": 4.070000,
+                    "aer": 4.07,
+                    "depositPerClientMinimum": 10000,
+                    "depositPerClientMaximum": 1000000,
+                    "createdDateTimeUtc": "2025-06-18T08:10:54Z"
+                }
+            ],
+            "isTopRate": false,
+            "isNonPooled": false,
+            "eligibleProductIssue": null
+        },
+        {
+            "id": "3327",
+            "termType": "FixedTerm",
+            "termLengthUnit": "Month",
+            "termLength": 12,
+            "noticeLengthUnit": "NoNotice",
+            "noticeLength": 0,
+            "financialInstitution": {
+                "id": "14",
+                "isFscsProtected": true,
+                "isSharia": false,
+                "name": "Charter Savings Bank",
+                "shortName": "CSB",
+                "countryCode": "GBR",
+                "inidicationColour": "#3FAEE0",
+                "logoUri": "https://staticassets.flagstoneim.com/Logos/Banks/CSB.svg",
+                "fitchRating": "BBBPlus",
+                "hasRingfencingEnabled": true,
+                "creditUnion": false,
+                "fscsGroupId": "3",
+                "fscsGroupName": null,
+                "depositDivisibleAmount": null
+            },
+            "currencyCode": "GBP",
+            "interestPaidType": "AtMaturity",
+            "interestPaysPlan": "NoPaysPlan",
+            "interestPaysFrequency": "Month",
+            "interestPaysSpecificDates": [],
+            "dateLastUpdatedUTC": "2024-07-10T07:43:28Z",
+            "productIssues": [
+                {
+                    "tAndCs": {
+                        "id": "2395",
+                        "version": 1,
+                        "documentType": "ProductTermsAndConditions",
+                        "contentTypes": [
+                            "application/pdf"
+                        ],
+                        "uri": "fim-livefgl-cdp-tx-api-uks.fimliveuks.appserviceenvironment.net/products/3327/issue/1/version/21/document/ProductTermsAndConditions"
+                    },
+                    "issueNumber": 1,
+                    "issueVersionNumber": 21,
+                    "isClosedToNewClients": false,
+                    "ratePercent": 4.070000,
+                    "aer": 4.07,
+                    "depositPerClientMinimum": 1000,
+                    "depositPerClientMaximum": 1000000,
+                    "createdDateTimeUtc": "2025-06-06T08:11:37Z"
+                }
+            ],
+            "isTopRate": false,
+            "isNonPooled": false,
+            "eligibleProductIssue": null
+        },
+        {
+            "id": "4256",
+            "termType": "Notice",
+            "termLengthUnit": "NoTerm",
+            "termLength": 0,
+            "noticeLengthUnit": "Day",
+            "noticeLength": 125,
+            "financialInstitution": {
+                "id": "84",
+                "isFscsProtected": true,
+                "isSharia": false,
+                "name": "Birmingham Bank ",
+                "shortName": "BIR",
+                "countryCode": "GBR",
+                "inidicationColour": "#ff8c00",
+                "logoUri": "https://staticassets.flagstoneim.com/Logos/Banks/BIR.svg",
+                "fitchRating": "B",
+                "hasRingfencingEnabled": true,
+                "creditUnion": false,
+                "fscsGroupId": "85",
+                "fscsGroupName": null,
+                "depositDivisibleAmount": null
+            },
+            "currencyCode": "GBP",
+            "interestPaidType": "Daily",
+            "interestPaysPlan": "NoPaysPlan",
+            "interestPaysFrequency": "Daily",
+            "interestPaysSpecificDates": [],
+            "dateLastUpdatedUTC": "2025-05-29T15:23:41Z",
+            "productIssues": [
+                {
+                    "tAndCs": {
+                        "id": "2634",
+                        "version": 1,
+                        "documentType": "ProductTermsAndConditions",
+                        "contentTypes": [
+                            "application/pdf"
+                        ],
+                        "uri": "fim-livefgl-cdp-tx-api-uks.fimliveuks.appserviceenvironment.net/products/4256/issue/5/version/2/document/ProductTermsAndConditions"
+                    },
+                    "issueNumber": 5,
+                    "issueVersionNumber": 2,
+                    "isClosedToNewClients": false,
+                    "ratePercent": 3.980000,
+                    "aer": 4.06,
+                    "depositPerClientMinimum": 5000,
+                    "depositPerClientMaximum": 85000,
+                    "createdDateTimeUtc": "2025-05-30T08:04:54Z"
+                }
+            ],
+            "isTopRate": true,
+            "isNonPooled": false,
+            "eligibleProductIssue": null
+        },
+        {
+            "id": "522",
+            "termType": "FixedTerm",
+            "termLengthUnit": "Month",
+            "termLength": 12,
+            "noticeLengthUnit": "NoNotice",
+            "noticeLength": 0,
+            "financialInstitution": {
+                "id": "73",
+                "isFscsProtected": true,
+                "isSharia": false,
+                "name": "LHV Bank",
+                "shortName": "LHV",
+                "countryCode": "GBR",
+                "inidicationColour": "#1A1A18",
+                "logoUri": "https://staticassets.flagstoneim.com/Logos/Banks/LHV.svg",
+                "fitchRating": "BBBMinus",
+                "hasRingfencingEnabled": true,
+                "creditUnion": false,
+                "fscsGroupId": "80",
+                "fscsGroupName": null,
+                "depositDivisibleAmount": null
+            },
+            "currencyCode": "GBP",
+            "interestPaidType": "AtMaturity",
+            "interestPaysPlan": "NoPaysPlan",
+            "interestPaysFrequency": "Month",
+            "interestPaysSpecificDates": [],
+            "dateLastUpdatedUTC": "2023-12-04T17:09:03Z",
+            "productIssues": [
+                {
+                    "tAndCs": {
+                        "id": "1139",
+                        "version": 2,
+                        "documentType": "ProductTermsAndConditions",
+                        "contentTypes": [
+                            "application/pdf"
+                        ],
+                        "uri": "fim-livefgl-cdp-tx-api-uks.fimliveuks.appserviceenvironment.net/products/522/issue/1/version/35/document/ProductTermsAndConditions"
+                    },
+                    "issueNumber": 1,
+                    "issueVersionNumber": 35,
+                    "isClosedToNewClients": false,
+                    "ratePercent": 4.050000,
+                    "aer": 4.05,
+                    "depositPerClientMinimum": 10000,
+                    "depositPerClientMaximum": 85000,
+                    "createdDateTimeUtc": "2025-06-18T08:11:05Z"
+                }
+            ],
+            "isTopRate": false,
+            "isNonPooled": false,
+            "eligibleProductIssue": null
+        },
+        {
+            "id": "4264",
+            "termType": "FixedTerm",
+            "termLengthUnit": "Month",
+            "termLength": 12,
+            "noticeLengthUnit": "NoNotice",
+            "noticeLength": 0,
+            "financialInstitution": {
+                "id": "61",
+                "isFscsProtected": true,
+                "isSharia": false,
+                "name": "FidBank UK",
+                "shortName": "FID",
+                "countryCode": "GBR",
+                "inidicationColour": "#212D65",
+                "logoUri": "https://staticassets.flagstoneim.com/Logos/Banks/FID.svg",
+                "fitchRating": "BB",
+                "hasRingfencingEnabled": true,
+                "creditUnion": false,
+                "fscsGroupId": "75",
+                "fscsGroupName": null,
+                "depositDivisibleAmount": null
+            },
+            "currencyCode": "GBP",
+            "interestPaidType": "AtMaturity",
+            "interestPaysPlan": "NoPaysPlan",
+            "interestPaysFrequency": "Month",
+            "interestPaysSpecificDates": [],
+            "dateLastUpdatedUTC": "2024-09-25T07:03:35Z",
+            "productIssues": [
+                {
+                    "tAndCs": {
+                        "id": "2638",
+                        "version": 1,
+                        "documentType": "ProductTermsAndConditions",
+                        "contentTypes": [
+                            "application/pdf"
+                        ],
+                        "uri": "fim-livefgl-cdp-tx-api-uks.fimliveuks.appserviceenvironment.net/products/4264/issue/1/version/15/document/ProductTermsAndConditions"
+                    },
+                    "issueNumber": 1,
+                    "issueVersionNumber": 15,
+                    "isClosedToNewClients": false,
+                    "ratePercent": 4.050000,
+                    "aer": 4.05,
+                    "depositPerClientMinimum": 2000,
+                    "depositPerClientMaximum": 85000,
+                    "createdDateTimeUtc": "2025-06-02T08:13:02Z"
+                }
+            ],
+            "isTopRate": false,
+            "isNonPooled": false,
+            "eligibleProductIssue": null
+        },
+        {
+            "id": "4376",
+            "termType": "FixedTerm",
+            "termLengthUnit": "Month",
+            "termLength": 9,
+            "noticeLengthUnit": "NoNotice",
+            "noticeLength": 0,
+            "financialInstitution": {
+                "id": "73",
+                "isFscsProtected": true,
+                "isSharia": false,
+                "name": "LHV Bank",
+                "shortName": "LHV",
+                "countryCode": "GBR",
+                "inidicationColour": "#1A1A18",
+                "logoUri": "https://staticassets.flagstoneim.com/Logos/Banks/LHV.svg",
+                "fitchRating": "BBBMinus",
+                "hasRingfencingEnabled": true,
+                "creditUnion": false,
+                "fscsGroupId": "80",
+                "fscsGroupName": null,
+                "depositDivisibleAmount": null
+            },
+            "currencyCode": "GBP",
+            "interestPaidType": "AtMaturity",
+            "interestPaysPlan": "NoPaysPlan",
+            "interestPaysFrequency": "Month",
+            "interestPaysSpecificDates": [],
+            "dateLastUpdatedUTC": "2024-12-16T09:09:03Z",
+            "productIssues": [
+                {
+                    "tAndCs": {
+                        "id": "2987",
+                        "version": 1,
+                        "documentType": "ProductTermsAndConditions",
+                        "contentTypes": [
+                            "application/pdf"
+                        ],
+                        "uri": "fim-livefgl-cdp-tx-api-uks.fimliveuks.appserviceenvironment.net/products/4376/issue/1/version/5/document/ProductTermsAndConditions"
+                    },
+                    "issueNumber": 1,
+                    "issueVersionNumber": 5,
+                    "isClosedToNewClients": false,
+                    "ratePercent": 4.030000,
+                    "aer": 4.05,
+                    "depositPerClientMinimum": 10000,
+                    "depositPerClientMaximum": 85000,
+                    "createdDateTimeUtc": "2025-06-02T10:00:19Z"
+                }
+            ],
+            "isTopRate": true,
+            "isNonPooled": false,
+            "eligibleProductIssue": null
+        },
+        {
+            "id": "4410",
+            "termType": "FixedTerm",
+            "termLengthUnit": "Month",
+            "termLength": 12,
+            "noticeLengthUnit": "NoNotice",
+            "noticeLength": 0,
+            "financialInstitution": {
+                "id": "1",
+                "isFscsProtected": true,
+                "isSharia": false,
+                "name": "Paragon Bank PLC",
+                "shortName": "PAR",
+                "countryCode": "GBR",
+                "inidicationColour": null,
+                "logoUri": "https://staticassets.flagstoneim.com/Logos/Banks/PAR.svg",
+                "fitchRating": "BBBPlus",
+                "hasRingfencingEnabled": true,
+                "creditUnion": false,
+                "fscsGroupId": "8",
+                "fscsGroupName": null,
+                "depositDivisibleAmount": null
+            },
+            "currencyCode": "GBP",
+            "interestPaidType": "AtMaturity",
+            "interestPaysPlan": "NoPaysPlan",
+            "interestPaysFrequency": "Month",
+            "interestPaysSpecificDates": [],
+            "dateLastUpdatedUTC": "2025-03-27T16:27:19Z",
+            "productIssues": [
+                {
+                    "tAndCs": {
+                        "id": "3248",
+                        "version": 1,
+                        "documentType": "ProductTermsAndConditions",
+                        "contentTypes": [
+                            "application/pdf"
+                        ],
+                        "uri": "fim-livefgl-cdp-tx-api-uks.fimliveuks.appserviceenvironment.net/products/4410/issue/1/version/1/document/ProductTermsAndConditions"
+                    },
+                    "issueNumber": 1,
+                    "issueVersionNumber": 1,
+                    "isClosedToNewClients": false,
+                    "ratePercent": 4.050000,
+                    "aer": 4.05,
+                    "depositPerClientMinimum": 1000,
+                    "depositPerClientMaximum": 500000,
+                    "createdDateTimeUtc": "2025-03-27T16:17:13Z"
+                }
+            ],
+            "isTopRate": false,
+            "isNonPooled": false,
+            "eligibleProductIssue": null
+        },
+        {
+            "id": "243",
+            "termType": "FixedTerm",
+            "termLengthUnit": "Month",
+            "termLength": 6,
+            "noticeLengthUnit": "NoNotice",
+            "noticeLength": 0,
+            "financialInstitution": {
+                "id": "13",
+                "isFscsProtected": true,
+                "isSharia": true,
+                "name": "BLME",
+                "shortName": "BLM",
+                "countryCode": "GBR",
+                "inidicationColour": "#003F5F",
+                "logoUri": "https://staticassets.flagstoneim.com/Logos/Banks/BLME.svg",
+                "fitchRating": "BBBMinus",
+                "hasRingfencingEnabled": true,
+                "creditUnion": false,
+                "fscsGroupId": "5",
+                "fscsGroupName": null,
+                "depositDivisibleAmount": null
+            },
+            "currencyCode": "GBP",
+            "interestPaidType": "AtMaturity",
+            "interestPaysPlan": "NoPaysPlan",
+            "interestPaysFrequency": "Month",
+            "interestPaysSpecificDates": [],
+            "dateLastUpdatedUTC": "2022-11-24T17:23:12Z",
+            "productIssues": [
+                {
+                    "tAndCs": {
+                        "id": "1204",
+                        "version": 2,
+                        "documentType": "ProductTermsAndConditions",
+                        "contentTypes": [
+                            "application/pdf"
+                        ],
+                        "uri": "fim-livefgl-cdp-tx-api-uks.fimliveuks.appserviceenvironment.net/products/243/issue/1/version/40/document/ProductTermsAndConditions"
+                    },
+                    "issueNumber": 1,
+                    "issueVersionNumber": 40,
+                    "isClosedToNewClients": false,
+                    "ratePercent": 4.000000,
+                    "aer": 4.04,
+                    "depositPerClientMinimum": 1000,
+                    "depositPerClientMaximum": 1000000,
+                    "createdDateTimeUtc": "2025-06-11T13:28:15Z"
+                }
+            ],
+            "isTopRate": false,
+            "isNonPooled": false,
+            "eligibleProductIssue": null
+        }
+    ],
+    "paging": {
+        "pageNumber": 1,
+        "pageSize": 16,
+        "pageCount": 13,
+        "totalCount": 207
+    },
+    "productFilters": [
+        {
+            "filterName": "Terms",
+            "filterOptions": [
+                {
+                    "termType": "InstantAccess",
+                    "termLengthUnit": "NoTerm",
+                    "termLength": "0",
+                    "noticeTermLengthUnit": "NoNotice",
+                    "noticeTermLength": "0"
+                },
+                {
+                    "termType": "Notice",
+                    "termLengthUnit": "NoTerm",
+                    "termLength": "0",
+                    "noticeTermLengthUnit": "Day",
+                    "noticeTermLength": "30"
+                },
+                {
+                    "termType": "Notice",
+                    "termLengthUnit": "NoTerm",
+                    "termLength": "0",
+                    "noticeTermLengthUnit": "Day",
+                    "noticeTermLength": "32"
+                },
+                {
+                    "termType": "Notice",
+                    "termLengthUnit": "NoTerm",
+                    "termLength": "0",
+                    "noticeTermLengthUnit": "Day",
+                    "noticeTermLength": "35"
+                },
+                {
+                    "termType": "Notice",
+                    "termLengthUnit": "NoTerm",
+                    "termLength": "0",
+                    "noticeTermLengthUnit": "Day",
+                    "noticeTermLength": "45"
+                },
+                {
+                    "termType": "Notice",
+                    "termLengthUnit": "NoTerm",
+                    "termLength": "0",
+                    "noticeTermLengthUnit": "Day",
+                    "noticeTermLength": "65"
+                },
+                {
+                    "termType": "Notice",
+                    "termLengthUnit": "NoTerm",
+                    "termLength": "0",
+                    "noticeTermLengthUnit": "Day",
+                    "noticeTermLength": "90"
+                },
+                {
+                    "termType": "Notice",
+                    "termLengthUnit": "NoTerm",
+                    "termLength": "0",
+                    "noticeTermLengthUnit": "Day",
+                    "noticeTermLength": "95"
+                },
+                {
+                    "termType": "Notice",
+                    "termLengthUnit": "NoTerm",
+                    "termLength": "0",
+                    "noticeTermLengthUnit": "Day",
+                    "noticeTermLength": "120"
+                },
+                {
+                    "termType": "Notice",
+                    "termLengthUnit": "NoTerm",
+                    "termLength": "0",
+                    "noticeTermLengthUnit": "Day",
+                    "noticeTermLength": "125"
+                },
+                {
+                    "termType": "Notice",
+                    "termLengthUnit": "NoTerm",
+                    "termLength": "0",
+                    "noticeTermLengthUnit": "Day",
+                    "noticeTermLength": "180"
+                },
+                {
+                    "termType": "FixedTerm",
+                    "termLengthUnit": "Month",
+                    "termLength": "1",
+                    "noticeTermLengthUnit": "NoNotice",
+                    "noticeTermLength": "0"
+                },
+                {
+                    "termType": "FixedTerm",
+                    "termLengthUnit": "Month",
+                    "termLength": "2",
+                    "noticeTermLengthUnit": "NoNotice",
+                    "noticeTermLength": "0"
+                },
+                {
+                    "termType": "FixedTerm",
+                    "termLengthUnit": "Month",
+                    "termLength": "3",
+                    "noticeTermLengthUnit": "NoNotice",
+                    "noticeTermLength": "0"
+                },
+                {
+                    "termType": "FixedTerm",
+                    "termLengthUnit": "Month",
+                    "termLength": "6",
+                    "noticeTermLengthUnit": "NoNotice",
+                    "noticeTermLength": "0"
+                },
+                {
+                    "termType": "FixedTerm",
+                    "termLengthUnit": "Month",
+                    "termLength": "9",
+                    "noticeTermLengthUnit": "NoNotice",
+                    "noticeTermLength": "0"
+                },
+                {
+                    "termType": "FixedTerm",
+                    "termLengthUnit": "Month",
+                    "termLength": "12",
+                    "noticeTermLengthUnit": "NoNotice",
+                    "noticeTermLength": "0"
+                },
+                {
+                    "termType": "FixedTerm",
+                    "termLengthUnit": "Month",
+                    "termLength": "15",
+                    "noticeTermLengthUnit": "NoNotice",
+                    "noticeTermLength": "0"
+                },
+                {
+                    "termType": "FixedTerm",
+                    "termLengthUnit": "Month",
+                    "termLength": "18",
+                    "noticeTermLengthUnit": "NoNotice",
+                    "noticeTermLength": "0"
+                },
+                {
+                    "termType": "FixedTerm",
+                    "termLengthUnit": "Year",
+                    "termLength": "2",
+                    "noticeTermLengthUnit": "NoNotice",
+                    "noticeTermLength": "0"
+                },
+                {
+                    "termType": "FixedTerm",
+                    "termLengthUnit": "Year",
+                    "termLength": "3",
+                    "noticeTermLengthUnit": "NoNotice",
+                    "noticeTermLength": "0"
+                },
+                {
+                    "termType": "FixedTerm",
+                    "termLengthUnit": "Year",
+                    "termLength": "4",
+                    "noticeTermLengthUnit": "NoNotice",
+                    "noticeTermLength": "0"
+                },
+                {
+                    "termType": "FixedTerm",
+                    "termLengthUnit": "Year",
+                    "termLength": "5",
+                    "noticeTermLengthUnit": "NoNotice",
+                    "noticeTermLength": "0"
+                },
+                {
+                    "termType": "FixedTerm",
+                    "termLengthUnit": "Year",
+                    "termLength": "7",
+                    "noticeTermLengthUnit": "NoNotice",
+                    "noticeTermLength": "0"
+                }
+            ]
+        }
+    ]
+}
