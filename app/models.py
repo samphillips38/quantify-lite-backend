@@ -23,6 +23,7 @@ class OptimizationInput:
     savings_goals: List[SavingsGoal]
     earnings: Optional[float] = None
     isa_allowance_used: Optional[float] = 0.0
+    other_savings_income: Optional[float] = 0.0
     # Other constraints can be added here
     # e.g., max_isa_investment: float = 20000
 
@@ -46,7 +47,7 @@ class Summary:
     tax_band: str
     personal_savings_allowance: float
     tax_rate: float
-    tax_free_allowance: float
+    tax_free_allowance_remaining: float
 
 @dataclass
 class OptimizationResult:

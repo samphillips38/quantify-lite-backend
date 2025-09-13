@@ -42,8 +42,14 @@ def optimize():
         else:
             isa_allowance_used = 0.0
 
+        other_savings_income = data.get('other_savings_income')
+        if other_savings_income is not None:
+            other_savings_income = float(other_savings_income)
+        else:
+            other_savings_income = 0.0
+
     except (ValueError, TypeError, KeyError):
-        return jsonify({"error": "Invalid data in 'savings_goals' or 'earnings' or 'isa_allowance_used'"}), 400
+        return jsonify({"error": "Invalid data in 'savings_goals' or 'earnings' or 'isa_allowance_used' or 'other_savings_income'"}), 400
 
     # 1. Get account data
     accounts = get_accounts()
@@ -55,7 +61,8 @@ def optimize():
         total_investment=total_investment,
         savings_goals=savings_goals,
         earnings=earnings,
-        isa_allowance_used=isa_allowance_used
+        isa_allowance_used=isa_allowance_used,
+        other_savings_income=other_savings_income
     )
 
     # 3. Run optimization
@@ -76,7 +83,7 @@ def optimize():
             tax_band=result.summary.tax_band if result.summary else None,
             personal_savings_allowance=result.summary.personal_savings_allowance if result.summary else None,
             tax_rate=result.summary.tax_rate if result.summary else None,
-            tax_free_allowance=result.summary.tax_free_allowance if result.summary else None,
+            tax_free_allowance_remaining=result.summary.tax_free_allowance_remaining if result.summary else None,
             investments_json=json.dumps([asdict(inv) for inv in result.investments]) if result.investments else None,
             user_agent=request.headers.get('User-Agent'),
             ip_address=request.remote_addr
