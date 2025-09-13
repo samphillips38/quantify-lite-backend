@@ -58,6 +58,8 @@ def optimize_savings(input_data: OptimizationInput, accounts: List[Account]) -> 
     tax_rate = tax_info['tax_rate']
     starting_rate_for_savings = _get_starting_rate_for_savings(input_data.earnings)
     total_tax_free_allowance = psa + starting_rate_for_savings
+    other_savings_income = input_data.other_savings_income or 0.0
+    total_tax_free_allowance_remaining = max(0, total_tax_free_allowance - other_savings_income)
     isa_allowance_remaining = 20000.0 - (input_data.isa_allowance_used or 0.0)
 
     # 2. Determine investment horizon from savings goals
@@ -124,9 +126,9 @@ def optimize_savings(input_data: OptimizationInput, accounts: List[Account]) -> 
         return m.taxable_interest + m.tax_free_interest_non_isa == total_non_isa_interest
     model.non_isa_interest_constraint = Constraint(rule=non_isa_interest_rule)
 
-    # 4. Total tax-free allowance limit (PSA + Starting Rate for Savings)
+    # 4. Total tax-free allowance limit (PSA + Starting Rate for Savings) - current savings income
     def tax_free_limit_rule(m):
-        return m.tax_free_interest_non_isa <= total_tax_free_allowance
+        return m.tax_free_interest_non_isa <= total_tax_free_allowance_remaining
     model.tax_free_limit = Constraint(rule=tax_free_limit_rule)
 
     # 5. Individual account investment limits
@@ -166,7 +168,7 @@ def optimize_savings(input_data: OptimizationInput, accounts: List[Account]) -> 
         
         # Calculate post-tax return for the final result
         non_isa_gross_return = sum(inv.amount * (inv.aer / 100) for inv in investments if not inv.is_isa)
-        taxable_return = max(0, non_isa_gross_return - total_tax_free_allowance)
+        taxable_return = max(0, non_isa_gross_return - total_tax_free_allowance_remaining)
         tax_paid = taxable_return * tax_rate
         total_net_return = total_gross_return - tax_paid
 
@@ -182,7 +184,7 @@ def optimize_savings(input_data: OptimizationInput, accounts: List[Account]) -> 
             tax_band=tax_info['band'],
             personal_savings_allowance=tax_info['psa'],
             tax_rate=tax_rate,
-            tax_free_allowance=total_tax_free_allowance
+            tax_free_allowance_remaining=round(total_tax_free_allowance_remaining, 2)
         )
 
         return OptimizationResult(
