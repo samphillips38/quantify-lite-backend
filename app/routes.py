@@ -75,6 +75,8 @@ def optimize():
             tax_due=result.summary.tax_due if result.summary else None,
             tax_band=result.summary.tax_band if result.summary else None,
             personal_savings_allowance=result.summary.personal_savings_allowance if result.summary else None,
+            tax_rate=result.summary.tax_rate if result.summary else None,
+            tax_free_allowance=result.summary.tax_free_allowance if result.summary else None,
             investments_json=json.dumps([asdict(inv) for inv in result.investments]) if result.investments else None,
             user_agent=request.headers.get('User-Agent'),
             ip_address=request.remote_addr
