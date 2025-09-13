@@ -180,7 +180,9 @@ def optimize_savings(input_data: OptimizationInput, accounts: List[Account]) -> 
             net_effective_aer=round(net_effective_aer, 2),
             tax_due=round(tax_paid, 2),
             tax_band=tax_info['band'],
-            personal_savings_allowance=tax_info['psa']
+            personal_savings_allowance=tax_info['psa'],
+            tax_rate=tax_rate,
+            tax_free_allowance=total_tax_free_allowance
         )
 
         return OptimizationResult(

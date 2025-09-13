@@ -45,6 +45,8 @@ class Summary:
     tax_due: float
     tax_band: str
     personal_savings_allowance: float
+    tax_rate: float
+    tax_free_allowance: float
 
 @dataclass
 class OptimizationResult:
