@@ -138,25 +138,66 @@ def feedback():
     """
     data = request.get_json()
     if not data:
+        print("Feedback endpoint: Missing data in request body")
         return jsonify({"error": "Missing data in request body"}), 400
 
+    print(f"Feedback endpoint received data: {data}")
+
     required_fields = ['optimization_record_id', 'nps_score', 'useful']
-    if not all(field in data for field in required_fields):
-        return jsonify({"error": f"Missing required fields: {required_fields}"}), 400
+    missing_fields = [field for field in required_fields if field not in data or data[field] is None]
+    if missing_fields:
+        print(f"Feedback endpoint: Missing required fields: {missing_fields}")
+        return jsonify({"error": f"Missing required fields: {missing_fields}"}), 400
 
     try:
+        # Validate and convert optimization_record_id
+        try:
+            optimization_record_id = int(data['optimization_record_id'])
+        except (ValueError, TypeError):
+            print(f"Feedback endpoint: Invalid optimization_record_id: {data.get('optimization_record_id')}")
+            return jsonify({"error": f"Invalid optimization_record_id: {data.get('optimization_record_id')}"}), 400
+        
+        # Validate and convert nps_score
+        try:
+            nps_score = int(data['nps_score'])
+        except (ValueError, TypeError):
+            print(f"Feedback endpoint: Invalid nps_score: {data.get('nps_score')}")
+            return jsonify({"error": f"Invalid nps_score: {data.get('nps_score')}"}), 400
+        
+        # Validate useful field
+        useful_value = str(data['useful']) if data['useful'] is not None else None
+        if not useful_value:
+            print(f"Feedback endpoint: Invalid useful value: {data.get('useful')}")
+            return jsonify({"error": f"Invalid useful value: {data.get('useful')}"}), 400
+        
+        # Handle optional age field - convert to int only if provided and not empty
+        age_value = None
+        if 'age' in data and data['age'] is not None and data['age'] != '':
+            try:
+                age_value = int(data['age'])
+            except (ValueError, TypeError):
+                print(f"Feedback endpoint: Invalid age value: {data.get('age')}")
+                return jsonify({"error": f"Invalid age value: {data.get('age')}"}), 400
+        
+        # Handle improvements - convert empty string to None
+        improvements_value = data.get('improvements')
+        if improvements_value == '':
+            improvements_value = None
+        
         feedback_entry = Feedback(
-            optimization_record_id=int(data['optimization_record_id']),
-            nps_score=int(data['nps_score']),
-            useful=str(data['useful']),
-            improvements=data.get('improvements'),
-            age=int(data['age'])
+            optimization_record_id=optimization_record_id,
+            nps_score=nps_score,
+            useful=useful_value,
+            improvements=improvements_value,
+            age=age_value
         )
         db.session.add(feedback_entry)
         db.session.commit()
+        print("Feedback endpoint: Successfully saved feedback")
     except (ValueError, TypeError, KeyError) as e:
         db.session.rollback()
-        return jsonify({"error": f"Invalid data provided: {e}"}), 400
+        print(f"Feedback endpoint: Invalid data provided - {type(e).__name__}: {e}")
+        return jsonify({"error": f"Invalid data provided: {str(e)}"}), 400
     except Exception as e:
         db.session.rollback()
         print(f"Error saving feedback to database: {e}")
