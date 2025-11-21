@@ -46,7 +46,9 @@ def add_column_postgresql(engine, table_name, column_name, column_type='REAL'):
     """Add a column to a PostgreSQL table."""
     with engine.connect() as conn:
         try:
-            conn.execute(text(f"ALTER TABLE {table_name} ADD COLUMN IF NOT EXISTS {column_name} {column_type}"))
+            # For VARCHAR types, use TEXT in PostgreSQL
+            pg_type = 'TEXT' if 'VARCHAR' in column_type.upper() else column_type
+            conn.execute(text(f"ALTER TABLE {table_name} ADD COLUMN IF NOT EXISTS {column_name} {pg_type}"))
             conn.commit()
             return True
         except (OperationalError, ProgrammingError) as e:
@@ -62,10 +64,14 @@ def migrate_database():
     print(f"Connecting to database: {'SQLite' if is_sqlite else 'PostgreSQL'}")
     engine = create_engine(database_url)
     
+    # Migrate optimization_records table
     table_name = 'optimization_records'
     columns_to_add = [
         ('tax_rate', 'REAL'),
         ('tax_free_allowance_remaining', 'REAL'),
+        ('other_savings_income', 'REAL'),
+        ('session_id', 'VARCHAR(36)'),
+        ('batch_id', 'VARCHAR(36)'),
     ]
     
     added_columns = []
@@ -75,36 +81,80 @@ def migrate_database():
     inspector = inspect(engine)
     if table_name not in inspector.get_table_names():
         print(f"Table '{table_name}' does not exist. It will be created by db.create_all() on first run.")
-        return
+    else:
+        for column_name, column_type in columns_to_add:
+            if column_exists(engine, table_name, column_name):
+                print(f"Column '{column_name}' already exists. Skipping.")
+                skipped_columns.append(column_name)
+            else:
+                print(f"Adding column '{column_name}' ({column_type})...")
+                try:
+                    if is_sqlite:
+                        success = add_column_sqlite(engine, table_name, column_name, column_type)
+                    else:
+                        success = add_column_postgresql(engine, table_name, column_name, column_type)
+                    
+                    if success:
+                        added_columns.append(column_name)
+                        print(f"Successfully added column '{column_name}'!")
+                    else:
+                        skipped_columns.append(column_name)
+                        print(f"Column '{column_name}' already exists (detected during add).")
+                except Exception as e:
+                    print(f"Error adding column '{column_name}': {e}")
+                    import traceback
+                    traceback.print_exc()
     
-    for column_name, column_type in columns_to_add:
-        if column_exists(engine, table_name, column_name):
-            print(f"Column '{column_name}' already exists. Skipping.")
-            skipped_columns.append(column_name)
-        else:
-            print(f"Adding column '{column_name}' ({column_type})...")
-            try:
-                if is_sqlite:
-                    success = add_column_sqlite(engine, table_name, column_name, column_type)
-                else:
-                    success = add_column_postgresql(engine, table_name, column_name, column_type)
-                
-                if success:
-                    added_columns.append(column_name)
-                    print(f"Successfully added column '{column_name}'!")
-                else:
-                    skipped_columns.append(column_name)
-                    print(f"Column '{column_name}' already exists (detected during add).")
-            except Exception as e:
-                print(f"Error adding column '{column_name}': {e}")
-                import traceback
-                traceback.print_exc()
+    # Migrate feedback table
+    feedback_table_name = 'feedback'
+    feedback_columns_to_add = [
+        ('session_id', 'VARCHAR(36)'),
+    ]
     
-    if added_columns:
-        print(f"\n✓ Successfully added {len(added_columns)} column(s): {', '.join(added_columns)}")
-    if skipped_columns:
-        print(f"⊘ Skipped {len(skipped_columns)} column(s) (already exist): {', '.join(skipped_columns)}")
-    if not added_columns and not skipped_columns:
+    feedback_added_columns = []
+    feedback_skipped_columns = []
+    
+    if feedback_table_name not in inspector.get_table_names():
+        print(f"Table '{feedback_table_name}' does not exist. It will be created by db.create_all() on first run.")
+    else:
+        for column_name, column_type in feedback_columns_to_add:
+            if column_exists(engine, feedback_table_name, column_name):
+                print(f"Column '{column_name}' already exists in '{feedback_table_name}'. Skipping.")
+                feedback_skipped_columns.append(column_name)
+            else:
+                print(f"Adding column '{column_name}' ({column_type}) to '{feedback_table_name}'...")
+                try:
+                    if is_sqlite:
+                        success = add_column_sqlite(engine, feedback_table_name, column_name, column_type)
+                    else:
+                        success = add_column_postgresql(engine, feedback_table_name, column_name, column_type)
+                    
+                    if success:
+                        feedback_added_columns.append(column_name)
+                        print(f"Successfully added column '{column_name}' to '{feedback_table_name}'!")
+                    else:
+                        feedback_skipped_columns.append(column_name)
+                        print(f"Column '{column_name}' already exists in '{feedback_table_name}' (detected during add).")
+                except Exception as e:
+                    print(f"Error adding column '{column_name}' to '{feedback_table_name}': {e}")
+                    import traceback
+                    traceback.print_exc()
+    
+    if added_columns or feedback_added_columns:
+        total_added = len(added_columns) + len(feedback_added_columns)
+        print(f"\n✓ Successfully added {total_added} column(s)")
+        if added_columns:
+            print(f"  - optimization_records: {', '.join(added_columns)}")
+        if feedback_added_columns:
+            print(f"  - feedback: {', '.join(feedback_added_columns)}")
+    if skipped_columns or feedback_skipped_columns:
+        total_skipped = len(skipped_columns) + len(feedback_skipped_columns)
+        print(f"⊘ Skipped {total_skipped} column(s) (already exist)")
+        if skipped_columns:
+            print(f"  - optimization_records: {', '.join(skipped_columns)}")
+        if feedback_skipped_columns:
+            print(f"  - feedback: {', '.join(feedback_skipped_columns)}")
+    if not added_columns and not skipped_columns and not feedback_added_columns and not feedback_skipped_columns:
         print("\n✓ All columns already exist. Database is up to date.")
     
     print("Migration complete!")

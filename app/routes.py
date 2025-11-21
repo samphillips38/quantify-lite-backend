@@ -70,10 +70,15 @@ def optimize():
 
     # 4. Save optimization record to database
     try:
+        # Extract session_id and batch_id from request (optional, for tracking)
+        session_id = data.get('session_id')
+        batch_id = data.get('batch_id')
+        
         record = OptimizationRecord(
             total_investment=opt_input.total_investment,
             earnings=opt_input.earnings,
             isa_allowance_used=opt_input.isa_allowance_used,
+            other_savings_income=opt_input.other_savings_income,
             savings_goals_json=json.dumps([asdict(goal) for goal in opt_input.savings_goals]),
             status=result.status,
             total_gross_interest=result.summary.gross_annual_interest if result.summary else None,
@@ -86,7 +91,9 @@ def optimize():
             tax_free_allowance_remaining=result.summary.tax_free_allowance_remaining if result.summary else None,
             investments_json=json.dumps([asdict(inv) for inv in result.investments]) if result.investments else None,
             user_agent=request.headers.get('User-Agent'),
-            ip_address=request.remote_addr
+            ip_address=request.remote_addr,
+            session_id=session_id,
+            batch_id=batch_id
         )
         db.session.add(record)
         db.session.commit()
@@ -184,8 +191,12 @@ def feedback():
         if improvements_value == '':
             improvements_value = None
         
+        # Handle optional session_id
+        session_id = data.get('session_id')
+        
         feedback_entry = Feedback(
             optimization_record_id=optimization_record_id,
+            session_id=session_id,
             nps_score=nps_score,
             useful=useful_value,
             improvements=improvements_value,

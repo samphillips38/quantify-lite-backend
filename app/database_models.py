@@ -14,6 +14,7 @@ class OptimizationRecord(db.Model):
     total_investment = db.Column(db.Float, nullable=False)
     earnings = db.Column(db.Float, nullable=True)
     isa_allowance_used = db.Column(db.Float, default=0.0)
+    other_savings_income = db.Column(db.Float, default=0.0)
     savings_goals_json = db.Column(db.Text, nullable=False)  # Storing as a JSON string
     
     # Results data
@@ -30,7 +31,9 @@ class OptimizationRecord(db.Model):
     
     # Metadata
     user_agent = db.Column(db.String(500), nullable=True)
-    ip_address = db.Column(db.String(45), nullable=True) 
+    ip_address = db.Column(db.String(45), nullable=True)
+    session_id = db.Column(db.String(36), nullable=True)  # UUID to track user sessions
+    batch_id = db.Column(db.String(36), nullable=True)  # UUID to group bulk optimizations from the same run 
 
 class Feedback(db.Model):
     __tablename__ = 'feedback'
@@ -38,6 +41,7 @@ class Feedback(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     timestamp = db.Column(db.DateTime, default=datetime.utcnow)
     optimization_record_id = db.Column(db.Integer, db.ForeignKey('optimization_records.id'), nullable=False)
+    session_id = db.Column(db.String(36), nullable=True)  # UUID to link feedback to user session
     nps_score = db.Column(db.Integer, nullable=False)
     useful = db.Column(db.String(10), nullable=False)
     improvements = db.Column(db.Text, nullable=True)
