@@ -70,6 +70,7 @@ def migrate_database():
         ('tax_rate', 'REAL'),
         ('tax_free_allowance_remaining', 'REAL'),
         ('other_savings_income', 'REAL'),
+        ('equivalent_pre_tax_rate', 'REAL'),
         ('session_id', 'VARCHAR(36)'),
         ('batch_id', 'VARCHAR(36)'),
     ]

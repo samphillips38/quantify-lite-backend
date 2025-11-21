@@ -168,12 +168,20 @@ def optimize_savings(input_data: OptimizationInput, accounts: List[Account]) -> 
         
         # Calculate post-tax return for the final result
         non_isa_gross_return = sum(inv.amount * (inv.aer / 100) for inv in investments if not inv.is_isa)
-        taxable_return = max(0, non_isa_gross_return - total_tax_free_allowance_remaining)
+        untaxable_non_isa_return = value(model.tax_free_interest_non_isa)
+        taxable_return = max(0, non_isa_gross_return - untaxable_non_isa_return)
         tax_paid = taxable_return * tax_rate
         total_net_return = total_gross_return - tax_paid
 
         total_investment = input_data.total_investment
         net_effective_aer = (total_net_return / total_investment) * 100 if total_investment > 0 else 0
+        
+        # Calculate equivalent pre-tax rate
+        # This is the rate needed on a normal savings account to get the same after-tax return
+        if total_investment > 0 and tax_rate < 1.0:
+            equivalent_pre_tax_rate = ((total_net_return - untaxable_non_isa_return) / (1 - tax_rate) + untaxable_non_isa_return) / total_investment * 100
+        else:
+            equivalent_pre_tax_rate = net_effective_aer  # Fallback to net AER if calculation not possible
 
         summary = Summary(
             total_investment=round(total_investment, 2),
@@ -184,7 +192,8 @@ def optimize_savings(input_data: OptimizationInput, accounts: List[Account]) -> 
             tax_band=tax_info['band'],
             personal_savings_allowance=tax_info['psa'],
             tax_rate=tax_rate,
-            tax_free_allowance_remaining=round(total_tax_free_allowance_remaining, 2)
+            tax_free_allowance_remaining=round(total_tax_free_allowance_remaining, 2),
+            equivalent_pre_tax_rate=round(equivalent_pre_tax_rate, 2)
         )
 
         return OptimizationResult(

@@ -27,6 +27,7 @@ class OptimizationRecord(db.Model):
     personal_savings_allowance = db.Column(db.Float, nullable=True)
     tax_rate = db.Column(db.Float, nullable=True)
     tax_free_allowance_remaining = db.Column(db.Float, nullable=True)
+    equivalent_pre_tax_rate = db.Column(db.Float, nullable=True)
     investments_json = db.Column(db.Text, nullable=True) # Storing as a JSON string
     
     # Metadata
