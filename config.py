@@ -19,7 +19,10 @@ class Config:
 
     # Email configuration - Using Resend API (Railway's recommended approach, works on all plans)
     RESEND_API_KEY = os.environ.get('RESEND_API_KEY')
-    RESEND_FROM_EMAIL = os.environ.get('RESEND_FROM_EMAIL') or os.environ.get('MAIL_USERNAME') or "samphillips38@gmail.com"
+    # Use Resend's verified test email (no domain verification needed)
+    # For production, verify your own domain at https://resend.com/domains
+    RESEND_FROM_EMAIL = os.environ.get('RESEND_FROM_EMAIL') or "onboarding@resend.dev"
+    RESEND_REPLY_TO = os.environ.get('RESEND_REPLY_TO') or os.environ.get('MAIL_USERNAME') or "samphillips38@gmail.com"
     
     # Legacy SMTP configuration (for local development fallback)
     MAIL_SERVER = os.environ.get('MAIL_SERVER') or 'smtp.gmail.com'

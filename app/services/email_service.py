@@ -318,6 +318,9 @@ def send_results_email(recipient_email, inputs, summary, investments):
             # Configure Resend
             resend.api_key = resend_api_key
             
+            # Get reply-to email (for replies to go to the correct address)
+            resend_reply_to = current_app.config.get('RESEND_REPLY_TO')
+            
             # Send email via Resend API
             params = {
                 "from": resend_from_email,
@@ -325,6 +328,10 @@ def send_results_email(recipient_email, inputs, summary, investments):
                 "subject": "Your Savings Optimization Results - Quantify Lite",
                 "html": html_content
             }
+            
+            # Add reply-to if configured (so replies go to the correct address)
+            if resend_reply_to:
+                params["reply_to"] = resend_reply_to
             
             email = resend.Emails.send(params)
             
