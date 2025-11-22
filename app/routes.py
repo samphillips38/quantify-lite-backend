@@ -294,13 +294,14 @@ def email_results():
     # Send the email asynchronously to prevent worker timeout
     def send_email_async(email_request_id, recipient_email, inputs, summary, investments):
         """Send email in background thread and update database record."""
-        from flask import current_app
         from app import create_app
         
         # Create a new app context for the background thread
         app = create_app()
         with app.app_context():
             try:
+                print(f"Starting async email send for request {email_request_id} to {recipient_email}")
+                
                 # Get the email request record
                 email_request = EmailRequest.query.get(email_request_id)
                 if not email_request:
@@ -315,23 +316,33 @@ def email_results():
                     email_request.email_sent = success
                     if not success:
                         email_request.email_error = error[:500] if error else "Unknown error"
+                        print(f"Email sending failed for request {email_request_id}: {error}")
+                    else:
+                        print(f"Email sent successfully for request {email_request_id}")
                     db.session.commit()
                     print(f"Email request {email_request_id} updated: sent={success}")
                 except Exception as e:
                     db.session.rollback()
                     print(f"Error updating email request status: {e}")
+                    import traceback
+                    traceback.print_exc()
             except Exception as e:
                 # Update email request record with error
+                print(f"Exception in async email sending: {e}")
+                import traceback
+                traceback.print_exc()
                 try:
                     email_request = EmailRequest.query.get(email_request_id)
                     if email_request:
                         email_request.email_sent = False
                         email_request.email_error = str(e)[:500]
                         db.session.commit()
+                        print(f"Updated email request {email_request_id} with error status")
                 except Exception as db_error:
                     db.session.rollback()
                     print(f"Error updating email request error status: {db_error}")
-                print(f"Error in async email sending: {e}")
+                    import traceback
+                    traceback.print_exc()
     
     # Start email sending in background thread
     thread = threading.Thread(

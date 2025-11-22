@@ -301,8 +301,20 @@ def format_email_html(inputs, summary, investments):
 def send_results_email(recipient_email, inputs, summary, investments):
     """Send formatted results email to the user."""
     try:
-        # Get mail instance from current app
-        from app import mail
+        # Get mail instance from current app context
+        from flask import current_app
+        
+        # Check email configuration
+        mail_server = current_app.config.get('MAIL_SERVER')
+        mail_username = current_app.config.get('MAIL_USERNAME')
+        mail_port = current_app.config.get('MAIL_PORT')
+        
+        print(f"Email config - Server: {mail_server}, Port: {mail_port}, Username: {mail_username}")
+        
+        if not mail_server or not mail_username:
+            error_msg = f"Email configuration missing: MAIL_SERVER={mail_server}, MAIL_USERNAME={mail_username}"
+            print(error_msg)
+            return False, error_msg
         
         # Generate HTML content
         html_content = format_email_html(inputs, summary, investments)
@@ -314,9 +326,23 @@ def send_results_email(recipient_email, inputs, summary, investments):
             html=html_content
         )
         
+        # Get mail instance from current app extensions
+        mail = current_app.extensions.get('mail')
+        if not mail:
+            error_msg = "Mail extension not found in app context"
+            print(error_msg)
+            return False, error_msg
+        
+        print(f"Attempting to send email to {recipient_email} via {mail_server}:{mail_port}")
+        
         # Send email
         mail.send(msg)
+        print(f"Email sent successfully to {recipient_email}")
         return True, None
     except Exception as e:
-        return False, str(e)
+        error_msg = str(e)
+        print(f"Error sending email to {recipient_email}: {error_msg}")
+        import traceback
+        traceback.print_exc()
+        return False, error_msg
 
