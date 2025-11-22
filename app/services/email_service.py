@@ -299,33 +299,56 @@ def format_email_html(inputs, summary, investments):
     return html_content
 
 def send_results_email(recipient_email, inputs, summary, investments):
-    """Send formatted results email to the user."""
+    """Send formatted results email to the user using Resend API (Railway's recommended approach)."""
     try:
-        # Get mail instance from current app context
         from flask import current_app
+        import resend
         
-        # Check email configuration
+        # Check for Resend API key (preferred method - works on all Railway plans)
+        resend_api_key = current_app.config.get('RESEND_API_KEY')
+        resend_from_email = current_app.config.get('RESEND_FROM_EMAIL')
+        
+        if resend_api_key:
+            # Use Resend API (works with Railway's network restrictions, recommended by Railway)
+            print(f"Using Resend API to send email to {recipient_email}")
+            
+            # Generate HTML content
+            html_content = format_email_html(inputs, summary, investments)
+            
+            # Configure Resend
+            resend.api_key = resend_api_key
+            
+            # Send email via Resend API
+            params = {
+                "from": resend_from_email,
+                "to": [recipient_email],
+                "subject": "Your Savings Optimization Results - Quantify Lite",
+                "html": html_content
+            }
+            
+            email = resend.Emails.send(params)
+            
+            print(f"Resend API response: {email}")
+            if email and 'id' in email:
+                print(f"Email sent successfully to {recipient_email} via Resend (ID: {email['id']})")
+                return True, None
+            else:
+                error_msg = f"Resend API returned unexpected response: {email}"
+                print(f"ERROR: {error_msg}")
+                return False, error_msg
+        
+        # Fallback to SMTP (for local development only - won't work on Railway free plans)
+        print("Resend not configured, attempting SMTP fallback...")
+        from flask_mail import Message
+        
         mail_server = current_app.config.get('MAIL_SERVER')
         mail_username = current_app.config.get('MAIL_USERNAME')
         mail_password = current_app.config.get('MAIL_PASSWORD')
-        mail_port = current_app.config.get('MAIL_PORT')
-        mail_use_tls = current_app.config.get('MAIL_USE_TLS')
-        mail_timeout = current_app.config.get('MAIL_TIMEOUT')
         
-        print(f"Email config - Server: {mail_server}, Port: {mail_port}, Username: {mail_username}, TLS: {mail_use_tls}, Timeout: {mail_timeout}")
-        print(f"Password check - Set: {bool(mail_password)}, Length: {len(mail_password) if mail_password else 0}")
-        
-        if not mail_server or not mail_username:
-            error_msg = f"Email configuration missing: MAIL_SERVER={mail_server}, MAIL_USERNAME={mail_username}"
+        if not mail_server or not mail_username or not mail_password:
+            error_msg = "Neither Resend API key nor SMTP credentials are configured"
             print(f"ERROR: {error_msg}")
             return False, error_msg
-        
-        if not mail_password:
-            error_msg = "MAIL_PASSWORD is not set or empty"
-            print(f"ERROR: {error_msg}")
-            return False, error_msg
-        
-        print("Email configuration validated successfully")
         
         # Generate HTML content
         html_content = format_email_html(inputs, summary, investments)
@@ -344,26 +367,11 @@ def send_results_email(recipient_email, inputs, summary, investments):
             print(error_msg)
             return False, error_msg
         
-        print(f"Attempting to send email to {recipient_email} via {mail_server}:{mail_port}")
-        print(f"Message created - Subject: {msg.subject}, Recipients: {msg.recipients}")
-        import sys
-        sys.stdout.flush()
-        
-        # Send email with detailed logging
-        print("Calling mail.send()...")
-        sys.stdout.flush()
-        
-        # Send email - Flask-Mail should handle timeouts via MAIL_TIMEOUT config
-        # This is where it might hang if SMTP connection fails
-        print("About to call mail.send() - this may take a moment...")
-        sys.stdout.flush()
+        print(f"Attempting to send email via SMTP to {recipient_email}")
         mail.send(msg)
-        
-        print(f"mail.send() completed successfully")
-        sys.stdout.flush()
-        print(f"Email sent successfully to {recipient_email}")
-        sys.stdout.flush()
+        print(f"Email sent successfully to {recipient_email} via SMTP")
         return True, None
+        
     except Exception as e:
         error_msg = str(e)
         print(f"Error sending email to {recipient_email}: {error_msg}")

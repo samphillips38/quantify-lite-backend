@@ -17,7 +17,11 @@ class Config:
     
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
-    # Email configuration
+    # Email configuration - Using Resend API (Railway's recommended approach, works on all plans)
+    RESEND_API_KEY = os.environ.get('RESEND_API_KEY')
+    RESEND_FROM_EMAIL = os.environ.get('RESEND_FROM_EMAIL') or os.environ.get('MAIL_USERNAME') or "samphillips38@gmail.com"
+    
+    # Legacy SMTP configuration (for local development fallback)
     MAIL_SERVER = os.environ.get('MAIL_SERVER') or 'smtp.gmail.com'
     MAIL_PORT = int(os.environ.get('MAIL_PORT') or 587)
     MAIL_USE_TLS = os.environ.get('MAIL_USE_TLS', 'true').lower() in ['true', 'on', '1']
