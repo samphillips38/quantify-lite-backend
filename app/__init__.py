@@ -14,8 +14,14 @@ def create_app(config_class=Config):
     app = Flask(__name__)
     app.config.from_object(config_class)
 
-    # Initialize CORS
-    CORS(app)
+    # Initialize CORS with explicit configuration
+    CORS(app, resources={
+        r"/*": {
+            "origins": "*",  # In production, you may want to restrict this to your frontend domain
+            "methods": ["GET", "POST", "OPTIONS"],
+            "allow_headers": ["Content-Type", "Authorization"]
+        }
+    })
 
     # Initialize database
     db.init_app(app)

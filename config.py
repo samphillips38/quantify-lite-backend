@@ -24,6 +24,7 @@ class Config:
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME') or "samphillips38@gmail.com"
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD') or "gjkw qqyj ywwc xdcx"
     MAIL_DEFAULT_SENDER = os.environ.get('MAIL_DEFAULT_SENDER') or MAIL_USERNAME
+    MAIL_TIMEOUT = int(os.environ.get('MAIL_TIMEOUT') or 30)  # Timeout in seconds for SMTP operations
     
     # Add other configuration variables here, like API keys for financial data
     # e.g. SAVINGS_API_KEY = os.environ.get('SAVINGS_API_KEY') 

@@ -6,6 +6,7 @@ from app.models import OptimizationInput, SavingsGoal
 from app.database_models import db, OptimizationRecord, Feedback, EmailRequest
 from dataclasses import asdict
 import json
+import threading
 
 bp = Blueprint('main', __name__)
 
@@ -284,39 +285,61 @@ def email_results():
         )
         db.session.add(email_request)
         db.session.commit()
+        email_request_id = email_request.id
     except Exception as e:
         db.session.rollback()
         print(f"Error saving email request to database: {e}")
-        # Continue with email sending even if database save fails
+        return jsonify({"error": "Failed to save email request"}), 500
     
-    # Send the email
-    try:
-        success, error = send_results_email(email, inputs, summary, investments)
+    # Send the email asynchronously to prevent worker timeout
+    def send_email_async(email_request_id, recipient_email, inputs, summary, investments):
+        """Send email in background thread and update database record."""
+        from flask import current_app
+        from app import create_app
         
-        # Update email request record with sending status
-        if email_request:
+        # Create a new app context for the background thread
+        app = create_app()
+        with app.app_context():
             try:
-                email_request.email_sent = success
-                if not success:
-                    email_request.email_error = error[:500] if error else "Unknown error"  # Limit error length
-                db.session.commit()
+                # Get the email request record
+                email_request = EmailRequest.query.get(email_request_id)
+                if not email_request:
+                    print(f"Email request {email_request_id} not found")
+                    return
+                
+                # Send the email
+                success, error = send_results_email(recipient_email, inputs, summary, investments)
+                
+                # Update email request record with sending status
+                try:
+                    email_request.email_sent = success
+                    if not success:
+                        email_request.email_error = error[:500] if error else "Unknown error"
+                    db.session.commit()
+                    print(f"Email request {email_request_id} updated: sent={success}")
+                except Exception as e:
+                    db.session.rollback()
+                    print(f"Error updating email request status: {e}")
             except Exception as e:
-                db.session.rollback()
-                print(f"Error updating email request status: {e}")
-        
-        if success:
-            return jsonify({"message": "Email sent successfully"}), 200
-        else:
-            return jsonify({"error": f"Failed to send email: {error}"}), 500
-    except Exception as e:
-        # Update email request record with error
-        if email_request:
-            try:
-                email_request.email_sent = False
-                email_request.email_error = str(e)[:500]  # Limit error length
-                db.session.commit()
-            except Exception as db_error:
-                db.session.rollback()
-                print(f"Error updating email request error status: {db_error}")
-        
-        return jsonify({"error": f"Error sending email: {str(e)}"}), 500 
+                # Update email request record with error
+                try:
+                    email_request = EmailRequest.query.get(email_request_id)
+                    if email_request:
+                        email_request.email_sent = False
+                        email_request.email_error = str(e)[:500]
+                        db.session.commit()
+                except Exception as db_error:
+                    db.session.rollback()
+                    print(f"Error updating email request error status: {db_error}")
+                print(f"Error in async email sending: {e}")
+    
+    # Start email sending in background thread
+    thread = threading.Thread(
+        target=send_email_async,
+        args=(email_request_id, email, inputs, summary, investments)
+    )
+    thread.daemon = True
+    thread.start()
+    
+    # Return immediately - email will be sent in background
+    return jsonify({"message": "Email request received and will be sent shortly"}), 202 
