@@ -1,23 +1,60 @@
+import os
+import sys
 from flask import Flask
 from config import Config
 from flask_cors import CORS
+from flask_migrate import Migrate
+from flask_mail import Mail
 from .database_models import db
+
+migrate = Migrate()
+mail = Mail()
 
 def create_app(config_class=Config):
     app = Flask(__name__)
     app.config.from_object(config_class)
 
-    # Initialize CORS
-    CORS(app)
+    # Initialize CORS with explicit configuration
+    CORS(app, resources={
+        r"/*": {
+            "origins": "*",  # In production, you may want to restrict this to your frontend domain
+            "methods": ["GET", "POST", "OPTIONS"],
+            "allow_headers": ["Content-Type", "Authorization"]
+        }
+    })
 
     # Initialize database
     db.init_app(app)
+    
+    # Initialize Flask-Migrate
+    migrate.init_app(app, db)
+    
+    # Initialize Flask-Mail
+    mail.init_app(app)
 
     # Import and register blueprints here
     from app.routes import bp as main_bp
     app.register_blueprint(main_bp)
 
     with app.app_context():
+        # Try to run database migration script first (for adding missing columns)
+        try:
+            import subprocess
+            result = subprocess.run(
+                [sys.executable, os.path.join(os.path.dirname(os.path.dirname(__file__)), 'migrate_database.py')],
+                capture_output=True,
+                text=True,
+                timeout=30
+            )
+            if result.returncode == 0:
+                print(result.stdout)
+            else:
+                print(f"Migration script output: {result.stdout}")
+                print(f"Migration script errors: {result.stderr}")
+        except Exception as e:
+            print(f"Could not run migration script: {e}")
+        
+        # Always run create_all as a fallback (creates tables if they don't exist)
         db.create_all()
 
     return app 

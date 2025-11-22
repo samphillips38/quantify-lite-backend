@@ -1,10 +1,13 @@
 from flask import Blueprint, request, jsonify
 from app.services.account_data_service import get_accounts
 from app.services.optimization_service import optimize_savings
+from app.services.email_service import send_results_email
 from app.models import OptimizationInput, SavingsGoal
-from app.database_models import db, OptimizationRecord, Feedback
+from app.database_models import db, OptimizationRecord, Feedback, EmailRequest
 from dataclasses import asdict
 import json
+import threading
+import os
 
 bp = Blueprint('main', __name__)
 
@@ -70,10 +73,15 @@ def optimize():
 
     # 4. Save optimization record to database
     try:
+        # Extract session_id and batch_id from request (optional, for tracking)
+        session_id = data.get('session_id')
+        batch_id = data.get('batch_id')
+        
         record = OptimizationRecord(
             total_investment=opt_input.total_investment,
             earnings=opt_input.earnings,
             isa_allowance_used=opt_input.isa_allowance_used,
+            other_savings_income=opt_input.other_savings_income,
             savings_goals_json=json.dumps([asdict(goal) for goal in opt_input.savings_goals]),
             status=result.status,
             total_gross_interest=result.summary.gross_annual_interest if result.summary else None,
@@ -84,9 +92,12 @@ def optimize():
             personal_savings_allowance=result.summary.personal_savings_allowance if result.summary else None,
             tax_rate=result.summary.tax_rate if result.summary else None,
             tax_free_allowance_remaining=result.summary.tax_free_allowance_remaining if result.summary else None,
+            equivalent_pre_tax_rate=result.summary.equivalent_pre_tax_rate if result.summary else None,
             investments_json=json.dumps([asdict(inv) for inv in result.investments]) if result.investments else None,
             user_agent=request.headers.get('User-Agent'),
-            ip_address=request.remote_addr
+            ip_address=request.remote_addr,
+            session_id=session_id,
+            batch_id=batch_id
         )
         db.session.add(record)
         db.session.commit()
@@ -138,28 +149,249 @@ def feedback():
     """
     data = request.get_json()
     if not data:
+        print("Feedback endpoint: Missing data in request body")
         return jsonify({"error": "Missing data in request body"}), 400
 
+    print(f"Feedback endpoint received data: {data}")
+
     required_fields = ['optimization_record_id', 'nps_score', 'useful']
-    if not all(field in data for field in required_fields):
-        return jsonify({"error": f"Missing required fields: {required_fields}"}), 400
+    missing_fields = [field for field in required_fields if field not in data or data[field] is None]
+    if missing_fields:
+        print(f"Feedback endpoint: Missing required fields: {missing_fields}")
+        return jsonify({"error": f"Missing required fields: {missing_fields}"}), 400
 
     try:
+        # Validate and convert optimization_record_id
+        try:
+            optimization_record_id = int(data['optimization_record_id'])
+        except (ValueError, TypeError):
+            print(f"Feedback endpoint: Invalid optimization_record_id: {data.get('optimization_record_id')}")
+            return jsonify({"error": f"Invalid optimization_record_id: {data.get('optimization_record_id')}"}), 400
+        
+        # Validate and convert nps_score
+        try:
+            nps_score = int(data['nps_score'])
+        except (ValueError, TypeError):
+            print(f"Feedback endpoint: Invalid nps_score: {data.get('nps_score')}")
+            return jsonify({"error": f"Invalid nps_score: {data.get('nps_score')}"}), 400
+        
+        # Validate useful field
+        useful_value = str(data['useful']) if data['useful'] is not None else None
+        if not useful_value:
+            print(f"Feedback endpoint: Invalid useful value: {data.get('useful')}")
+            return jsonify({"error": f"Invalid useful value: {data.get('useful')}"}), 400
+        
+        # Handle optional age field - convert to int only if provided and not empty
+        age_value = None
+        if 'age' in data and data['age'] is not None and data['age'] != '':
+            try:
+                age_value = int(data['age'])
+            except (ValueError, TypeError):
+                print(f"Feedback endpoint: Invalid age value: {data.get('age')}")
+                return jsonify({"error": f"Invalid age value: {data.get('age')}"}), 400
+        
+        # Handle improvements - convert empty string to None
+        improvements_value = data.get('improvements')
+        if improvements_value == '':
+            improvements_value = None
+        
+        # Handle optional session_id and batch_id
+        session_id = data.get('session_id')
+        batch_id = data.get('batch_id')
+        
+        # If batch_id not provided, try to get it from the optimization record
+        if not batch_id and optimization_record_id:
+            try:
+                opt_record = OptimizationRecord.query.get(optimization_record_id)
+                if opt_record and opt_record.batch_id:
+                    batch_id = opt_record.batch_id
+            except Exception as e:
+                print(f"Could not retrieve batch_id from optimization record: {e}")
+        
         feedback_entry = Feedback(
-            optimization_record_id=int(data['optimization_record_id']),
-            nps_score=int(data['nps_score']),
-            useful=str(data['useful']),
-            improvements=data.get('improvements'),
-            age=int(data['age'])
+            optimization_record_id=optimization_record_id,
+            session_id=session_id,
+            batch_id=batch_id,
+            nps_score=nps_score,
+            useful=useful_value,
+            improvements=improvements_value,
+            age=age_value
         )
         db.session.add(feedback_entry)
         db.session.commit()
+        print("Feedback endpoint: Successfully saved feedback")
     except (ValueError, TypeError, KeyError) as e:
         db.session.rollback()
-        return jsonify({"error": f"Invalid data provided: {e}"}), 400
+        print(f"Feedback endpoint: Invalid data provided - {type(e).__name__}: {e}")
+        return jsonify({"error": f"Invalid data provided: {str(e)}"}), 400
     except Exception as e:
         db.session.rollback()
         print(f"Error saving feedback to database: {e}")
         return jsonify({"error": "Failed to save feedback"}), 500
 
-    return jsonify({"message": "Feedback submitted successfully"}), 201 
+    return jsonify({"message": "Feedback submitted successfully"}), 201
+
+@bp.route('/email-results', methods=['POST'])
+def email_results():
+    """
+    Endpoint to email optimization results to the user.
+    Expects a JSON payload with 'email', 'inputs', 'summary', and 'investments'.
+    Also accepts optional 'session_id', 'optimization_record_id', and 'batch_id'.
+    """
+    data = request.get_json()
+    if not data:
+        return jsonify({"error": "Missing data in request body"}), 400
+    
+    # Validate required fields
+    email = data.get('email')
+    if not email:
+        return jsonify({"error": "Missing 'email' field"}), 400
+    
+    # Basic email validation
+    if '@' not in email or '.' not in email.split('@')[1]:
+        return jsonify({"error": "Invalid email address"}), 400
+    
+    inputs = data.get('inputs')
+    summary = data.get('summary')
+    investments = data.get('investments', [])
+    
+    if not inputs or not summary:
+        return jsonify({"error": "Missing 'inputs' or 'summary' in request body"}), 400
+    
+    # Extract optional tracking fields
+    session_id = data.get('session_id')
+    optimization_record_id = data.get('optimization_record_id')
+    batch_id = data.get('batch_id')
+    
+    # If batch_id not provided, try to get it from the optimization record
+    if not batch_id and optimization_record_id:
+        try:
+            opt_record = OptimizationRecord.query.get(int(optimization_record_id))
+            if opt_record and opt_record.batch_id:
+                batch_id = opt_record.batch_id
+        except Exception as e:
+            print(f"Could not retrieve batch_id from optimization record: {e}")
+    
+    # Create email request record in database
+    email_request = None
+    try:
+        email_request = EmailRequest(
+            email=email,
+            optimization_record_id=int(optimization_record_id) if optimization_record_id else None,
+            session_id=session_id,
+            batch_id=batch_id,
+            user_agent=request.headers.get('User-Agent'),
+            ip_address=request.remote_addr,
+            email_sent=False
+        )
+        db.session.add(email_request)
+        db.session.commit()
+        email_request_id = email_request.id
+    except Exception as e:
+        db.session.rollback()
+        print(f"Error saving email request to database: {e}")
+        return jsonify({"error": "Failed to save email request"}), 500
+    
+    # Send the email asynchronously to prevent worker timeout
+    def send_email_async(email_request_id, recipient_email, inputs, summary, investments):
+        """Send email in background thread and update database record."""
+        import sys
+        import os
+        from app import create_app
+        
+        try:
+            print(f"[EMAIL THREAD] Starting async email send for request {email_request_id} to {recipient_email}")
+            print(f"[EMAIL THREAD] Thread: {threading.current_thread().name}, PID: {os.getpid()}")
+            sys.stdout.flush()  # Force flush to ensure logs appear
+            
+            # Create a new app context for the background thread
+            print(f"[EMAIL THREAD] Creating app context...")
+            app = create_app()
+            print(f"[EMAIL THREAD] App created, entering context...")
+            with app.app_context():
+                try:
+                    print(f"[EMAIL THREAD] App context active, fetching email request {email_request_id}")
+                    sys.stdout.flush()
+                    
+                    # Get the email request record
+                    email_request = EmailRequest.query.get(email_request_id)
+                    if not email_request:
+                        print(f"[EMAIL THREAD] ERROR: Email request {email_request_id} not found")
+                        return
+                    
+                    print(f"[EMAIL THREAD] Email request found, calling send_results_email...")
+                    sys.stdout.flush()
+                    
+                    # Send the email
+                    success, error = send_results_email(recipient_email, inputs, summary, investments)
+                    
+                    print(f"[EMAIL THREAD] send_results_email returned: success={success}, error={error if error else 'None'}")
+                    sys.stdout.flush()
+                    
+                    # Update email request record with sending status
+                    try:
+                        email_request.email_sent = success
+                        if not success:
+                            email_request.email_error = error[:500] if error else "Unknown error"
+                            print(f"[EMAIL THREAD] Email sending failed for request {email_request_id}: {error}")
+                        else:
+                            print(f"[EMAIL THREAD] Email sent successfully for request {email_request_id}")
+                        db.session.commit()
+                        print(f"[EMAIL THREAD] Email request {email_request_id} updated in database: sent={success}")
+                        sys.stdout.flush()
+                    except Exception as e:
+                        db.session.rollback()
+                        print(f"[EMAIL THREAD] ERROR updating email request status: {e}")
+                        import traceback
+                        traceback.print_exc()
+                        sys.stdout.flush()
+                except Exception as e:
+                    # Update email request record with error
+                    print(f"[EMAIL THREAD] EXCEPTION in async email sending: {type(e).__name__}: {e}")
+                    import traceback
+                    traceback.print_exc()
+                    sys.stdout.flush()
+                    try:
+                        email_request = EmailRequest.query.get(email_request_id)
+                        if email_request:
+                            email_request.email_sent = False
+                            email_request.email_error = str(e)[:500]
+                            db.session.commit()
+                            print(f"[EMAIL THREAD] Updated email request {email_request_id} with error status")
+                            sys.stdout.flush()
+                    except Exception as db_error:
+                        db.session.rollback()
+                        print(f"[EMAIL THREAD] ERROR updating email request error status: {db_error}")
+                        import traceback
+                        traceback.print_exc()
+                        sys.stdout.flush()
+        except Exception as outer_error:
+            print(f"[EMAIL THREAD] FATAL ERROR in thread setup: {type(outer_error).__name__}: {outer_error}")
+            import traceback
+            traceback.print_exc()
+            sys.stdout.flush()
+            # Try to update database even if app context failed
+            try:
+                app = create_app()
+                with app.app_context():
+                    email_request = EmailRequest.query.get(email_request_id)
+                    if email_request:
+                        email_request.email_sent = False
+                        email_request.email_error = f"Thread setup failed: {str(outer_error)[:500]}"
+                        db.session.commit()
+            except:
+                pass
+    
+    # Start email sending in background thread
+    # Note: daemon=False so thread completes even if main thread exits
+    thread = threading.Thread(
+        target=send_email_async,
+        args=(email_request_id, email, inputs, summary, investments),
+        name=f"EmailSender-{email_request_id}"
+    )
+    thread.daemon = False  # Changed to False so thread completes
+    thread.start()
+    print(f"Started email thread: {thread.name} (ID: {thread.ident})")
+    
+    # Return immediately - email will be sent in background
+    return jsonify({"message": "Email request received and will be sent shortly"}), 202 

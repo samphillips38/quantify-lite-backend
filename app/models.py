@@ -48,6 +48,7 @@ class Summary:
     personal_savings_allowance: float
     tax_rate: float
     tax_free_allowance_remaining: float
+    equivalent_pre_tax_rate: float
 
 @dataclass
 class OptimizationResult:

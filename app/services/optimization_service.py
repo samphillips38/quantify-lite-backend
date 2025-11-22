@@ -2,6 +2,18 @@ from pyomo.environ import ConcreteModel, Var, Objective, Constraint, SolverFacto
 from app.models import OptimizationInput, Account, OptimizationResult, Investment, Summary
 from typing import List
 
+def _get_provider_signup_url(platform: str) -> str:
+    """
+    Returns the sign-up URL for a given platform.
+    If platform is not recognized, returns a generic search URL.
+    """
+    provider_urls = {
+        "Hargreaves Lansdown": "https://www.hl.co.uk/register",
+        "Raisin": "https://www.raisin.co.uk/register",
+        "Flagstone": "https://www.flagstoneim.com/register"
+    }
+    return provider_urls.get(platform, f"https://www.google.com/search?q={platform.replace(' ', '+')}+sign+up")
+
 def _get_tax_info(earnings: float) -> dict:
     """
     Determines Personal Savings Allowance and tax rate based on earnings.
@@ -62,17 +74,11 @@ def optimize_savings(input_data: OptimizationInput, accounts: List[Account]) -> 
     total_tax_free_allowance_remaining = max(0, total_tax_free_allowance - other_savings_income)
     isa_allowance_remaining = 20000.0 - (input_data.isa_allowance_used or 0.0)
 
-    # 2. Determine investment horizon from savings goals
-    goal_horizons_years = [g.horizon / 12.0 for g in input_data.savings_goals]
-    max_horizon_years = max(goal_horizons_years) if goal_horizons_years else 0
-    
-    # The term for filtering accounts is the max of 1 year or the longest goal horizon.
-    investment_term_years = max(1, max_horizon_years)
-
-    # 3. Filter accounts based on the investment term
+    # 2. Remove any accounts with term greater than the maximum savings goal
+    max_horizon = max(g.horizon for g in input_data.savings_goals)
     eligible_accounts = [
-        acc for acc in accounts 
-        if acc.term == 0 or (acc.term / 12) <= investment_term_years
+        acc for acc in accounts
+        if acc.term == 0 or acc.term <= max_horizon
     ]
 
     if not eligible_accounts:
@@ -161,19 +167,27 @@ def optimize_savings(input_data: OptimizationInput, accounts: List[Account]) -> 
                     aer=round(acc.interest_rate * 100, 2),
                     term=f"{acc.term} months" if acc.term > 0 else "Easy access",
                     is_isa='isa' in acc.account_type,
-                    url=acc.url or f"https://www.google.com/search?q={acc.name.replace(' ', '+')}",
+                    url=acc.url or _get_provider_signup_url(acc.platform),
                     platform=acc.platform
                 ))
                 total_gross_return += amount * acc.interest_rate
         
         # Calculate post-tax return for the final result
         non_isa_gross_return = sum(inv.amount * (inv.aer / 100) for inv in investments if not inv.is_isa)
-        taxable_return = max(0, non_isa_gross_return - total_tax_free_allowance_remaining)
+        untaxable_non_isa_return = value(model.tax_free_interest_non_isa)
+        taxable_return = max(0, non_isa_gross_return - untaxable_non_isa_return)
         tax_paid = taxable_return * tax_rate
         total_net_return = total_gross_return - tax_paid
 
         total_investment = input_data.total_investment
         net_effective_aer = (total_net_return / total_investment) * 100 if total_investment > 0 else 0
+        
+        # Calculate equivalent pre-tax rate
+        # This is the rate needed on a normal savings account to get the same after-tax return
+        if total_investment > 0 and tax_rate < 1.0:
+            equivalent_pre_tax_rate = ((total_net_return - untaxable_non_isa_return) / (1 - tax_rate) + untaxable_non_isa_return) / total_investment * 100
+        else:
+            equivalent_pre_tax_rate = net_effective_aer  # Fallback to net AER if calculation not possible
 
         summary = Summary(
             total_investment=round(total_investment, 2),
@@ -184,7 +198,8 @@ def optimize_savings(input_data: OptimizationInput, accounts: List[Account]) -> 
             tax_band=tax_info['band'],
             personal_savings_allowance=tax_info['psa'],
             tax_rate=tax_rate,
-            tax_free_allowance_remaining=round(total_tax_free_allowance_remaining, 2)
+            tax_free_allowance_remaining=round(total_tax_free_allowance_remaining, 2),
+            equivalent_pre_tax_rate=round(equivalent_pre_tax_rate, 2)
         )
 
         return OptimizationResult(

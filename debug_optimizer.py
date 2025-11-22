@@ -20,9 +20,9 @@ def run_debug_optimizer():
 
     # 2. Define optimization input
     # You can change these values to test different scenarios
-    earnings = 125000.0  # Example: Higher rate taxpayer
+    earnings = 10000.0  # Example: Higher rate taxpayer
     savings_goals = [
-        SavingsGoal(amount=20000.0, horizon=0),
+        SavingsGoal(amount=2000.0, horizon=12),
         # SavingsGoal(amount=30000.0, horizon=0),
     ]
     total_investment = sum(goal.amount for goal in savings_goals)
