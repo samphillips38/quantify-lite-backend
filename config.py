@@ -16,5 +16,14 @@ class Config:
     SQLALCHEMY_DATABASE_URI = DATABASE_URL or f"sqlite:///{os.path.join(os.path.dirname(os.path.abspath(__file__)), 'dev.sqlite')}"
     
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+    # Email configuration
+    MAIL_SERVER = os.environ.get('MAIL_SERVER') or 'smtp.gmail.com'
+    MAIL_PORT = int(os.environ.get('MAIL_PORT') or 587)
+    MAIL_USE_TLS = os.environ.get('MAIL_USE_TLS', 'true').lower() in ['true', 'on', '1']
+    MAIL_USERNAME = os.environ.get('MAIL_USERNAME') or "samphillips38@gmail.com"
+    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD') or "gjkw qqyj ywwc xdcx"
+    MAIL_DEFAULT_SENDER = os.environ.get('MAIL_DEFAULT_SENDER') or MAIL_USERNAME
+    
     # Add other configuration variables here, like API keys for financial data
     # e.g. SAVINGS_API_KEY = os.environ.get('SAVINGS_API_KEY') 

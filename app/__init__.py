@@ -4,9 +4,11 @@ from flask import Flask
 from config import Config
 from flask_cors import CORS
 from flask_migrate import Migrate
+from flask_mail import Mail
 from .database_models import db
 
 migrate = Migrate()
+mail = Mail()
 
 def create_app(config_class=Config):
     app = Flask(__name__)
@@ -20,6 +22,9 @@ def create_app(config_class=Config):
     
     # Initialize Flask-Migrate
     migrate.init_app(app, db)
+    
+    # Initialize Flask-Mail
+    mail.init_app(app)
 
     # Import and register blueprints here
     from app.routes import bp as main_bp

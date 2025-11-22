@@ -1,10 +1,10 @@
 """
 Database migration script that works for both SQLite (dev) and PostgreSQL (production).
-This script adds missing columns to the optimization_records table.
+This script adds missing columns to existing tables (optimization_records, feedback).
+Note: New tables (like email_requests) are automatically created by db.create_all() in app/__init__.py.
 Can be run manually or as part of Railway's release phase.
 """
 import os
-import sys
 from sqlalchemy import create_engine, inspect, text
 from sqlalchemy.exc import OperationalError, ProgrammingError
 
@@ -110,6 +110,7 @@ def migrate_database():
     feedback_table_name = 'feedback'
     feedback_columns_to_add = [
         ('session_id', 'VARCHAR(36)'),
+        ('batch_id', 'VARCHAR(36)'),
     ]
     
     feedback_added_columns = []

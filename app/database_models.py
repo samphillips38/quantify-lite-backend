@@ -1,6 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-import json
 
 db = SQLAlchemy()
 
@@ -43,9 +42,34 @@ class Feedback(db.Model):
     timestamp = db.Column(db.DateTime, default=datetime.utcnow)
     optimization_record_id = db.Column(db.Integer, db.ForeignKey('optimization_records.id'), nullable=False)
     session_id = db.Column(db.String(36), nullable=True)  # UUID to link feedback to user session
+    batch_id = db.Column(db.String(36), nullable=True)  # UUID to group bulk optimizations from the same run
     nps_score = db.Column(db.Integer, nullable=False)
     useful = db.Column(db.String(10), nullable=False)
     improvements = db.Column(db.Text, nullable=True)
     age = db.Column(db.Integer, nullable=True)
 
-    optimization_record = db.relationship('OptimizationRecord', backref=db.backref('feedbacks', lazy=True)) 
+    optimization_record = db.relationship('OptimizationRecord', backref=db.backref('feedbacks', lazy=True))
+
+class EmailRequest(db.Model):
+    __tablename__ = 'email_requests'
+    
+    id = db.Column(db.Integer, primary_key=True)
+    timestamp = db.Column(db.DateTime, default=datetime.utcnow)
+    
+    # Email information
+    email = db.Column(db.String(255), nullable=False)
+    
+    # Links to optimization and session
+    optimization_record_id = db.Column(db.Integer, db.ForeignKey('optimization_records.id'), nullable=True)
+    session_id = db.Column(db.String(36), nullable=True)  # UUID to track user sessions
+    batch_id = db.Column(db.String(36), nullable=True)  # UUID to group bulk optimizations from the same run
+    
+    # Metadata
+    user_agent = db.Column(db.String(500), nullable=True)
+    ip_address = db.Column(db.String(45), nullable=True)
+    
+    # Email sending status
+    email_sent = db.Column(db.Boolean, default=False)
+    email_error = db.Column(db.Text, nullable=True)
+    
+    optimization_record = db.relationship('OptimizationRecord', backref=db.backref('email_requests', lazy=True)) 

@@ -1,8 +1,9 @@
 from flask import Blueprint, request, jsonify
 from app.services.account_data_service import get_accounts
 from app.services.optimization_service import optimize_savings
+from app.services.email_service import send_results_email
 from app.models import OptimizationInput, SavingsGoal
-from app.database_models import db, OptimizationRecord, Feedback
+from app.database_models import db, OptimizationRecord, Feedback, EmailRequest
 from dataclasses import asdict
 import json
 
@@ -192,12 +193,23 @@ def feedback():
         if improvements_value == '':
             improvements_value = None
         
-        # Handle optional session_id
+        # Handle optional session_id and batch_id
         session_id = data.get('session_id')
+        batch_id = data.get('batch_id')
+        
+        # If batch_id not provided, try to get it from the optimization record
+        if not batch_id and optimization_record_id:
+            try:
+                opt_record = OptimizationRecord.query.get(optimization_record_id)
+                if opt_record and opt_record.batch_id:
+                    batch_id = opt_record.batch_id
+            except Exception as e:
+                print(f"Could not retrieve batch_id from optimization record: {e}")
         
         feedback_entry = Feedback(
             optimization_record_id=optimization_record_id,
             session_id=session_id,
+            batch_id=batch_id,
             nps_score=nps_score,
             useful=useful_value,
             improvements=improvements_value,
@@ -215,4 +227,96 @@ def feedback():
         print(f"Error saving feedback to database: {e}")
         return jsonify({"error": "Failed to save feedback"}), 500
 
-    return jsonify({"message": "Feedback submitted successfully"}), 201 
+    return jsonify({"message": "Feedback submitted successfully"}), 201
+
+@bp.route('/email-results', methods=['POST'])
+def email_results():
+    """
+    Endpoint to email optimization results to the user.
+    Expects a JSON payload with 'email', 'inputs', 'summary', and 'investments'.
+    Also accepts optional 'session_id', 'optimization_record_id', and 'batch_id'.
+    """
+    data = request.get_json()
+    if not data:
+        return jsonify({"error": "Missing data in request body"}), 400
+    
+    # Validate required fields
+    email = data.get('email')
+    if not email:
+        return jsonify({"error": "Missing 'email' field"}), 400
+    
+    # Basic email validation
+    if '@' not in email or '.' not in email.split('@')[1]:
+        return jsonify({"error": "Invalid email address"}), 400
+    
+    inputs = data.get('inputs')
+    summary = data.get('summary')
+    investments = data.get('investments', [])
+    
+    if not inputs or not summary:
+        return jsonify({"error": "Missing 'inputs' or 'summary' in request body"}), 400
+    
+    # Extract optional tracking fields
+    session_id = data.get('session_id')
+    optimization_record_id = data.get('optimization_record_id')
+    batch_id = data.get('batch_id')
+    
+    # If batch_id not provided, try to get it from the optimization record
+    if not batch_id and optimization_record_id:
+        try:
+            opt_record = OptimizationRecord.query.get(int(optimization_record_id))
+            if opt_record and opt_record.batch_id:
+                batch_id = opt_record.batch_id
+        except Exception as e:
+            print(f"Could not retrieve batch_id from optimization record: {e}")
+    
+    # Create email request record in database
+    email_request = None
+    try:
+        email_request = EmailRequest(
+            email=email,
+            optimization_record_id=int(optimization_record_id) if optimization_record_id else None,
+            session_id=session_id,
+            batch_id=batch_id,
+            user_agent=request.headers.get('User-Agent'),
+            ip_address=request.remote_addr,
+            email_sent=False
+        )
+        db.session.add(email_request)
+        db.session.commit()
+    except Exception as e:
+        db.session.rollback()
+        print(f"Error saving email request to database: {e}")
+        # Continue with email sending even if database save fails
+    
+    # Send the email
+    try:
+        success, error = send_results_email(email, inputs, summary, investments)
+        
+        # Update email request record with sending status
+        if email_request:
+            try:
+                email_request.email_sent = success
+                if not success:
+                    email_request.email_error = error[:500] if error else "Unknown error"  # Limit error length
+                db.session.commit()
+            except Exception as e:
+                db.session.rollback()
+                print(f"Error updating email request status: {e}")
+        
+        if success:
+            return jsonify({"message": "Email sent successfully"}), 200
+        else:
+            return jsonify({"error": f"Failed to send email: {error}"}), 500
+    except Exception as e:
+        # Update email request record with error
+        if email_request:
+            try:
+                email_request.email_sent = False
+                email_request.email_error = str(e)[:500]  # Limit error length
+                db.session.commit()
+            except Exception as db_error:
+                db.session.rollback()
+                print(f"Error updating email request error status: {db_error}")
+        
+        return jsonify({"error": f"Error sending email: {str(e)}"}), 500 

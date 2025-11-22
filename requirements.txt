@@ -6,6 +6,7 @@ python-dotenv
 Flask-Cors
 Flask-SQLAlchemy
 Flask-Migrate
+Flask-Mail
 psycopg2-binary
 pytest
 pytest-flask 
