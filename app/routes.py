@@ -7,6 +7,7 @@ from app.database_models import db, OptimizationRecord, Feedback, EmailRequest
 from dataclasses import asdict
 import json
 import threading
+import os
 
 bp = Blueprint('main', __name__)
 
@@ -294,63 +295,103 @@ def email_results():
     # Send the email asynchronously to prevent worker timeout
     def send_email_async(email_request_id, recipient_email, inputs, summary, investments):
         """Send email in background thread and update database record."""
+        import sys
+        import os
         from app import create_app
         
-        # Create a new app context for the background thread
-        app = create_app()
-        with app.app_context():
-            try:
-                print(f"Starting async email send for request {email_request_id} to {recipient_email}")
-                
-                # Get the email request record
-                email_request = EmailRequest.query.get(email_request_id)
-                if not email_request:
-                    print(f"Email request {email_request_id} not found")
-                    return
-                
-                # Send the email
-                success, error = send_results_email(recipient_email, inputs, summary, investments)
-                
-                # Update email request record with sending status
+        try:
+            print(f"[EMAIL THREAD] Starting async email send for request {email_request_id} to {recipient_email}")
+            print(f"[EMAIL THREAD] Thread: {threading.current_thread().name}, PID: {os.getpid()}")
+            sys.stdout.flush()  # Force flush to ensure logs appear
+            
+            # Create a new app context for the background thread
+            print(f"[EMAIL THREAD] Creating app context...")
+            app = create_app()
+            print(f"[EMAIL THREAD] App created, entering context...")
+            with app.app_context():
                 try:
-                    email_request.email_sent = success
-                    if not success:
-                        email_request.email_error = error[:500] if error else "Unknown error"
-                        print(f"Email sending failed for request {email_request_id}: {error}")
-                    else:
-                        print(f"Email sent successfully for request {email_request_id}")
-                    db.session.commit()
-                    print(f"Email request {email_request_id} updated: sent={success}")
+                    print(f"[EMAIL THREAD] App context active, fetching email request {email_request_id}")
+                    sys.stdout.flush()
+                    
+                    # Get the email request record
+                    email_request = EmailRequest.query.get(email_request_id)
+                    if not email_request:
+                        print(f"[EMAIL THREAD] ERROR: Email request {email_request_id} not found")
+                        return
+                    
+                    print(f"[EMAIL THREAD] Email request found, calling send_results_email...")
+                    sys.stdout.flush()
+                    
+                    # Send the email
+                    success, error = send_results_email(recipient_email, inputs, summary, investments)
+                    
+                    print(f"[EMAIL THREAD] send_results_email returned: success={success}, error={error if error else 'None'}")
+                    sys.stdout.flush()
+                    
+                    # Update email request record with sending status
+                    try:
+                        email_request.email_sent = success
+                        if not success:
+                            email_request.email_error = error[:500] if error else "Unknown error"
+                            print(f"[EMAIL THREAD] Email sending failed for request {email_request_id}: {error}")
+                        else:
+                            print(f"[EMAIL THREAD] Email sent successfully for request {email_request_id}")
+                        db.session.commit()
+                        print(f"[EMAIL THREAD] Email request {email_request_id} updated in database: sent={success}")
+                        sys.stdout.flush()
+                    except Exception as e:
+                        db.session.rollback()
+                        print(f"[EMAIL THREAD] ERROR updating email request status: {e}")
+                        import traceback
+                        traceback.print_exc()
+                        sys.stdout.flush()
                 except Exception as e:
-                    db.session.rollback()
-                    print(f"Error updating email request status: {e}")
+                    # Update email request record with error
+                    print(f"[EMAIL THREAD] EXCEPTION in async email sending: {type(e).__name__}: {e}")
                     import traceback
                     traceback.print_exc()
-            except Exception as e:
-                # Update email request record with error
-                print(f"Exception in async email sending: {e}")
-                import traceback
-                traceback.print_exc()
-                try:
+                    sys.stdout.flush()
+                    try:
+                        email_request = EmailRequest.query.get(email_request_id)
+                        if email_request:
+                            email_request.email_sent = False
+                            email_request.email_error = str(e)[:500]
+                            db.session.commit()
+                            print(f"[EMAIL THREAD] Updated email request {email_request_id} with error status")
+                            sys.stdout.flush()
+                    except Exception as db_error:
+                        db.session.rollback()
+                        print(f"[EMAIL THREAD] ERROR updating email request error status: {db_error}")
+                        import traceback
+                        traceback.print_exc()
+                        sys.stdout.flush()
+        except Exception as outer_error:
+            print(f"[EMAIL THREAD] FATAL ERROR in thread setup: {type(outer_error).__name__}: {outer_error}")
+            import traceback
+            traceback.print_exc()
+            sys.stdout.flush()
+            # Try to update database even if app context failed
+            try:
+                app = create_app()
+                with app.app_context():
                     email_request = EmailRequest.query.get(email_request_id)
                     if email_request:
                         email_request.email_sent = False
-                        email_request.email_error = str(e)[:500]
+                        email_request.email_error = f"Thread setup failed: {str(outer_error)[:500]}"
                         db.session.commit()
-                        print(f"Updated email request {email_request_id} with error status")
-                except Exception as db_error:
-                    db.session.rollback()
-                    print(f"Error updating email request error status: {db_error}")
-                    import traceback
-                    traceback.print_exc()
+            except:
+                pass
     
     # Start email sending in background thread
+    # Note: daemon=False so thread completes even if main thread exits
     thread = threading.Thread(
         target=send_email_async,
-        args=(email_request_id, email, inputs, summary, investments)
+        args=(email_request_id, email, inputs, summary, investments),
+        name=f"EmailSender-{email_request_id}"
     )
-    thread.daemon = True
+    thread.daemon = False  # Changed to False so thread completes
     thread.start()
+    print(f"Started email thread: {thread.name} (ID: {thread.ident})")
     
     # Return immediately - email will be sent in background
     return jsonify({"message": "Email request received and will be sent shortly"}), 202 

@@ -307,14 +307,25 @@ def send_results_email(recipient_email, inputs, summary, investments):
         # Check email configuration
         mail_server = current_app.config.get('MAIL_SERVER')
         mail_username = current_app.config.get('MAIL_USERNAME')
+        mail_password = current_app.config.get('MAIL_PASSWORD')
         mail_port = current_app.config.get('MAIL_PORT')
+        mail_use_tls = current_app.config.get('MAIL_USE_TLS')
+        mail_timeout = current_app.config.get('MAIL_TIMEOUT')
         
-        print(f"Email config - Server: {mail_server}, Port: {mail_port}, Username: {mail_username}")
+        print(f"Email config - Server: {mail_server}, Port: {mail_port}, Username: {mail_username}, TLS: {mail_use_tls}, Timeout: {mail_timeout}")
+        print(f"Password check - Set: {bool(mail_password)}, Length: {len(mail_password) if mail_password else 0}")
         
         if not mail_server or not mail_username:
             error_msg = f"Email configuration missing: MAIL_SERVER={mail_server}, MAIL_USERNAME={mail_username}"
-            print(error_msg)
+            print(f"ERROR: {error_msg}")
             return False, error_msg
+        
+        if not mail_password:
+            error_msg = "MAIL_PASSWORD is not set or empty"
+            print(f"ERROR: {error_msg}")
+            return False, error_msg
+        
+        print("Email configuration validated successfully")
         
         # Generate HTML content
         html_content = format_email_html(inputs, summary, investments)
@@ -334,10 +345,24 @@ def send_results_email(recipient_email, inputs, summary, investments):
             return False, error_msg
         
         print(f"Attempting to send email to {recipient_email} via {mail_server}:{mail_port}")
+        print(f"Message created - Subject: {msg.subject}, Recipients: {msg.recipients}")
+        import sys
+        sys.stdout.flush()
         
-        # Send email
+        # Send email with detailed logging
+        print("Calling mail.send()...")
+        sys.stdout.flush()
+        
+        # Send email - Flask-Mail should handle timeouts via MAIL_TIMEOUT config
+        # This is where it might hang if SMTP connection fails
+        print("About to call mail.send() - this may take a moment...")
+        sys.stdout.flush()
         mail.send(msg)
+        
+        print(f"mail.send() completed successfully")
+        sys.stdout.flush()
         print(f"Email sent successfully to {recipient_email}")
+        sys.stdout.flush()
         return True, None
     except Exception as e:
         error_msg = str(e)
