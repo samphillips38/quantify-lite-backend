@@ -3,14 +3,37 @@ from typing import List, Optional
 
 @dataclass
 class Account:
+    """
+    Base class for all savings accounts from different providers.
+    This class defines the common structure that all account types share.
+    Subclasses should implement the from_api_data() class method to parse
+    provider-specific data formats.
+    """
     name: str
     interest_rate: float
-    account_type: str # e.g., 'fixed_term', 'easy_access', 'fixed_term_isa', 'easy_access_isa'
+    account_type: str  # e.g., 'fixed_term', 'easy_access', 'notice', 'fixed_term_isa', 'easy_access_isa'
     platform: str
     min_investment: float = 0
     max_investment: float = float('inf')
-    term: int = 0 # Term in months, 0 for easy access
+    term: int = 0  # Term in months for fixed_term accounts, notice period in months for notice accounts, 0 for easy access
     url: Optional[str] = None
+
+    @classmethod
+    def from_api_data(cls, data: dict) -> Optional['Account']:
+        """
+        Factory method to create an Account instance from provider-specific API data.
+        Subclasses must override this method to parse their specific data format.
+        
+        Args:
+            data: Raw API response data in provider-specific format
+            
+        Returns:
+            Account instance if data is valid, None if account should be skipped
+            
+        Raises:
+            NotImplementedError: If called on base Account class
+        """
+        raise NotImplementedError("Subclasses must implement from_api_data()")
 
 @dataclass
 class SavingsGoal:
@@ -55,4 +78,4 @@ class OptimizationResult:
     investments: List[Investment]
     summary: Summary
     status: str 
-    optimization_record_id: Optional[int] = None 
+    optimization_record_id: Optional[int] = None
