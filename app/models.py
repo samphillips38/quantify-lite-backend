@@ -59,6 +59,7 @@ class Investment:
     is_isa: bool
     url: str
     platform: str
+    account_type: str  # e.g., 'fixed_term', 'easy_access', 'notice'
 
 @dataclass
 class Summary:
