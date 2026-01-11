@@ -289,7 +289,7 @@ def format_email_html(inputs, summary, investments):
             </div>
             
             <div class="footer">
-                <p>Thank you for using Quantify Lite!</p>
+                <p>Thank you for using Quantify!</p>
                 <p style="font-size: 12px; color: #999;">This email was generated automatically. Please review all investment options carefully before making any decisions.</p>
             </div>
         </div>
@@ -325,7 +325,7 @@ def send_results_email(recipient_email, inputs, summary, investments):
             params = {
                 "from": resend_from_email,
                 "to": [recipient_email],
-                "subject": "Your Savings Optimization Results - Quantify Lite",
+                "subject": "Your Savings Optimization Results - Quantify",
                 "html": html_content
             }
             
@@ -362,7 +362,7 @@ def send_results_email(recipient_email, inputs, summary, investments):
         
         # Create message
         msg = Message(
-            subject='Your Savings Optimization Results - Quantify Lite',
+            subject='Your Savings Optimization Results - Quantify',
             recipients=[recipient_email],
             html=html_content
         )

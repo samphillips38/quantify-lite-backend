@@ -57,7 +57,7 @@ sudo apt-get install glpk-utils
 
 ### 3. Set Up the Virtual Environment and Install Dependencies
 
-From the project root (`Quantify Lite`), run the following commands:
+From the project root (`Quantify`), run the following commands:
 
 ```bash
 # Create and activate a virtual environment

@@ -115,13 +115,32 @@ def optimize_savings(input_data: OptimizationInput, accounts: List[Account]) -> 
 
     # 2. Horizon-based investment constraints.
     # These constraints ensure that funds are available at the required time for each goal.
+    # For fixed_term accounts: term must exactly match the goal horizon
+    # For notice accounts: notice period (term) must be <= goal horizon (can give notice early)
+    # For easy_access accounts (term=0): can be used for any horizon
     model.horizon_constraints = ConstraintList()
     unique_horizons = sorted(list(set(g.horizon for g in input_data.savings_goals)))
 
     for horizon_months in unique_horizons:
         cumulative_goal_amount = sum(g.amount for g in input_data.savings_goals if g.horizon == horizon_months)
         
-        relevant_accounts = [acc.name for acc in eligible_accounts if acc.term == horizon_months]
+        # For each horizon, find accounts that can provide funds at that time:
+        # - Easy access (term=0): always available
+        # - Fixed term: term must exactly match horizon
+        # - Notice: notice period (term) must be <= horizon (can give notice early)
+        relevant_accounts = []
+        for acc in eligible_accounts:
+            if acc.term == 0:  # Easy access
+                relevant_accounts.append(acc.name)
+            elif acc.account_type == "notice":  # Notice accounts: can give notice early
+                if acc.term <= horizon_months:
+                    relevant_accounts.append(acc.name)
+            elif acc.account_type == "fixed_term":  # Fixed term: must match exactly
+                if acc.term == horizon_months:
+                    relevant_accounts.append(acc.name)
+            # For other account types, use exact match (backward compatibility)
+            elif acc.term == horizon_months:
+                relevant_accounts.append(acc.name)
 
         expr = sum(model.investments[acc_name] for acc_name in relevant_accounts) == cumulative_goal_amount
         model.horizon_constraints.add(expr)
@@ -161,11 +180,19 @@ def optimize_savings(input_data: OptimizationInput, accounts: List[Account]) -> 
         for acc in eligible_accounts:
             amount = value(model.investments[acc.name])
             if amount > 1e-6:
+                # Format term display based on account type
+                if acc.term == 0:
+                    term_display = "Easy access"
+                elif acc.account_type == "notice":
+                    term_display = f"Notice: {acc.term} months"
+                else:
+                    term_display = f"{acc.term} months"
+                
                 investments.append(Investment(
                     account_name=acc.name,
                     amount=round(amount, 2),
                     aer=round(acc.interest_rate * 100, 2),
-                    term=f"{acc.term} months" if acc.term > 0 else "Easy access",
+                    term=term_display,
                     is_isa='isa' in acc.account_type,
                     url=acc.url or _get_provider_signup_url(acc.platform),
                     platform=acc.platform
