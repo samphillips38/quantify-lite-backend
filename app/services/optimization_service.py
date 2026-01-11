@@ -2,6 +2,9 @@ from pyomo.environ import ConcreteModel, Var, Objective, Constraint, SolverFacto
 from app.models import OptimizationInput, Account, OptimizationResult, Investment, Summary
 from typing import List
 
+# Raisin referral link
+RAISIN_REFERRAL_LINK = "https://www.raisin.com/en-gb/referral/?raf=a0495aca4e4081660f489a2c0d43c67087de8602&utm_source=transactional&utm_campaign=mandrill_customer-referral"
+
 def _get_provider_signup_url(platform: str) -> str:
     """
     Returns the sign-up URL for a given platform.
@@ -188,14 +191,20 @@ def optimize_savings(input_data: OptimizationInput, accounts: List[Account]) -> 
                 else:
                     term_display = f"{acc.term} months"
                 
+                investment_amount = round(amount, 2)
+                base_url = acc.url or _get_provider_signup_url(acc.platform)
+                # Apply referral link to all Raisin accounts
+                final_url = RAISIN_REFERRAL_LINK if acc.platform == "Raisin" else base_url
+                
                 investments.append(Investment(
                     account_name=acc.name,
-                    amount=round(amount, 2),
+                    amount=investment_amount,
                     aer=round(acc.interest_rate * 100, 2),
                     term=term_display,
                     is_isa='isa' in acc.account_type,
-                    url=acc.url or _get_provider_signup_url(acc.platform),
-                    platform=acc.platform
+                    url=final_url,
+                    platform=acc.platform,
+                    account_type=acc.account_type
                 ))
                 total_gross_return += amount * acc.interest_rate
         
