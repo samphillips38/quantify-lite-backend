@@ -77,7 +77,14 @@ def optimize_savings(input_data: OptimizationInput, accounts: List[Account]) -> 
     total_tax_free_allowance_remaining = max(0, total_tax_free_allowance - other_savings_income)
     isa_allowance_remaining = 20000.0 - (input_data.isa_allowance_used or 0.0)
 
-    # 2. Remove any accounts with term greater than the maximum savings goal
+    # 2. Remove any accounts from excluded providers
+    excluded_providers = input_data.excluded_providers or []
+    if excluded_providers:
+        excluded_lower = {p.lower() for p in excluded_providers}
+        accounts = [acc for acc in accounts if acc.platform.lower() not in excluded_lower]
+        print(f"After excluding providers {excluded_providers}: {len(accounts)} accounts remaining.")
+
+    # 3. Remove any accounts with term greater than the maximum savings goal
     max_horizon = max(g.horizon for g in input_data.savings_goals)
     eligible_accounts = [
         acc for acc in accounts
