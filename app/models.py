@@ -47,6 +47,7 @@ class OptimizationInput:
     earnings: Optional[float] = None
     isa_allowance_used: Optional[float] = 0.0
     other_savings_income: Optional[float] = 0.0
+    excluded_providers: Optional[List[str]] = None
     # Other constraints can be added here
     # e.g., max_isa_investment: float = 20000
 

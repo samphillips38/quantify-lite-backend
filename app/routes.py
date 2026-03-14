@@ -51,6 +51,14 @@ def optimize():
         else:
             other_savings_income = 0.0
 
+        excluded_providers = data.get('excluded_providers')
+        if excluded_providers is not None:
+            if not isinstance(excluded_providers, list):
+                return jsonify({"error": "'excluded_providers' must be a list of strings"}), 400
+            excluded_providers = [str(p) for p in excluded_providers]
+        else:
+            excluded_providers = []
+
     except (ValueError, TypeError, KeyError):
         return jsonify({"error": "Invalid data in 'savings_goals' or 'earnings' or 'isa_allowance_used' or 'other_savings_income'"}), 400
 
@@ -65,7 +73,8 @@ def optimize():
         savings_goals=savings_goals,
         earnings=earnings,
         isa_allowance_used=isa_allowance_used,
-        other_savings_income=other_savings_income
+        other_savings_income=other_savings_income,
+        excluded_providers=excluded_providers
     )
 
     # 3. Run optimization
